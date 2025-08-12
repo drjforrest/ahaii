@@ -1,9 +1,9 @@
 {
   "/_not-found/page": "/_not-found",
-  "/analytics/page": "/analytics",
   "/country-profiles/page": "/country-profiles",
-  "/page": "/",
   "/methods/page": "/methods",
+  "/page": "/",
+  "/analytics/page": "/analytics",
   "/dashboard/page": "/dashboard",
   "/about/page": "/about"
 }

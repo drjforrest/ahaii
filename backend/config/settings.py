@@ -130,9 +130,9 @@ class Settings(BaseSettings):
     # CORS Settings
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",
-        "http://localhost:3001",
-        "https://taifa-fiala.vercel.app",
-        "https://taifa-fiala.net",
+        "http://localhost:3030",  # Production frontend port
+        "https://taifa-fiala.net",  # Production frontend domain
+        "https://api.taifa-fiala.net",  # Production API domain
     ]
 
     # African Countries for ETL filtering
@@ -275,11 +275,11 @@ class DevelopmentSettings(Settings):
     # More permissive CORS for development
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",
-        "http://localhost:3001",
+        "http://localhost:3030",
         "http://127.0.0.1:3000",
-        "http://127.0.0.1:3001",
-        "https://taifa-fiala.vercel.app",
+        "http://127.0.0.1:3030",
         "https://taifa-fiala.net",
+        "https://api.taifa-fiala.net",
     ]
 
     # Redis Configuration for development (use in-memory fallback if not available)

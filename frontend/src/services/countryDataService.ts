@@ -15,7 +15,8 @@ interface ETLCountryData {
 }
 
 class CountryDataService {
-  private baseApiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8030';
+  private baseApiUrl = process.env.NEXT_PUBLIC_API_URL || 
+    (process.env.NODE_ENV === 'production' ? 'https://api.taifa-fiala.net' : 'http://localhost:8030');
 
   /**
    * Fetch all African countries with their current AHAII scores

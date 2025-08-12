@@ -15,7 +15,7 @@ from pathlib import Path
 from api.countries import router as countries_router
 
 # Import configuration
-from config.settings import AHAII_KEYWORDS
+from config.settings import settings
 from config.database import supabase
 
 # Initialize FastAPI app
@@ -31,9 +31,11 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # Next.js frontend
+        "http://localhost:3000",  # Next.js frontend (dev)
+        "http://localhost:3030",  # Next.js frontend (production port)
         "http://127.0.0.1:3000",
-        "https://ahaii.vercel.app",  # Production frontend (adjust as needed)
+        "https://taifa-fiala.net",  # Production frontend domain
+        "https://ahaii.vercel.app",  # Fallback domain
         "https://*.vercel.app",
     ],
     allow_credentials=True,
@@ -54,7 +56,7 @@ async def health_check():
         try:
             # Simple Supabase connection test
             test_response = supabase.table("countries").select("id").limit(1).execute()
-            if test_response.error:
+            if hasattr(test_response, 'error') and test_response.error:
                 db_status = f"error: {test_response.error}"
         except Exception as e:
             db_status = f"connection_failed: {str(e)}"
@@ -125,7 +127,7 @@ async def config_info():
     """Configuration information endpoint (non-sensitive data only)"""
     return {
         "ahaii_pillars": ["human_capital", "physical_infrastructure", "regulatory", "economic"],
-        "keyword_categories": list(AHAII_KEYWORDS.keys()) if AHAII_KEYWORDS else [],
+        "ai_keywords_count": len(settings.AFRICAN_AI_KEYWORDS),
         "database_tables": [
             "countries", 
             "ahaii_scores", 
