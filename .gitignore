@@ -16,6 +16,8 @@ build/
 logs/
 tests/
 TAIFA-FIALA/aa
+docs/
+images/
 
 # TypeScript
 *.tsbuildinfo
