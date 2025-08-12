@@ -1,0 +1,1254 @@
+@import "tailwindcss";
+
+/* ===============================================
+   AHAII TAILWIND V4 THEME CONFIGURATION
+   African Health AI Infrastructure Index
+   =============================================== */
+
+@theme {
+  /* ===========================================
+     FONTS & TYPOGRAPHY
+     =========================================== */
+  /* Font families for different text styles */
+  --font-sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Sans-serif font stack */
+  --font-mono: 'Geist Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace; /* Monospace font stack */
+  --font-display: 'Geist', 'Inter', system-ui, sans-serif; /* Display font stack */
+  
+  /* Typography Scale */
+  /* Font sizes and line heights for various text elements */
+  --text-xs: 0.75rem; /* Extra small text size */
+  --text-xs--line-height: 1rem; /* Line height for extra small text */
+  --text-sm: 0.875rem; /* Small text size */
+  --text-sm--line-height: 1.25rem; /* Line height for small text */
+  --text-base: 1rem; /* Base text size */
+  --text-base--line-height: 1.5rem; /* Line height for base text */
+  --text-lg: 1.125rem; /* Large text size */
+  --text-lg--line-height: 1.75rem; /* Line height for large text */
+  --text-xl: 1.25rem; /* Extra large text size */
+  --text-xl--line-height: 1.75rem; /* Line height for extra large text */
+  --text-2xl: 1.5rem; /* 2x extra large text size */
+  --text-2xl--line-height: 2rem; /* Line height for 2x extra large text */
+  --text-3xl: 1.875rem; /* 3x extra large text size */
+  --text-3xl--line-height: 2.25rem; /* Line height for 3x extra large text */
+  --text-4xl: 2.25rem; /* 4x extra large text size */
+  --text-4xl--line-height: 2.5rem; /* Line height for 4x extra large text */
+  --text-5xl: 3rem; /* 5x extra large text size */
+  --text-5xl--line-height: 1; /* Line height for 5x extra large text */
+  --text-6xl: 3.75rem; /* 6x extra large text size */
+  --text-6xl--line-height: 1; /* Line height for 6x extra large text */
+  --text-7xl: 4.5rem; /* 7x extra large text size */
+  --text-7xl--line-height: 1; /* Line height for 7x extra large text */
+  --text-8xl: 6rem; /* 8x extra large text size */
+  --text-8xl--line-height: 1; /* Line height for 8x extra large text */
+  --text-9xl: 8rem; /* 9x extra large text size */
+  --text-9xl--line-height: 1; /* Line height for 9x extra large text */
+  
+  /* Font Weights */
+  /* Numeric values representing different font weights */
+  --font-weight-thin: 100; /* Thin font weight */
+  --font-weight-extralight: 200; /* Extra light font weight */
+  --font-weight-light: 300; /* Light font weight */
+  --font-weight-normal: 400; /* Normal font weight */
+  --font-weight-medium: 500; /* Medium font weight */
+  --font-weight-semibold: 600; /* Semi-bold font weight */
+  --font-weight-bold: 700; /* Bold font weight */
+  --font-weight-extrabold: 800; /* Extra bold font weight */
+  --font-weight-black: 900; /* Black font weight */
+  
+  /* ===========================================
+     GRADIENT BACKGROUNDS
+     Sophisticated palette from design swatch
+     =========================================== */
+  /* Background gradient and solid colors for sections */
+  --color-background: linear-gradient(to bottom, #2c3e50 0%, #34495e 33%, #5d6d7e 66%, #85929e 100%); /* Main background gradient */
+  --color-background-section-1: #2c3e50; /* Background color for section 1 - Deep blue-gray */
+  --color-background-section-2: #34495e; /* Background color for section 2 - Medium blue-gray */
+  --color-background-section-3: #5d6d7e; /* Background color for section 3 - Light blue-gray */
+  --color-background-section-4: #85929e; /* Background color for section 4 - Lightest blue-gray */
+  
+  /* ===========================================
+     BASE COLORS SYSTEM
+     =========================================== */
+  /* Basic color definitions */
+  --color-white: #ffffff; /* White color */
+  --color-black: #000000; /* Black color */
+  --color-transparent: transparent; /* Transparent color */
+  
+  /* Adaptive Text Colors for Gradient Background */
+  /* Text colors that adapt to the gradient background - improved contrast */
+  --color-foreground: #f8fafc; /* Default foreground color */
+  --color-text-paragraph-section-1: #f1f5f9; /* Text color for section 1 - slightly brighter */
+  --color-text-paragraph-section-2: #f1f5f9; /* Text color for section 2 - maintain readability */
+  --color-text-paragraph-section-3: #f8fafc; /* Text color for section 3 - brighter for contrast */
+  --color-text-paragraph-section-4: #f8fafc; /* Text color for section 4 - much brighter for readability */
+  
+  /* Card System */
+  /* Colors used for card components */
+  --color-card: #ffffff; /* Card background color */
+  --color-card-foreground: #0f172a; /* Card text color */
+  --color-card-off-white: #fafafa; /* Off-white card background color */
+  
+  /* UI Element Colors */
+  /* Colors for various UI elements */
+  --color-muted: #64748b; /* Muted color for UI elements */
+  --color-muted-foreground: #475569; /* Foreground color for muted elements */
+  --color-border: #e2e8f0; /* Border color */
+  --color-input: #f1f5f9; /* Input field background color */
+  --color-ring: #3b82f6; /* Ring color for focus states */
+  
+  /* ===========================================
+     FOUR PILLAR DOMAIN COLORS
+     Sophisticated palette from design swatch
+     =========================================== */
+  
+  /* Physical Infrastructure - Sophisticated Teal */
+  --color-physical: #4a9b8e; /* Color for physical infrastructure */
+  --color-physical-50: #f0fdf9; /* Light variant of physical color */
+  --color-physical-100: #ccfbf1; /* Lighter variant of physical color */
+  --color-physical-200: #99f6e4; /* Light variant of physical color */
+  --color-physical-300: #5eead4; /* Medium variant of physical color */
+  --color-physical-400: #2dd4bf; /* Darker variant of physical color */
+  --color-physical-500: #4a9b8e; /* Base physical color */
+  --color-physical-600: #0d9488; /* Darker variant of physical color */
+  --color-physical-700: #0f766e; /* Darker variant of physical color */
+  --color-physical-800: #115e59; /* Darker variant of physical color */
+  --color-physical-900: #134e4a; /* Darker variant of physical color */
+  --color-physical-950: #042f2e; /* Darkest variant of physical color */
+  
+  /* Human Capital - Sophisticated Navy */
+  --color-human-capital: #334155; /* Color for human capital - sophisticated slate */
+  --color-human-capital-50: #f8fafc; /* Light variant of human capital color */
+  --color-human-capital-100: #f1f5f9; /* Lighter variant of human capital color */
+  --color-human-capital-200: #e2e8f0; /* Light variant of human capital color */
+  --color-human-capital-300: #cbd5e1; /* Medium variant of human capital color */
+  --color-human-capital-400: #94a3b8; /* Darker variant of human capital color */
+  --color-human-capital-500: #334155; /* Base human capital color */
+  --color-human-capital-600: #475569; /* Darker variant of human capital color */
+  --color-human-capital-700: #334155; /* Darker variant of human capital color */
+  --color-human-capital-800: #1e293b; /* Darker variant of human capital color */
+  --color-human-capital-900: #0f172a; /* Darker variant of human capital color */
+  --color-human-capital-950: #020617; /* Darkest variant of human capital color */
+  
+  /* Legal & Regulatory - Warm Gray */
+  --color-regulatory: #6b7280; /* Color for legal and regulatory */
+  --color-regulatory-50: #f9fafb; /* Light variant of regulatory color */
+  --color-regulatory-100: #f3f4f6; /* Lighter variant of regulatory color */
+  --color-regulatory-200: #e5e7eb; /* Light variant of regulatory color */
+  --color-regulatory-300: #d1d5db; /* Medium variant of regulatory color */
+  --color-regulatory-400: #9ca3af; /* Darker variant of regulatory color */
+  --color-regulatory-500: #6b7280; /* Base regulatory color */
+  --color-regulatory-600: #4b5563; /* Darker variant of regulatory color */
+  --color-regulatory-700: #374151; /* Darker variant of regulatory color */
+  --color-regulatory-800: #1f2937; /* Darker variant of regulatory color */
+  --color-regulatory-900: #111827; /* Darker variant of regulatory color */
+  --color-regulatory-950: #030712; /* Darkest variant of regulatory color */
+  
+  /* Economic Potential - Warm Cream */
+  --color-economic: #92400e; /* Color for economic potential */
+  --color-economic-50: #fefdf8; /* Light variant of economic color */
+  --color-economic-100: #fef3c7; /* Lighter variant of economic color */
+  --color-economic-200: #fde68a; /* Light variant of economic color */
+  --color-economic-300: #fcd34d; /* Medium variant of economic color */
+  --color-economic-400: #fbbf24; /* Darker variant of economic color */
+  --color-economic-500: #92400e; /* Base economic color */
+  --color-economic-600: #d97706; /* Darker variant of economic color */
+  --color-economic-700: #b45309; /* Darker variant of economic color */
+  --color-economic-800: #92400e; /* Darker variant of economic color */
+  --color-economic-900: #78350f; /* Darker variant of economic color */
+  --color-economic-950: #451a03; /* Darkest variant of economic color */
+  
+  /* ===========================================
+     CHART & VISUALIZATION COLORS
+     Complementary but different from main colors
+     =========================================== */
+  /* Colors used for charts and visualizations */
+  --color-chart-1: #6366f1; /* First chart color */
+  --color-chart-2: #06b6d4; /* Second chart color */
+  --color-chart-3: #84cc16; /* Third chart color */
+  --color-chart-4: #f59e0b; /* Fourth chart color */
+  --color-chart-5: #ef4444; /* Fifth chart color */
+  --color-chart-6: #8b5cf6; /* Sixth chart color */
+  --color-chart-7: #ec4899; /* Seventh chart color */
+  --color-chart-8: #14b8a6; /* Eighth chart color */
+  
+  /* ===========================================
+     KPI TRAFFIC LIGHT SYSTEM
+     Sophisticated, muted performance indicators
+     =========================================== */
+  /* Colors representing performance indicators */
+  --color-kpi-excellent: #15803d; /* Excellent performance color - deeper green */
+  --color-kpi-good: #65a30d; /* Good performance color - muted lime */
+  --color-kpi-fair: #ca8a04; /* Fair performance color - warm amber */
+  --color-kpi-warning: #ea580c; /* Warning performance color - refined orange */
+  --color-kpi-poor: #b91c1c; /* Poor performance color - sophisticated red */
+  --color-kpi-critical: #991b1b; /* Critical performance color - deep red */
+  
+  /* ===========================================
+     SEMANTIC COLORS
+     Sophisticated primary based on swatch
+     =========================================== */
+  /* Semantic colors for various states */
+  --color-primary: #4a9b8e; /* Primary color - sophisticated teal */
+  --color-primary-50: #f0fdf9; /* Light variant of primary color */
+  --color-primary-100: #ccfbf1; /* Lighter variant of primary color */
+  --color-primary-200: #99f6e4; /* Light variant of primary color */
+  --color-primary-300: #5eead4; /* Medium variant of primary color */
+  --color-primary-400: #2dd4bf; /* Darker variant of primary color */
+  --color-primary-500: #4a9b8e; /* Base primary color */
+  --color-primary-600: #0d9488; /* Darker variant of primary color */
+  --color-primary-700: #0f766e; /* Darker variant of primary color */
+  --color-primary-800: #115e59; /* Darker variant of primary color */
+  --color-primary-900: #134e4a; /* Darker variant of primary color */
+  --color-primary-950: #042f2e; /* Darkest variant of primary color */
+  --color-primary-foreground: #ffffff; /* Foreground color for primary elements */
+  
+  --color-secondary: #6b7280; /* Secondary color */
+  --color-secondary-50: #f9fafb; /* Light variant of secondary color */
+  --color-secondary-100: #f3f4f6; /* Lighter variant of secondary color */
+  --color-secondary-200: #e5e7eb; /* Light variant of secondary color */
+  --color-secondary-300: #d1d5db; /* Medium variant of secondary color */
+  --color-secondary-400: #9ca3af; /* Darker variant of secondary color */
+  --color-secondary-500: #6b7280; /* Base secondary color */
+  --color-secondary-600: #4b5563; /* Darker variant of secondary color */
+  --color-secondary-700: #374151; /* Darker variant of secondary color */
+  --color-secondary-800: #1f2937; /* Darker variant of secondary color */
+  --color-secondary-900: #111827; /* Darker variant of secondary color */
+  --color-secondary-950: #030712; /* Darkest variant of secondary color */
+  --color-secondary-foreground: #ffffff; /* Foreground color for secondary elements */
+  
+  --color-success: #10b981; /* Success color */
+  --color-success-foreground: #ffffff; /* Foreground color for success elements */
+  --color-warning: #f59e0b; /* Warning color */
+  --color-warning-foreground: #ffffff; /* Foreground color for warning elements */
+  --color-error: #ef4444; /* Error color */
+  --color-error-foreground: #ffffff; /* Foreground color for error elements */
+  --color-info: #3b82f6; /* Info color */
+  --color-info-foreground: #ffffff; /* Foreground color for info elements */
+  
+  /* ===========================================
+     SPACING & LAYOUT
+     =========================================== */
+  /* Spacing values for layout */
+  --spacing-px: 1px; /* Pixel spacing */
+  --spacing-0: 0px; /* No spacing */
+  --spacing-0-5: 0.125rem; /* Small spacing */
+  --spacing-1: 0.25rem; /* Small spacing */
+  --spacing-1-5: 0.375rem; /* Small spacing */
+  --spacing-2: 0.5rem; /* Small spacing */
+  --spacing-2-5: 0.625rem; /* Small spacing */
+  --spacing-3: 0.75rem; /* Small spacing */
+  --spacing-3-5: 0.875rem; /* Small spacing */
+  --spacing-4: 1rem; /* Base spacing */
+  --spacing-5: 1.25rem; /* Base spacing */
+  --spacing-6: 1.5rem; /* Base spacing */
+  --spacing-7: 1.75rem; /* Base spacing */
+  --spacing-8: 2rem; /* Base spacing */
+  --spacing-9: 2.25rem; /* Base spacing */
+  --spacing-10: 2.5rem; /* Base spacing */
+  --spacing-11: 2.75rem; /* Base spacing */
+  --spacing-12: 3rem; /* Base spacing */
+  --spacing-14: 3.5rem; /* Base spacing */
+  --spacing-16: 4rem; /* Base spacing */
+  --spacing-20: 5rem; /* Base spacing */
+  --spacing-24: 6rem; /* Base spacing */
+  --spacing-28: 7rem; /* Base spacing */
+  --spacing-32: 8rem; /* Base spacing */
+  --spacing-36: 9rem; /* Base spacing */
+  --spacing-40: 10rem; /* Base spacing */
+  --spacing-44: 11rem; /* Base spacing */
+  --spacing-48: 12rem; /* Base spacing */
+  --spacing-52: 13rem; /* Base spacing */
+  --spacing-56: 14rem; /* Base spacing */
+  --spacing-60: 15rem; /* Base spacing */
+  --spacing-64: 16rem; /* Base spacing */
+  --spacing-72: 18rem; /* Base spacing */
+  --spacing-80: 20rem; /* Base spacing */
+  --spacing-96: 24rem; /* Base spacing */
+  
+  /* ===========================================
+     BORDER RADIUS
+     =========================================== */
+  /* Border radius values for rounded corners */
+  --radius-none: 0px; /* No border radius */
+  --radius-sm: 0.125rem; /* Small border radius */
+  --radius-md: 0.375rem; /* Medium border radius */
+  --radius-lg: 0.5rem; /* Large border radius */
+  --radius-xl: 0.75rem; /* Extra large border radius */
+  --radius-2xl: 1rem; /* 2x extra large border radius */
+  --radius-3xl: 1.5rem; /* 3x extra large border radius */
+  --radius-full: 9999px; /* Fully rounded border radius */
+  
+  /* ===========================================
+     SHADOWS
+     =========================================== */
+  /* Shadow values for depth effects */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* Extra small shadow */
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* Small shadow */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Medium shadow */
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Large shadow */
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Extra large shadow */
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* 2x extra large shadow */
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05); /* Inner shadow */
+  
+  /* ===========================================
+     ANIMATIONS & TRANSITIONS
+     =========================================== */
+  /* Animation and transition definitions */
+  --animate-spin: spin 1s linear infinite; /* Spin animation */
+  --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; /* Ping animation */
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Pulse animation */
+  --animate-bounce: bounce 1s infinite; /* Bounce animation */
+  --animate-fade-in: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+  --animate-slide-up: slideUp 0.5s ease-out; /* Slide-up animation */
+  --animate-slide-down: slideDown 0.5s ease-out; /* Slide-down animation */
+  --animate-slide-left: slideLeft 0.5s ease-out; /* Slide-left animation */
+  --animate-slide-right: slideRight 0.5s ease-out; /* Slide-right animation */
+  --animate-scale-up: scaleUp 0.3s ease-out; /* Scale-up animation */
+  --animate-scale-down: scaleDown 0.3s ease-out; /* Scale-down animation */
+  
+  /* Easing Functions */
+  /* Easing functions for animations */
+  --ease-linear: linear; /* Linear easing */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1); /* Ease-in easing */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1); /* Ease-out easing */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* Ease-in-out easing */
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth easing */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bounce easing */
+  
+  /* Duration */
+  /* Duration values for animations */
+  --duration-75: 75ms; /* Duration of 75 milliseconds */
+  --duration-100: 100ms; /* Duration of 100 milliseconds */
+  --duration-150: 150ms; /* Duration of 150 milliseconds */
+  --duration-200: 200ms; /* Duration of 200 milliseconds */
+  --duration-300: 300ms; /* Duration of 300 milliseconds */
+  --duration-500: 500ms; /* Duration of 500 milliseconds */
+  --duration-700: 700ms; /* Duration of 700 milliseconds */
+  --duration-1000: 1000ms; /* Duration of 1000 milliseconds */
+  
+  /* ===========================================
+     BREAKPOINTS
+     =========================================== */
+  /* Breakpoints for responsive design */
+  --breakpoint-sm: 640px; /* Small breakpoint */
+  --breakpoint-md: 768px; /* Medium breakpoint */
+  --breakpoint-lg: 1024px; /* Large breakpoint */
+  --breakpoint-xl: 1280px; /* Extra large breakpoint */
+  --breakpoint-2xl: 1536px; /* 2x extra large breakpoint */
+  --breakpoint-3xl: 1920px; /* 3x extra large breakpoint */
+}
+
+/* ===============================================
+   CUSTOM COMPONENT STYLES
+   =============================================== */
+
+/* Layout Components */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Card System */
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-600);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-600);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
+
+/* Domain-specific styles */
+.domain-physical {
+  background-color: var(--color-physical);
+  color: white;
+}
+
+.domain-human-capital {
+  background-color: var(--color-human-capital);
+  color: white;
+}
+
+.domain-regulatory {
+  background-color: var(--color-regulatory);
+  color: white;
+}
+
+.domain-economic {
+  background-color: var(--color-economic);
+  color: white;
+}
+
+.domain-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  color: white;
+}
+
+/* Text gradients */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-regulatory), var(--color-human-capital));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-physical {
+  background: linear-gradient(135deg, var(--color-physical), var(--color-physical-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-human-capital {
+  background: linear-gradient(135deg, var(--color-human-capital), var(--color-human-capital-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-regulatory {
+  background: linear-gradient(135deg, var(--color-regulatory), var(--color-regulatory-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-economic {
+  background: linear-gradient(135deg, var(--color-economic), var(--color-economic-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section backgrounds */
+.bg-section-1 { 
+  background-color: var(--color-background-section-1);
+  position: relative;
+}
+
+.bg-section-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/backgrounds/bg-light-outline.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 600px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.bg-section-2 { 
+  background-color: var(--color-background-section-2);
+}
+
+.bg-section-3 { 
+  background-color: var(--color-background-section-3);
+}
+
+.bg-section-4 { 
+  background-color: var(--color-background-section-4);
+}
+
+/* Adaptive text colors */
+.text-foreground { color: var(--color-foreground) !important; }
+.text-paragraph-section-1 { color: var(--color-text-paragraph-section-1) !important; }
+.text-paragraph-section-2 { color: var(--color-text-paragraph-section-2) !important; }
+.text-paragraph-section-3 { color: var(--color-text-paragraph-section-3) !important; }
+.text-paragraph-section-4 { color: var(--color-text-paragraph-section-4) !important; }
+
+/* Card text colors */
+.text-card-foreground { color: var(--color-card-foreground) !important; }
+.text-card-content { color: var(--color-card-foreground) !important; opacity: 0.85; }
+
+/* KPI colors */
+.text-kpi-excellent { color: var(--color-kpi-excellent); }
+.text-kpi-good { color: var(--color-kpi-good); }
+.text-kpi-fair { color: var(--color-kpi-fair); }
+.text-kpi-warning { color: var(--color-kpi-warning); }
+.text-kpi-poor { color: var(--color-kpi-poor); }
+.text-kpi-critical { color: var(--color-kpi-critical); }
+
+/* Primary text colors */
+.text-primary { color: var(--color-primary); }
+.text-primary-light { color: var(--color-primary-400); }
+
+/* Domain text colors */
+.text-physical { color: var(--color-physical); }
+.text-human-capital { color: var(--color-human-capital); }
+.text-regulatory { color: var(--color-regulatory); }
+.text-economic { color: var(--color-economic); }
+
+/* Domain background colors */
+.bg-physical { background-color: var(--color-physical); }
+.bg-human-capital { background-color: var(--color-human-capital); }
+.bg-regulatory { background-color: var(--color-regulatory); }
+.bg-economic { background-color: var(--color-economic); }
+
+/* Data Card System */
+.data-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.data-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.data-card-title {
+  font-size: 0.875rem;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.data-card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.data-card-trend {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.data-card-trend-up {
+  color: var(--color-kpi-excellent);
+}
+
+.data-card-trend-down {
+  color: var(--color-kpi-poor);
+}
+
+/* Chart Container */
+.chart-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* KPI Badge System */
+.kpi-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.kpi-badge-excellent {
+  background-color: var(--color-kpi-excellent);
+  color: white;
+}
+
+.kpi-badge-good {
+  background-color: var(--color-kpi-good);
+  color: white;
+}
+
+.kpi-badge-fair {
+  background-color: var(--color-kpi-fair);
+  color: white;
+}
+
+.kpi-badge-poor {
+  background-color: var(--color-kpi-poor);
+  color: white;
+}
+
+.kpi-good {
+  color: var(--color-kpi-good);
+}
+
+.kpi-excellent {
+  color: var(--color-kpi-excellent);
+}
+
+/* Additional KPI background colors for carousel */
+.bg-kpi-critical {
+  background-color: var(--color-kpi-critical);
+}
+
+.bg-kpi-excellent {
+  background-color: var(--color-kpi-excellent);
+}
+
+.bg-kpi-warning {
+  background-color: var(--color-kpi-warning);
+}
+
+/* Animation utilities */
+.duration-4000 {
+  transition-duration: 4000ms;
+}
+
+/* Muted colors */
+.text-muted-foreground {
+  color: var(--color-muted-foreground);
+}
+
+/* Secondary colors */
+.bg-secondary-200 {
+  background-color: var(--color-secondary-200);
+}
+
+/* Border utilities */
+.border-border {
+  border-color: var(--color-border);
+}
+
+/* ===============================================
+   LAYOUT & TYPOGRAPHY SEMANTIC CLASSES
+   =============================================== */
+
+/* Main page layout */
+.page-main {
+  min-height: 100vh;
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.content-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.two-col-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .two-col-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.four-pillar-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .four-pillar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Typography */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-foreground);
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.large-text {
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+.giant-stat {
+  font-size: 6rem;
+  font-weight: 700;
+}
+
+.large-stat {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.small-stat {
+  font-size: 0.875rem;
+}
+
+/* Spacing utilities */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+.space-y-12 > * + * {
+  margin-top: 3rem;
+}
+
+/* Layout utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+/* Positioning */
+.top-negative {
+  top: -4rem;
+}
+
+.left-negative {
+  left: -3rem;
+}
+
+/* Icon sizing */
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-xl {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Responsive layout helpers */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* Stats display */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stats-card {
+  background-color: var(--color-background-section-3);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.stats-card:nth-child(3),
+.stats-card:nth-child(4) {
+  margin-top: 3rem;
+}
+
+/* CTA section */
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+  }
+}
+
+/* Icon containers */
+.icon-container {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container-sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-container-lg {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Max width utilities */
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Padding utilities */
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+/* Border radius */
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* Background utilities for sections */
+.bg-white-10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-section-3 {
+  background-color: var(--color-background-section-3);
+}
+
+.bg-section-4 {
+  background-color: var(--color-background-section-4);
+}
+
+/* Leading text utilities */
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+/* Margin utilities */
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+/* ===============================================
+   NAVBAR & LAYOUT UTILITIES (TEMPORARY)
+   Required for navbar while we convert components
+   =============================================== */
+
+.sticky { position: sticky; }
+.top-0 { top: 0; }
+.z-50 { z-index: 50; }
+.backdrop-blur-md { backdrop-filter: blur(12px); }
+.border-b { border-bottom: 1px solid; }
+
+/* Background utilities */
+.bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
+.bg-gray-900\/95 { background-color: rgba(17, 24, 39, 0.95); }
+.bg-blue-50 { background-color: rgb(239, 246, 255); }
+.bg-gray-50 { background-color: rgb(249, 250, 251); }
+
+/* Border colors */
+.border-gray-200\/50 { border-color: rgba(229, 231, 235, 0.5); }
+.border-gray-700\/50 { border-color: rgba(55, 65, 81, 0.5); }
+.border-gray-200 { border-color: rgb(229, 231, 235); }
+.border-gray-700 { border-color: rgb(55, 65, 81); }
+
+/* Text colors */
+.text-gray-900 { color: rgb(17, 24, 39) !important; }
+.text-white { color: rgb(255, 255, 255) !important; }
+.text-gray-600 { color: rgb(75, 85, 99) !important; }
+.text-gray-400 { color: rgb(156, 163, 175) !important; }
+.text-blue-700 { color: rgb(29, 78, 216) !important; }
+.text-blue-300 { color: rgb(147, 197, 253) !important; }
+.text-slate-700 { color: rgb(51, 65, 85) !important; }
+.text-slate-300 { color: rgb(203, 213, 225) !important; }
+
+/* Max width */
+.max-w-7xl { max-width: 80rem; }
+
+/* Padding */
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.mr-2 { margin-right: 0.5rem; }
+
+/* Responsive padding */
+@media (min-width: 640px) {
+  .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Flex utilities */
+.justify-between { justify-content: space-between; }
+.space-x-1 > * + * { margin-left: 0.25rem; }
+.space-x-2 > * + * { margin-left: 0.5rem; }
+.space-x-3 > * + * { margin-left: 0.75rem; }
+
+/* Typography */
+.text-xl { font-size: 1.25rem; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+
+/* Display utilities */
+.hidden { display: none; }
+
+@media (min-width: 1024px) {
+  .lg\:flex { display: flex; }
+  .lg\:hidden { display: none; }
+}
+
+/* Icon sizing */
+.h-4 { height: 1rem; }
+.w-4 { width: 1rem; }
+.h-6 { height: 1.5rem; }
+.w-6 { width: 1.5rem; }
+
+/* Positioning */
+.group { position: relative; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.top-full { top: 100%; }
+.bottom-full { bottom: 100%; }
+.left-1\/2 { left: 50%; }
+.transform { transform: translateZ(0); }
+.-translate-x-1\/2 { transform: translateX(-50%); }
+.translate-y-0 { transform: translateY(0); }
+.translate-y-4 { transform: translateY(1rem); }
+
+/* Responsive utilities */
+.inline-flex { display: inline-flex; }
+.justify-center { justify-content: center; }
+.rounded-md { border-radius: 0.375rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.transition-colors { transition: color 0.2s, background-color 0.2s; }
+.transition-all { transition: all 0.2s; }
+.duration-200 { transition-duration: 0.2s; }
+
+/* Hover states */
+.hover\:text-gray-900:hover { color: rgb(17, 24, 39); }
+.hover\:bg-gray-100:hover { background-color: rgb(243, 244, 246); }
+
+/* Block utilities */
+.border-t { border-top: 1px solid; }
+.border-l { border-left: 1px solid; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+
+/* Width utilities */
+.w-48 { width: 12rem; }
+.w-0 { width: 0; }
+
+/* Height utilities */
+.h-0 { height: 0; }
+
+/* Border utilities */
+.border-l-4 { border-left-width: 4px; }
+.border-r-4 { border-right-width: 4px; }
+.border-b-4 { border-bottom-width: 4px; }
+.border-transparent { border-color: transparent; }
+
+/* Z-index */
+.z-50 { z-index: 50; }
+
+/* Opacity */
+.opacity-0 { opacity: 0; }
+.group:hover .group-hover\:opacity-100 { opacity: 1; }
+
+/* Pointer events */
+.pointer-events-none { pointer-events: none; }
+
+/* Dark mode (we'll handle this later) */
+.dark\:bg-gray-900\/95 { background-color: rgba(17, 24, 39, 0.95); }
+.dark\:border-gray-700\/50 { border-color: rgba(55, 65, 81, 0.5); }
+.dark\:text-white { color: rgb(255, 255, 255); }
+.dark\:text-gray-400 { color: rgb(156, 163, 175); }
+.dark\:text-gray-300 { color: rgb(209, 213, 219); }
+.dark\:bg-blue-900\/20 { background-color: rgba(30, 58, 138, 0.2); }
+.dark\:text-blue-300 { color: rgb(147, 197, 253); }
+.dark\:hover\:text-white:hover { color: rgb(255, 255, 255); }
+.dark\:hover\:bg-gray-800\/50:hover { background-color: rgba(31, 41, 55, 0.5); }
+.dark\:border-gray-700 { border-color: rgb(55, 65, 81); }
+.dark\:bg-gray-700 { background-color: rgb(55, 65, 81); }
+.dark\:text-gray-500 { color: rgb(107, 114, 128); }
+.dark\:hover\:text-blue-400:hover { color: rgb(96, 165, 250); }
+
+/* ===============================================
+   COUNTRY PROFILES COMPONENTS
+   =============================================== */
+
+/* Carousel Card Animations */
+.carousel-card {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.carousel-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.card-inner {
+  transform: translateZ(20px);
+}
+
+/* Scrollbar hiding utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Background gradient for country profiles */
+.bg-gradient-custom {
+  background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%);
+}

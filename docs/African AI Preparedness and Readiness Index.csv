@@ -1,0 +1,11 @@
+Country,AI Preparedness Score (IMF 2024),AI Strategy Status,Key Strengths,Main Challenges
+Seychelles,0.53,No published AI strategy,"Strong digital infrastructure; high cybersecurity standards; sustained investment in education","Very small talent pool; limited R&D ecosystem"
+Mauritius,0.52,National AI Strategy (in force since 2018),"Government-led digital agenda; robust ICT sector; high internet penetration","Data-protection weaknesses; constrained public R&D budget"
+South Africa,0.49,Strategy in drafting stage,"Continental tech hub; leading universities; vibrant startup scene; best regional data infrastructure","Policy coordination gaps; slow rollout of national AI legislation"
+Tunisia,0.47,No national AI strategy yet,"Thriving tech community; supportive policy framework for startups; skilled STEM workforce","Capital constraints; infrastructure outside urban centres lags"
+Rwanda,0.44,National AI Strategy (2023),"Digital-first governance; extensive fibre backbone; strong international partnerships (GIZ, WEF)","Low income status; rural connectivity gaps"
+Cabo Verde,0.43,Strategy concept note (2024),"Strategic focus on e-government services; high mobile-broadband coverage","Small market; limited AI research capacity"
+Morocco,0.42,AI strategy under consultation,"Large investments in fibre/4G; growing AI startup ecosystem; focus on ethical AI","Skills mismatch; need for workforce upskilling"
+Ghana,0.42,Draft national AI policy (2024),"Google AI Research Lab in Accra; youth-oriented skills programmes; active fintech sector","Patchy data-protection enforcement; power-supply instability"
+Namibia,0.41,Strategy in development,"Government commitment to digital transformation; regional 5G trials; gender-inclusive skills programmes","Sparse population poses ROI challenges for infrastructure"
+Botswana,0.41,No national AI strategy,"High proficiency in business/tech/data skills (Coursera index); political stability","Low AI R&D output; small private-sector demand"

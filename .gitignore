@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+env.bak/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Directories
+logs/
+tests/
+TAIFA-FIALA/aa
+
+# TypeScript
+*.tsbuildinfo
+*.js
+*.jsx
+*.d.ts
+*.map
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Misc
+*.log
+*.sqlite3
+*.db

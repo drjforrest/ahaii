@@ -1,0 +1,390 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import HealthcareCrisisCarousel from '@/components/dashboard/HealthcareCrisisCarousel';
+
+const pillars = [
+  {
+    id: 'physical',
+    title: 'Strategic Physical Infrastructure',
+    weight: '30%',
+    description: 'Medical-grade data centres, EMR systems, telemedicine networks, and computational capacity for clinical AI deployment.',
+    icon: '/images/svg-icons/other-icons/server-icon-light.svg',
+    secondaryIcon: '/images/svg-icons/other-icons/hospital-icon-light.svg',
+    color: 'domain-physical',
+    examples: ['EMR adoption rates', 'GPU clusters for medical imaging', 'Telemedicine platform coverage']
+  },
+  {
+    id: 'human-capital',
+    title: 'Investment in Human Capital',
+    weight: '30%',
+    description: 'AI-trained clinicians, biomedical informatics programs, and technical workforce pipelines for health AI implementation.',
+    icon: '/images/svg-icons/other-icons/users-icon-light.svg',
+    secondaryIcon: '/images/svg-icons/other-icons/doctors-icon-light.svg',
+    color: 'domain-human-capital',
+    examples: ['Clinical AI training programs', 'Medical informatics degrees', 'AI-literate healthcare workforce']
+  },
+  {
+    id: 'regulatory',
+    title: 'Resilient Regulatory & Legal Infrastructure',
+    weight: '25%',
+    description: 'Medical AI approval pathways, health data governance frameworks, and clinical validation standards.',
+    icon: '/images/svg-icons/other-icons/regulatory-icon-light.svg',
+    secondaryIcon: '/images/svg-icons/other-icons/certificate-icon-light.svg',
+    color: 'domain-regulatory',
+    examples: ['Medical AI approval processes', 'Health data privacy laws', 'Clinical validation requirements']
+  },
+  {
+    id: 'economic',
+    title: 'Economic & Market Opportunity',
+    weight: '15%',
+    description: 'Investment capacity, market maturity, and financial sustainability for health AI ecosystem development.',
+    icon: '/images/svg-icons/other-icons/economic-icon-light.svg',
+    secondaryIcon: '/images/svg-icons/other-icons/medical-chart-icon-light.svg',
+    color: 'domain-economic',
+    examples: ['Health AI investment flows', 'Market demand indicators', 'Research funding capacity']
+  }
+];
+
+export default function AHAIILandingPage() {
+
+  return (
+    <main className="page-main">
+      {/* Hero Section */}
+      <section className="section bg-section-1 hero-section">
+        <div className="container">
+          <div className="hero-grid">
+            {/* Healthcare Crisis Carousel */}
+            <HealthcareCrisisCarousel />
+
+            {/* Simplified hero text */}
+            <div className="space-y-6">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Health is Unique.
+                <span className="text-gradient gradient-human-capital block">
+                  AI Solutions Must Be Too.
+                </span>
+              </h1>
+              <p className="text-xl text-paragraph-section-1 leading-relaxed">
+                Generic AI readiness frameworks miss what matters for health: clinical validation, 
+                medical-grade infrastructure, and disease-specific requirements. Africa needs 
+                specialized intelligence to reverse health disparities—not amplify them.
+              </p>
+              <Link href="#solution" className="btn btn-primary btn-lg inline-flex items-center gap-3">
+                <Image
+                  src="/images/svg-icons/other-icons/compass-icon-light.svg"
+                  alt="Navigation"
+                  width={20}
+                  height={20}
+                />
+                Discover the Solution
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="section bg-section-2">
+        <div className="container">
+          <div className="text-center space-y-8">
+            <h2 className="text-3xl font-bold text-foreground">
+              The AI Gap is Widening
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="card space-y-4">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/globe-icon-light.svg"
+                    alt="Global development"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">Designed Elsewhere</h3>
+                <p className="text-card-content">
+                  Most health AI solutions are developed in high-resource settings, 
+                  missing African disease patterns and healthcare contexts.
+                </p>
+              </div>
+
+              <div className="card space-y-4">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/ai-software-icon-light.svg"
+                    alt="AI training"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">Trained on Others' Data</h3>
+                <p className="text-card-content">
+                  AI models learn from Western datasets, creating algorithms that 
+                  fail to recognise local demographics and disease presentations.
+                </p>
+              </div>
+
+              <div className="card space-y-4">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/medical-chart-icon-light.svg"
+                    alt="Deployment challenges"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">Deployed Blindly</h3>
+                <p className="text-card-content">
+                  Without infrastructure assessment, AI deployments fail, 
+                  wasting resources and missing opportunities to save lives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Foundation */}
+      <section className="section bg-section-3">
+        <div className="container">
+          <div className="space-y-12">
+            <div className="text-center space-y-6">
+              <h2 className="text-3xl font-bold text-foreground">
+                Building on Established
+                <span className="text-gradient gradient-human-capital block">
+                  AI Readiness Science
+                </span>
+              </h2>
+              <p className="text-lg text-paragraph-section-3 max-w-4xl mx-auto leading-relaxed">
+                AI readiness assessment isn't new. The IMF, Oxford, and Gates Foundation have mapped 
+                digital infrastructure across all 54 African countries. But health AI has unique 
+                requirements that even comprehensive frameworks miss.
+              </p>
+            </div>
+
+            <div className="bg-section-2 rounded-lg p-8 text-center">
+              <h3 className="text-xl font-semibold text-foreground mb-4">The Health AI Gap</h3>
+              <p className="text-paragraph-section-2 max-w-3xl mx-auto leading-relaxed">
+                Healthcare AI requires <strong className="text-foreground">medical-grade infrastructure</strong>, 
+                <strong className="text-foreground">clinically-trained personnel</strong>, 
+                <strong className="text-foreground">specialized regulatory pathways</strong>, and 
+                <strong className="text-foreground">validation standards</strong> that protect patient safety. 
+                <br /><br />
+                <strong className="text-foreground">That's where AHAII comes in.</strong> Health is unique. 
+                The assessment framework must be too.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Four Domains Framework */}
+      <section id="solution" className="section bg-section-4">
+        <div className="container">
+          <div className="space-y-8">
+            {/* Framework Introduction Card */}
+            <div className="card text-center space-y-6 p-8">
+              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                <Image
+                  src="/images/svg-icons/other-icons/compass-icon-light.svg"
+                  alt="AHAII Direction"
+                  width={32}
+                  height={32}
+                />
+              </div>
+              <h2 className="text-3xl font-bold text-card-foreground">
+                Four Domains.
+                <span className="text-gradient gradient-physical block">
+                  One Framework.
+                </span>
+              </h2>
+              <p className="text-lg text-card-content max-w-4xl mx-auto leading-relaxed">
+                The African Health AI Infrastructure Index (AHAII) adapts proven readiness methodology 
+                to health AI deployment—giving stakeholders evidence-based intelligence to measure 
+                readiness and chart strategic paths forward.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="bg-section-4/50 p-4 rounded-lg space-y-2">
+                  <h3 className="text-lg font-semibold text-card-foreground">Health-Specific Assessment</h3>
+                  <p className="text-card-content text-sm">
+                    Medical-grade infrastructure, clinical validation requirements, and health data governance 
+                    standards that general AI frameworks miss.
+                  </p>
+                </div>
+                <div className="bg-section-4/50 p-4 rounded-lg space-y-2">
+                  <h3 className="text-lg font-semibold text-card-foreground">Africa-Focused Intelligence</h3>
+                  <p className="text-card-content text-sm">
+                    Continental coverage with deep understanding of African health systems, disease burdens, 
+                    and development partnership landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Four Pillars Grid */}
+            <div className="grid lg:grid-cols-2 gap-6">
+              {pillars.map((pillar) => (
+                <div
+                  key={pillar.id}
+                  className="card space-y-4"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 ${pillar.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                      <Image
+                        src={pillar.icon}
+                        alt={pillar.title}
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-xl font-semibold text-card-foreground">
+                          {pillar.title}
+                        </h3>
+                        <span className="text-xs px-2 py-1 bg-section-3 rounded text-card-foreground">
+                          {pillar.weight}
+                        </span>
+                      </div>
+                      <p className="text-card-content text-sm leading-relaxed">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Real-Time Intelligence Section */}
+      <section className="section bg-section-2">
+        <div className="container">
+          <div className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold text-foreground">
+                Automated by 
+                <span className="text-gradient gradient-physical block">
+                  Real-Time Intelligence
+                </span>
+              </h2>
+              <p className="text-lg text-paragraph-section-2 max-w-3xl mx-auto leading-relaxed">
+                AHAII continuously monitors health AI developments across Africa, providing 
+                current intelligence to guide infrastructure decisions.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="card space-y-3">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/search-icon-1-light.svg"
+                    alt="Academic monitoring"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">Academic Intelligence</h3>
+                <p className="text-card-content text-sm">
+                  Scans global research for health AI infrastructure developments 
+                  and implementation outcomes.
+                </p>
+              </div>
+
+              <div className="card space-y-3">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/dashboard-icon-light.svg"
+                    alt="Policy tracking"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">Policy Monitoring</h3>
+                <p className="text-card-content text-sm">
+                  Tracks regulatory changes and infrastructure deployments 
+                  across African health ministries.
+                </p>
+              </div>
+
+              <div className="card space-y-3">
+                <div className="w-12 h-12 mx-auto bg-section-3 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/svg-icons/other-icons/ai-software-icon-light.svg"
+                    alt="Real-time analysis"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground">AI-Powered Analysis</h3>
+                <p className="text-card-content text-sm">
+                  Uses machine learning to classify infrastructure signals 
+                  and identify emerging trends.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="section bg-section-4">
+        <div className="container">
+          <div className="text-center space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold text-foreground leading-tight">
+                If We Don't Measure,
+                <span className="text-gradient gradient-human-capital block">
+                  We Guess.
+                </span>
+                Guessing Costs Lives.
+              </h2>
+              <p className="text-lg text-paragraph-section-4 max-w-3xl mx-auto leading-relaxed">
+                Every day without proper health AI infrastructure assessment is another day of 
+                misallocated resources and missed opportunities to save lives. 
+                The time for evidence-based health AI deployment in Africa is now.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/dashboard" className="btn btn-primary btn-lg inline-flex items-center gap-3">
+                <Image
+                  src="/images/svg-icons/other-icons/dashboard-icon-light.svg"
+                  alt="Dashboard"
+                  width={20}
+                  height={20}
+                />
+                Explore Country Data
+              </Link>
+              
+              <Link href="/methods" className="btn btn-secondary btn-lg inline-flex items-center gap-3">
+                <Image
+                  src="/images/svg-icons/other-icons/methods-icon-light.svg"
+                  alt="Methodology"
+                  width={20}
+                  height={20}
+                />
+                View Methodology
+              </Link>
+            </div>
+
+            <div className="pt-4">
+              <p className="text-paragraph-section-4 max-w-2xl mx-auto text-sm">
+                Join the movement toward evidence-based health AI infrastructure development in Africa. 
+                <Link href="/about" className="text-primary-light hover:text-primary underline ml-1">
+                  Learn more about our mission
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+

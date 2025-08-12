@@ -1,0 +1,94 @@
+/* CSS HEX */
+
+    --Blue-yonder: #000000;
+
+    --Independence: #000000;
+
+    --Manatee: #000000;
+
+    --Black: #000000;
+
+    --Cool-grey: #000000;
+
+    --Deep-koamaru: #000000;
+
+    --Ghost-white: #000000;
+
+    --Gainsboro: #000000;
+
+
+/* CSS HSL */
+
+    --Blue-yonder: hsla(0, 0%, 0%, 1.00);
+
+    --Independence: hsla(0, 0%, 0%, 1.00);
+
+    --Manatee: hsla(0, 0%, 0%, 1.00);
+
+    --Black: hsla(0, 0%, 0%, 1.00);
+
+    --Cool-grey: hsla(0, 0%, 0%, 1.00);
+
+    --Deep-koamaru: hsla(0, 0%, 0%, 1.00);
+
+    --Ghost-white: hsla(0, 0%, 0%, 1.00);
+
+    --Gainsboro: hsla(0, 0%, 0%, 1.00);
+
+
+/* SCSS HEX */
+
+    $Blue-yonder: #000000;
+
+    $Independence: #000000;
+
+    $Manatee: #000000;
+
+    $Black: #000000;
+
+    $Cool-grey: #000000;
+
+    $Deep-koamaru: #000000;
+
+    $Ghost-white: #000000;
+
+    $Gainsboro: #000000;
+
+
+/* SCSS HSL */
+
+    $Blue-yonder: hsla(0, 0%, 0%, 1.00);
+
+    $Independence: hsla(0, 0%, 0%, 1.00);
+
+    $Manatee: hsla(0, 0%, 0%, 1.00);
+
+    $Black: hsla(0, 0%, 0%, 1.00);
+
+    $Cool-grey: hsla(0, 0%, 0%, 1.00);
+
+    $Deep-koamaru: hsla(0, 0%, 0%, 1.00);
+
+    $Ghost-white: hsla(0, 0%, 0%, 1.00);
+
+    $Gainsboro: hsla(0, 0%, 0%, 1.00);
+
+
+/* SCSS RGB */
+
+    $Blue-yonder: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Independence: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Manatee: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Black: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Cool-grey: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Deep-koamaru: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Ghost-white: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+
+    $Gainsboro: rgba(0.0000000000, 0.0000000000, 0.0000000000, 1.00);
+

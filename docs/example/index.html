@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Healthcare & AI Infrastructure Crisis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Shocking Header -->
+        <header class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">African Healthcare & AI Infrastructure Crisis</h1>
+                <div class="shocking-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">171.4x</span>
+                        <span class="stat-label">Less Healthcare Spending</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">16x</span>
+                        <span class="stat-label">Fewer Healthcare Workers</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">111x</span>
+                        <span class="stat-label">Fewer Data Centers</span>
+                    </div>
+                </div>
+                <p class="hero-subtitle">Africa bears 25% of the world's disease burden but has only 3% of global healthcare workers and faces massive AI infrastructure gaps that could prevent harnessing AI for health solutions</p>
+            </div>
+        </header>
+
+        <!-- Charts Grid -->
+        <main class="charts-container">
+            <div class="container">
+                
+                <!-- Healthcare Spending Comparison -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>The Spending Catastrophe</h2>
+                        <p>US spending towers 171x higher than African countries</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 400px;">
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Healthcare Workers Deficit -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>Healthcare Worker Desert</h2>
+                        <p>Africa falls dramatically short of WHO minimum requirements</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 350px;">
+                        <canvas id="workersChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Disease Burden vs Workers -->
+                <section class="chart-section chart-section--highlight">
+                    <div class="chart-header">
+                        <h2>The Most Shocking Disparity</h2>
+                        <p>25% disease burden, only 3% healthcare workers</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 300px;">
+                        <canvas id="burdenChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Hospital Beds Scarcity -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>Hospital Bed Crisis</h2>
+                        <p>Africa has 3.7x fewer beds than the global average</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 350px;">
+                        <canvas id="bedsChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- African Countries Detail -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>Within Africa: Extreme Variations</h2>
+                        <p>From $18 in Madagascar to $718 in Seychelles</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 400px;">
+                        <canvas id="africanDetailChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Shortage Projection -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>The Growing Crisis</h2>
+                        <p>Healthcare worker shortage projected to worsen by 2030</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 300px;">
+                        <canvas id="projectionChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- AI Infrastructure Readiness Section -->
+                <section class="ai-section-header">
+                    <div class="ai-section-divider">
+                        <h2>AI Infrastructure Readiness: The Barriers to Health Innovation</h2>
+                        <p>Without foundational AI infrastructure, Africa cannot leverage artificial intelligence to address its healthcare crisis</p>
+                    </div>
+                </section>
+
+                <!-- Toggle Switch for Healthcare vs General AI -->
+                <section class="chart-section">
+                    <div class="ai-filter-container">
+                        <label class="toggle-switch">
+                            <span class="toggle-label">General AI</span>
+                            <input type="checkbox" id="healthcareToggle">
+                            <span class="slider"></span>
+                            <span class="toggle-label">Healthcare AI Focus</span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Digital Divide Scorecard -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>Digital Divide Scorecard</h2>
+                        <p>Africa lags drastically behind global averages in physical infrastructure</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 450px;">
+                        <canvas id="digitalDivideChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>Africa's internet penetration is 30% lower than global average, with only 43% having reliable electricity - essential for any AI infrastructure. Data center capacity is 111x lower than the Americas.</p>
+                    </div>
+                </section>
+
+                <!-- AI Skills & Human Capital Gap -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>AI Skills & Human Capital Crisis</h2>
+                        <p>90% of African children leave school without digital skills</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 400px;">
+                        <canvas id="skillsGapChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>With a Digital Skills Index of only 3.4 compared to the global average of 6.0, Africa faces a massive human capital gap. Only 10% of children leave school with digital skills compared to 60% globally.</p>
+                    </div>
+                </section>
+
+                <!-- Regulatory Readiness -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>Regulatory Framework Gaps</h2>
+                        <p>Only 8 of 54 African countries have AI strategies</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 350px;">
+                        <canvas id="regulatoryChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>Africa severely lacks the regulatory foundation needed for responsible AI deployment. With only 15% of African countries having AI ethics frameworks compared to 80% in developed nations, the regulatory gap is enormous.</p>
+                    </div>
+                </section>
+
+                <!-- Economic Ecosystem Gap -->
+                <section class="chart-section chart-section--highlight">
+                    <div class="chart-header">
+                        <h2>Economic Ecosystem Devastation</h2>
+                        <p>100x less venture capital funding per capita than the US</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 400px;">
+                        <canvas id="economicGapChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>The economic foundation for AI innovation is virtually non-existent. Africa receives $1.8 per capita in VC funding compared to $180 in the US, while R&D spending is only 0.3% of GDP versus 3.2% in developed nations.</p>
+                    </div>
+                </section>
+
+                <!-- AI Readiness Scores -->
+                <section class="chart-section">
+                    <div class="chart-header">
+                        <h2>AI Readiness Rankings: The Global Divide</h2>
+                        <p>Africa's highest scorer ranks 42nd globally</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 400px;">
+                        <canvas id="readinessScoresChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>Even South Africa, the continent's leader in AI readiness, scores only 42 out of 100, while the US leads at 88. The average African AI readiness score of 25 shows the massive development gap.</p>
+                    </div>
+                </section>
+
+                <!-- Healthcare AI Opportunity Gap -->
+                <section class="chart-section chart-section--highlight">
+                    <div class="chart-header">
+                        <h2>Healthcare AI Opportunity vs Reality</h2>
+                        <p>High potential impact, catastrophically low infrastructure readiness</p>
+                    </div>
+                    <div class="chart-wrapper" style="position: relative; height: 450px;">
+                        <canvas id="opportunityGapChart"></canvas>
+                    </div>
+                    <div class="chart-explanation">
+                        <p>This scatter plot reveals the cruel irony: applications like telemedicine and remote diagnostics could have transformative 85-90% impact potential, but infrastructure readiness remains below 40% across all applications. The gap represents lost lives and continued suffering.</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer with key takeaways -->
+        <footer class="footer">
+            <div class="container">
+                <h3>The Dual Crisis: Healthcare & AI Infrastructure</h3>
+                <div class="takeaways-grid">
+                    <div class="takeaway-item">
+                        <strong>Healthcare Crisis:</strong> The US spends $14,570 per capita while African countries average just $85, with 6.1M healthcare worker shortage
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>Digital Divide:</strong> 111x fewer data centers, 30% lower internet penetration, and 57% lack reliable electricity
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>Skills Gap:</strong> 90% of African children leave school without digital skills, with AI/ML programs concentrated in only 3 countries
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>Innovation Desert:</strong> 100x less VC funding per capita than US, only 8 of 54 countries have AI strategies, creating a vicious cycle preventing AI-driven healthcare solutions
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
