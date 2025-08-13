@@ -116,7 +116,7 @@
   --color-physical-950: #042f2e; /* Darkest variant of physical color */
   
   /* Human Capital - Sophisticated Navy */
-  --color-human-capital: #334155; /* Color for human capital - sophisticated slate */
+  --color-human-capital: #0DC2DE; /* Color for human capital - bright cyan */
   --color-human-capital-50: #f8fafc; /* Light variant of human capital color */
   --color-human-capital-100: #f1f5f9; /* Lighter variant of human capital color */
   --color-human-capital-200: #e2e8f0; /* Light variant of human capital color */
@@ -130,7 +130,7 @@
   --color-human-capital-950: #020617; /* Darkest variant of human capital color */
   
   /* Legal & Regulatory - Warm Gray */
-  --color-regulatory: #6b7280; /* Color for legal and regulatory */
+  --color-regulatory: #138CDA; /* Color for legal and regulatory - bright blue */
   --color-regulatory-50: #f9fafb; /* Light variant of regulatory color */
   --color-regulatory-100: #f3f4f6; /* Lighter variant of regulatory color */
   --color-regulatory-200: #e5e7eb; /* Light variant of regulatory color */
@@ -144,7 +144,7 @@
   --color-regulatory-950: #030712; /* Darkest variant of regulatory color */
   
   /* Economic Potential - Warm Cream */
-  --color-economic: #92400e; /* Color for economic potential */
+  --color-economic: #6B7DDA; /* Color for economic potential - bright purple */
   --color-economic-50: #fefdf8; /* Light variant of economic color */
   --color-economic-100: #fef3c7; /* Lighter variant of economic color */
   --color-economic-200: #fde68a; /* Light variant of economic color */
@@ -159,29 +159,29 @@
   
   /* ===========================================
      CHART & VISUALIZATION COLORS
-     Complementary but different from main colors
+     New curated color palette
      =========================================== */
   /* Colors used for charts and visualizations */
-  --color-chart-1: #6366f1; /* First chart color */
-  --color-chart-2: #06b6d4; /* Second chart color */
-  --color-chart-3: #84cc16; /* Third chart color */
-  --color-chart-4: #f59e0b; /* Fourth chart color */
-  --color-chart-5: #ef4444; /* Fifth chart color */
+  --color-chart-1: #B9F987; /* Light green */
+  --color-chart-2: #0DC2DE; /* Cyan */
+  --color-chart-3: #138CDA; /* Blue */
+  --color-chart-4: #6B7DDA; /* Purple */
+  --color-chart-5: #D1546F; /* Pink/Red */
   --color-chart-6: #8b5cf6; /* Sixth chart color */
   --color-chart-7: #ec4899; /* Seventh chart color */
   --color-chart-8: #14b8a6; /* Eighth chart color */
   
   /* ===========================================
      KPI TRAFFIC LIGHT SYSTEM
-     Sophisticated, muted performance indicators
+     Updated with new color palette
      =========================================== */
   /* Colors representing performance indicators */
-  --color-kpi-excellent: #15803d; /* Excellent performance color - deeper green */
-  --color-kpi-good: #65a30d; /* Good performance color - muted lime */
-  --color-kpi-fair: #ca8a04; /* Fair performance color - warm amber */
-  --color-kpi-warning: #ea580c; /* Warning performance color - refined orange */
-  --color-kpi-poor: #b91c1c; /* Poor performance color - sophisticated red */
-  --color-kpi-critical: #991b1b; /* Critical performance color - deep red */
+  --color-kpi-excellent: #B9F987; /* Excellent performance color - light green */
+  --color-kpi-good: #0DC2DE; /* Good performance color - cyan */
+  --color-kpi-fair: #138CDA; /* Fair performance color - blue */
+  --color-kpi-warning: #6B7DDA; /* Warning performance color - purple */
+  --color-kpi-poor: #D1546F; /* Poor performance color - soft red */
+  --color-kpi-critical: #D1546F; /* Critical performance color - soft red */
   
   /* ===========================================
      SEMANTIC COLORS
@@ -351,8 +351,8 @@
 }
 
 .section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 640px) {
@@ -364,8 +364,8 @@
 
 @media (min-width: 1024px) {
   .section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   
   .container {
@@ -491,7 +491,7 @@
 }
 
 .gradient-human-capital {
-  background: linear-gradient(135deg, var(--color-human-capital), var(--color-human-capital-700));
+  background: linear-gradient(135deg, var(--color-human-capital-200), var(--color-human-capital-100));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -524,9 +524,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/images/backgrounds/bg-light-outline.png');
+  background-image: url('/images/backgrounds/Africa-outline-subtle.png');
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: left center;
   background-size: 600px;
   opacity: 0.5;
   pointer-events: none;
@@ -686,6 +686,10 @@
   transition-duration: 4000ms;
 }
 
+.duration-6000 {
+  transition-duration: 6000ms;
+}
+
 /* Muted colors */
 .text-muted-foreground {
   color: var(--color-muted-foreground);
@@ -711,20 +715,24 @@
 }
 
 .hero-section {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .hero-grid {
   display: grid;
-  gap: 3rem;
-  align-items: center;
+  gap: 2rem;
+  align-items: start;
 }
 
 @media (min-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 3rem;
   }
 }
 

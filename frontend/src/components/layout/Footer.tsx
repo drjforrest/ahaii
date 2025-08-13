@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <h4
               className="font-semibold mb-4"
-              style={{ color: "var(--color-cyan-400)" }}
+              style={{ color: "#4A9B8E" }}
             >
               Assessment
             </h4>
@@ -67,7 +67,7 @@ export default function Footer() {
           <div>
             <h4
               className="font-semibold mb-4"
-              style={{ color: "var(--color-cyan-300)" }}
+              style={{ color: "#0DC2DE" }}
             >
               Country Data
             </h4>
@@ -107,7 +107,7 @@ export default function Footer() {
           <div>
             <h4
               className="font-semibold mb-4"
-              style={{ color: "var(--color-green-400)" }}
+              style={{ color: "#138CDA" }}
             >
               Resources
             </h4>
@@ -147,7 +147,7 @@ export default function Footer() {
           <div>
             <h4
               className="font-semibold mb-4"
-              style={{ color: "var(--color-gray-300)" }}
+              style={{ color: "#6B7DDA" }}
             >
               About
             </h4>

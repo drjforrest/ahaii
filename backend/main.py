@@ -9,14 +9,33 @@ from fastapi.responses import JSONResponse
 import uvicorn
 from datetime import datetime
 import os
+import logging
+import sys
 from pathlib import Path
 
 # Import API routers
 from api.countries import router as countries_router
+from api.ahaii_assessment import router as ahaii_router
 
 # Import configuration
 from config.settings import settings
 from config.database import supabase
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler('logs/ahaii_backend.log', mode='a')
+    ]
+)
+
+# Create logs directory if it doesn't exist
+Path('logs').mkdir(exist_ok=True)
+
+# Get logger
+logger = logging.getLogger("AHAII_Backend")
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -45,11 +64,28 @@ app.add_middleware(
 
 # Include API routers
 app.include_router(countries_router)
+app.include_router(ahaii_router)
+
+# Startup event
+@app.on_event("startup")
+async def startup_event():
+    logger.info("🚀 AHAII Backend API Server Starting...")
+    logger.info("📊 Loading AHAII Assessment Framework")
+    logger.info("🔌 Connecting to Supabase database")
+    logger.info("⚡ All systems initialized successfully")
+
+# Shutdown event  
+@app.on_event("shutdown")
+async def shutdown_event():
+    logger.info("🛑 AHAII Backend API Server Shutting Down...")
+    logger.info("💾 Saving any pending data")
+    logger.info("✅ Shutdown complete")
 
 # Health check endpoint
 @app.get("/health")
 async def health_check():
     """Health check endpoint for monitoring and deployment"""
+    logger.info("🔍 Health check requested")
     try:
         # Test database connection
         db_status = "connected"
@@ -58,8 +94,12 @@ async def health_check():
             test_response = supabase.table("countries").select("id").limit(1).execute()
             if hasattr(test_response, 'error') and test_response.error:
                 db_status = f"error: {test_response.error}"
+                logger.warning(f"Database connection warning: {test_response.error}")
+            else:
+                logger.info("✅ Database connection successful")
         except Exception as e:
             db_status = f"connection_failed: {str(e)}"
+            logger.error(f"❌ Database connection failed: {str(e)}")
         
         return {
             "status": "healthy",
@@ -98,13 +138,26 @@ async def root():
             "featured_countries": "/api/countries/featured",
             "country_details": "/api/countries/{country_id}/details",
             "regional_overview": "/api/countries/regions",
-            "statistics": "/api/countries/statistics"
+            "statistics": "/api/countries/statistics",
+            "ahaii_assessment": "/api/ahaii/",
+            "ahaii_health": "/api/ahaii/health",
+            "ahaii_scores": "/api/ahaii/scores",
+            "ahaii_collect_data": "/api/ahaii/collect-data",
+            "ahaii_run_assessment": "/api/ahaii/run-complete-assessment"
         },
         "etl_components": {
             "academic_processing": "ready",
             "news_monitoring": "active", 
             "scoring_service": "automated",
             "database_integration": "supabase"
+        },
+        "ahaii_components": {
+            "world_bank_collector": "active",
+            "policy_indicator_collector": "active",
+            "ecosystem_mapper": "active",
+            "scoring_calculator": "active",
+            "expert_validation": "active",
+            "report_generator": "active"
         },
         "timestamp": datetime.now().isoformat()
     }

@@ -8,20 +8,20 @@ const spendingData = [
   { country: 'United States', amount: 14561, color: '#4a9b8e' },
   { country: 'OECD Average', amount: 7456, color: '#f4a460' },
   { country: 'European Average', amount: 5982, color: '#f4a460' },
-  { country: 'Sub-Saharan Africa Avg', amount: 89, color: '#b91c1c' },
-  { country: 'Madagascar', amount: 18, color: '#991b1b' },
-  { country: 'Chad', amount: 36, color: '#991b1b' },
-  { country: 'Niger', amount: 41, color: '#991b1b' },
-  { country: 'Ethiopia', amount: 45, color: '#b91c1c' }
+  { country: 'Sub-Saharan Africa Avg', amount: 89, color: '#D1546F' },
+  { country: 'Madagascar', amount: 18, color: '#D1546F' },
+  { country: 'Chad', amount: 36, color: '#D1546F' },
+  { country: 'Niger', amount: 41, color: '#6B7DDA' },
+  { country: 'Ethiopia', amount: 45, color: '#D1546F' }
 ];
 
 const healthcareWorkersData = [
-  { region: 'Americas', workers: 24.8, color: '#b91c1c' },
+  { region: 'Americas', workers: 24.8, color: '#B9F987' },
   { region: 'Europe Average', workers: 18.2, color: '#f4a460' },
   { region: 'WHO Threshold', workers: 4.45, color: '#4a9b8e' },
   { region: 'Global Average', workers: 9.3, color: '#6b7280' },
-  { region: 'Africa', workers: 2.3, color: '#b91c1c' },
-  { region: 'Niger (Lowest)', workers: 0.4, color: '#991b1b' }
+  { region: 'Africa', workers: 2.3, color: '#D1546F' },
+  { region: 'Niger (Lowest)', workers: 0.4, color: '#D1546F' }
 ];
 
 const hospitalBedsData = [
@@ -30,8 +30,8 @@ const hospitalBedsData = [
   { country: 'Germany', beds: 7.9, color: '#f4a460' },
   { country: 'OECD Average', beds: 4.4, color: '#6b7280' },
   { country: 'Global Average', beds: 2.7, color: '#4a9b8e' },
-  { country: 'Africa Average', beds: 0.9, color: '#b91c1c' },
-  { country: 'Mali (Lowest)', beds: 0.1, color: '#991b1b' }
+  { country: 'Africa Average', beds: 0.9, color: '#D1546F' },
+  { country: 'Mali (Lowest)', beds: 0.1, color: '#D1546F' }
 ];
 
 const africaVariationsData = [
@@ -42,9 +42,9 @@ const africaVariationsData = [
   { country: 'Ghana', amount: 89, color: '#fbbf24' },
   { country: 'Kenya', amount: 88, color: '#fbbf24' },
   { country: 'Nigeria', amount: 78, color: '#fbbf24' },
-  { country: 'Uganda', amount: 41, color: '#dc2626' },
-  { country: 'Ethiopia', amount: 25, color: '#dc2626' },
-  { country: 'Madagascar', amount: 18, color: '#dc2626' }
+  { country: 'Uganda', amount: 41, color: '#6B7DDA' },
+  { country: 'Ethiopia', amount: 25, color: '#D1546F' },
+  { country: 'Madagascar', amount: 18, color: '#D1546F' }
 ];
 
 const crisisProjectionData = [
@@ -53,8 +53,8 @@ const crisisProjectionData = [
 ];
 
 const disparityData = [
-  { category: 'Disease Burden', percentage: 25, color: '#dc2626' },
-  { category: 'Healthcare Workers', percentage: 3, color: '#dc2626' }
+  { category: 'Disease Burden', percentage: 25, color: '#D1546F' },
+  { category: 'Healthcare Workers', percentage: 3, color: '#D1546F' }
 ];
 
 // Enhanced data for new storytelling approach
@@ -159,7 +159,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
     // Auto-cycle through slides
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -172,13 +172,13 @@ const HealthcareCrisisCarousel: React.FC = () => {
             <div className="grid grid-cols-3 gap-8 w-full max-w-5xl">
               {shockingStats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-5xl font-bold text-kpi-critical mb-3 animate-pulse">
+                  <div className="text-5xl font-bold text-kpi-critical mb-3">
                     {stat.number}
                   </div>
                   <div className="text-lg font-semibold text-foreground mb-2">
                     {stat.label}
                   </div>
-                  <div className="text-sm text-muted-foreground opacity-90">
+                  <div className="text-sm text-paragraph-section-1 opacity-90">
                     {stat.detail}
                   </div>
                 </div>
@@ -340,9 +340,9 @@ const HealthcareCrisisCarousel: React.FC = () => {
               <Line 
                 type="monotone" 
                 dataKey="shortage" 
-                stroke="#dc2626" 
+                stroke="#D1546F" 
                 strokeWidth={4}
-                dot={{ fill: '#dc2626', strokeWidth: 2, r: 8 }}
+                dot={{ fill: '#D1546F', strokeWidth: 2, r: 8 }}
               />
               <Tooltip 
                 contentStyle={{ 
@@ -369,7 +369,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
                 height={60}
               />
               <YAxis tick={{ fill: '#f8fafc', fontSize: 11 }} />
-              <Bar dataKey="africa" fill="#dc2626" name="Africa" />
+              <Bar dataKey="africa" fill="#D1546F" name="Africa" />
               <Bar dataKey="global" fill="#6b7280" name="Global" />
               <Bar dataKey="developed" fill="#4a9b8e" name="Developed" />
               <Bar dataKey="americas" fill="#4a9b8e" name="Americas" />
@@ -398,7 +398,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
                 height={60}
               />
               <YAxis tick={{ fill: '#f8fafc', fontSize: 11 }} />
-              <Bar dataKey="africa" fill="#dc2626" name="Africa" />
+              <Bar dataKey="africa" fill="#D1546F" name="Africa" />
               <Bar dataKey="global" fill="#6b7280" name="Global" />
               <Bar dataKey="developed" fill="#4a9b8e" name="Developed" />
               <Tooltip 
@@ -422,7 +422,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
                   <div className="font-semibold text-foreground mb-2">{item.application}</div>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm text-muted-foreground">Potential:</span>
+                      <span className="text-sm text-paragraph-section-1">Potential:</span>
                       <div className="w-20 bg-white/20 rounded-full h-2">
                         <div 
                           className="bg-kpi-excellent h-2 rounded-full" 
@@ -432,7 +432,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
                       <span className="text-sm text-foreground">{item.potential}%</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm text-muted-foreground">Readiness:</span>
+                      <span className="text-sm text-paragraph-section-1">Readiness:</span>
                       <div className="w-20 bg-white/20 rounded-full h-2">
                         <div 
                           className="bg-kpi-critical h-2 rounded-full" 
@@ -445,7 +445,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-kpi-critical">{item.gap}pt</div>
-                  <div className="text-sm text-muted-foreground">Gap</div>
+                  <div className="text-sm text-paragraph-section-1">Gap</div>
                 </div>
               </div>
             ))}
@@ -459,22 +459,22 @@ const HealthcareCrisisCarousel: React.FC = () => {
               <div className="bg-physical/20 border border-physical/40 rounded-lg p-4">
                 <div className="text-2xl mb-2">🏥</div>
                 <div className="text-sm font-semibold text-foreground">Physical Infrastructure</div>
-                <div className="text-xs text-muted-foreground mt-1">Medical-grade systems</div>
+                <div className="text-xs text-paragraph-section-1 mt-1">Medical-grade systems</div>
               </div>
               <div className="bg-human-capital/20 border border-human-capital/40 rounded-lg p-4">
                 <div className="text-2xl mb-2">👩‍⚕️</div>
                 <div className="text-sm font-semibold text-foreground">Human Capital</div>
-                <div className="text-xs text-muted-foreground mt-1">Clinical AI literacy</div>
+                <div className="text-xs text-paragraph-section-1 mt-1">Clinical AI literacy</div>
               </div>
               <div className="bg-regulatory/20 border border-regulatory/40 rounded-lg p-4">
                 <div className="text-2xl mb-2">📋</div>
                 <div className="text-sm font-semibold text-foreground">Regulatory Frameworks</div>
-                <div className="text-xs text-muted-foreground mt-1">Health data governance</div>
+                <div className="text-xs text-paragraph-section-1 mt-1">Health data governance</div>
               </div>
               <div className="bg-economic/20 border border-economic/40 rounded-lg p-4">
                 <div className="text-2xl mb-2">💰</div>
                 <div className="text-sm font-semibold text-foreground">Economic Sustainability</div>
-                <div className="text-xs text-muted-foreground mt-1">Investment pathways</div>
+                <div className="text-xs text-paragraph-section-1 mt-1">Investment pathways</div>
               </div>
             </div>
             <div className="text-lg font-semibold text-primary">
@@ -494,7 +494,7 @@ const HealthcareCrisisCarousel: React.FC = () => {
       <div className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 ${slides[currentSlide].type === 'hero' ? 'bg-gradient-to-r from-kpi-critical/10 to-kpi-warning/10' : ''}`}>
         <div className="text-center space-y-4 mb-6">
           {slides[currentSlide].stat && (
-            <div className="text-6xl font-bold text-kpi-critical mb-4 animate-pulse">
+            <div className="text-6xl font-bold text-kpi-critical mb-4">
               {slides[currentSlide].stat}
             </div>
           )}
@@ -530,10 +530,10 @@ const HealthcareCrisisCarousel: React.FC = () => {
         <div className="mt-4">
           <div className="w-full bg-white/20 rounded-full h-1">
             <div 
-              className="bg-primary h-1 rounded-full transition-all duration-4000 ease-linear"
+              className="bg-primary h-1 rounded-full transition-all duration-6000 ease-linear"
               style={{ 
                 width: `${((currentSlide + 1) / slides.length) * 100}%`,
-                animation: 'slideProgress 4s linear infinite'
+                animation: 'slideProgress 6s linear infinite'
               }}
             />
           </div>
@@ -544,20 +544,6 @@ const HealthcareCrisisCarousel: React.FC = () => {
       <div className="text-center">
         <div className="text-foreground font-semibold mb-2">
           The Dual Crisis: Healthcare & AI Infrastructure
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
-          <div className="bg-kpi-critical/10 border border-kpi-critical/20 rounded-lg p-4">
-            <div className="font-semibold text-kpi-critical mb-2">Healthcare Crisis</div>
-            <div className="text-sm text-muted-foreground">
-              US spends $14,570 per capita while African countries average $85, with 6.1M healthcare worker shortage
-            </div>
-          </div>
-          <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-            <div className="font-semibold text-primary mb-2">AI Infrastructure Gap</div>
-            <div className="text-sm text-muted-foreground">
-              111x fewer data centers, 90% lack digital skills, creating barriers to AI-driven healthcare solutions
-            </div>
-          </div>
         </div>
         <div className="text-paragraph-section-1 text-sm mt-4">
           <span className="text-gradient gradient-primary font-semibold">AHAII</span> provides systematic intelligence to transform this crisis into opportunity through evidence-based health AI infrastructure development.
