@@ -21,6 +21,7 @@ from services.etl_deduplication import check_and_handle_publication_duplicates
 
 class ArxivPaper(BaseModel):
     """Pydantic model for ArXiv paper data"""
+
     arxiv_id: str
     title: str
     authors: List[str]
@@ -44,7 +45,7 @@ class ArxivScraper:
         self.african_countries = set(settings.AFRICAN_COUNTRIES)
         self.african_institutions = set(settings.AFRICAN_INSTITUTIONS)
         self.ai_keywords = settings.AFRICAN_AI_KEYWORDS
-        
+
         # Initialize database and deduplication services
         self.db_service = DatabaseService()
         self.dedup_service = DeduplicationService()
@@ -59,15 +60,18 @@ class ArxivScraper:
         if self.session:
             await self.session.close()
 
-    def build_search_query(self, keywords: List[str], max_results: int = 100,
-                          days_back: int = 30) -> str:
+    def build_search_query(
+        self, keywords: List[str], max_results: int = 100, days_back: int = 30
+    ) -> str:
         """Build ArXiv API search query"""
         # Combine keywords with OR
         keyword_query = " OR ".join([f'all:"{kw}"' for kw in keywords])
 
         # Add African country/institution filters
         african_terms = []
-        for country in list(self.african_countries)[:10]:  # Limit to avoid URL length issues
+        for country in list(self.african_countries)[
+            :10
+        ]:  # Limit to avoid URL length issues
             african_terms.append(f'all:"{country}"')
 
         for institution in list(self.african_institutions)[:10]:
@@ -84,11 +88,11 @@ class ArxivScraper:
 
         # Build URL parameters
         params = {
-            'search_query': full_query,
-            'start': 0,
-            'max_results': max_results,
-            'sortBy': 'lastUpdatedDate',
-            'sortOrder': 'descending'
+            "search_query": full_query,
+            "start": 0,
+            "max_results": max_results,
+            "sortBy": "lastUpdatedDate",
+            "sortOrder": "descending",
         }
 
         query_string = "&".join([f"{k}={quote(str(v))}" for k, v in params.items()])
@@ -134,67 +138,75 @@ class ArxivScraper:
         """Extract paper data from ArXiv entry"""
         try:
             # Extract basic information
-            title = getattr(entry, 'title', '').replace('\n', ' ').strip()
-            abstract = getattr(entry, 'summary', '').replace('\n', ' ').strip()
+            title = getattr(entry, "title", "").replace("\n", " ").strip()
+            abstract = getattr(entry, "summary", "").replace("\n", " ").strip()
 
             # Check if essential fields are present
-            if not title or not abstract or not hasattr(entry, 'id'):
+            if not title or not abstract or not hasattr(entry, "id"):
                 logger.warning("Missing essential fields in entry, skipping")
                 return None
 
             # Extract ArXiv ID from URL
-            arxiv_id = entry.id.split('/')[-1]
+            arxiv_id = entry.id.split("/")[-1]
 
             # Extract authors - handle different possible structures
             authors = []
-            if hasattr(entry, 'authors') and entry.authors:
-                authors = [getattr(author, 'name', str(author)) for author in entry.authors]
-            elif hasattr(entry, 'author') and entry.author:
+            if hasattr(entry, "authors") and entry.authors:
+                authors = [
+                    getattr(author, "name", str(author)) for author in entry.authors
+                ]
+            elif hasattr(entry, "author") and entry.author:
                 authors = [entry.author]
 
             # Extract dates with error handling
             try:
-                published_date = datetime.strptime(entry.published, '%Y-%m-%dT%H:%M:%SZ')
+                published_date = datetime.strptime(
+                    entry.published, "%Y-%m-%dT%H:%M:%SZ"
+                )
             except (ValueError, AttributeError):
                 published_date = datetime.now()
 
             try:
-                updated_date = datetime.strptime(entry.updated, '%Y-%m-%dT%H:%M:%SZ')
+                updated_date = datetime.strptime(entry.updated, "%Y-%m-%dT%H:%M:%SZ")
             except (ValueError, AttributeError):
                 updated_date = published_date
 
             # Extract categories
             categories = []
-            if hasattr(entry, 'tags') and entry.tags:
-                categories = [getattr(tag, 'term', str(tag)) for tag in entry.tags]
+            if hasattr(entry, "tags") and entry.tags:
+                categories = [getattr(tag, "term", str(tag)) for tag in entry.tags]
 
             # Calculate relevance scores
-            african_score, african_entities = self.calculate_african_relevance(title, abstract, authors)
+            african_score, african_entities = self.calculate_african_relevance(
+                title, abstract, authors
+            )
             ai_score = self.calculate_ai_relevance(title, abstract, categories)
 
             # Extract keywords from title and abstract
             keywords = self.extract_keywords(title, abstract)
 
             return {
-                'arxiv_id': arxiv_id,
-                'title': title,
-                'authors': authors,
-                'abstract': abstract,
-                'url': entry.id,
-                'published_date': published_date,
-                'updated_date': updated_date,
-                'categories': categories,
-                'keywords': keywords,
-                'african_relevance_score': african_score,
-                'african_entities': african_entities,
-                'ai_relevance_score': ai_score
+                "arxiv_id": arxiv_id,
+                "title": title,
+                "authors": authors,
+                "abstract": abstract,
+                "url": entry.id,
+                "published_date": published_date,
+                "updated_date": updated_date,
+                "categories": categories,
+                "keywords": keywords,
+                "african_relevance_score": african_score,
+                "african_entities": african_entities,
+                "ai_relevance_score": ai_score,
             }
 
         except Exception as e:
             logger.error(f"Error extracting paper data: {e}")
             return None
 
-    def calculate_african_relevance(self, title: str, abstract: str, authors: List[str]) -> tuple[float, List[str]]:
+    def calculate_african_relevance(
+        self, title: str, abstract: str, authors: List[str]
+    ) -> tuple[float, List[str]]:
         """Calculate African relevance score and extract African entities"""
         # Handle None values
         title = title or ""
@@ -220,8 +232,15 @@ class ArxivScraper:
 
         # Check for African-specific terms
         african_terms = [
-            'africa', 'african', 'sub-saharan', 'sahel', 'maghreb',
-            'east africa', 'west africa', 'north africa', 'southern africa'
+            "africa",
+            "african",
+            "sub-saharan",
+            "sahel",
+            "maghreb",
+            "east africa",
+            "west africa",
+            "north africa",
+            "southern africa",
         ]
 
         for term in african_terms:
@@ -240,7 +259,9 @@ class ArxivScraper:
 
         return min(score, 1.0), list(set(found_entities))
 
-    def calculate_ai_relevance(self, title: str, abstract: str, categories: List[str]) -> float:
+    def calculate_ai_relevance(
+        self, title: str, abstract: str, categories: List[str]
+    ) -> float:
         """Calculate AI relevance score"""
         # Handle None values
         title = title or ""
@@ -250,27 +271,52 @@ class ArxivScraper:
         text = f"{title} {abstract}".lower()
 
         ai_terms = [
-            'artificial intelligence', 'machine learning', 'deep learning',
-            'neural network', 'computer vision', 'natural language processing',
-            'nlp', 'ai', 'ml', 'dl', 'cnn', 'rnn', 'lstm', 'transformer',
-            'reinforcement learning', 'supervised learning', 'unsupervised learning',
-            'classification', 'regression', 'clustering', 'recommendation system',
-            'data mining', 'big data', 'predictive analytics', 'automation',
-            'robotics', 'expert system', 'knowledge representation'
+            "artificial intelligence",
+            "machine learning",
+            "deep learning",
+            "neural network",
+            "computer vision",
+            "natural language processing",
+            "nlp",
+            "ai",
+            "ml",
+            "dl",
+            "cnn",
+            "rnn",
+            "lstm",
+            "transformer",
+            "reinforcement learning",
+            "supervised learning",
+            "unsupervised learning",
+            "classification",
+            "regression",
+            "clustering",
+            "recommendation system",
+            "data mining",
+            "big data",
+            "predictive analytics",
+            "automation",
+            "robotics",
+            "expert system",
+            "knowledge representation",
         ]
 
         score = 0.0
         for term in ai_terms:
             if term in text:
-                if term in ['artificial intelligence', 'machine learning', 'deep learning']:
+                if term in [
+                    "artificial intelligence",
+                    "machine learning",
+                    "deep learning",
+                ]:
                     score += 0.3  # High-value terms
-                elif term in ['ai', 'ml', 'dl']:
+                elif term in ["ai", "ml", "dl"]:
                     score += 0.2  # Common abbreviations
                 else:
                     score += 0.1  # Other AI terms
 
         # Check categories
-        ai_categories = ['cs.AI', 'cs.LG', 'cs.CV', 'cs.CL', 'cs.RO', 'stat.ML']
+        ai_categories = ["cs.AI", "cs.LG", "cs.CV", "cs.CL", "cs.RO", "stat.ML"]
         for cat in categories:
             if cat and cat in ai_categories:  # Check if cat is not None
                 score += 0.4
@@ -290,9 +336,18 @@ class ArxivScraper:
 
         # AI keywords
         ai_keywords = [
-            'machine learning', 'deep learning', 'neural network', 'computer vision',
-            'natural language processing', 'reinforcement learning', 'classification',
-            'regression', 'clustering', 'recommendation', 'automation', 'robotics'
+            "machine learning",
+            "deep learning",
+            "neural network",
+            "computer vision",
+            "natural language processing",
+            "reinforcement learning",
+            "classification",
+            "regression",
+            "clustering",
+            "recommendation",
+            "automation",
+            "robotics",
         ]
 
         for keyword in ai_keywords:
@@ -301,8 +356,16 @@ class ArxivScraper:
 
         # Domain-specific keywords
         domain_keywords = [
-            'healthcare', 'agriculture', 'finance', 'education', 'transportation',
-            'energy', 'environment', 'security', 'governance', 'development'
+            "healthcare",
+            "agriculture",
+            "finance",
+            "education",
+            "transportation",
+            "energy",
+            "environment",
+            "security",
+            "governance",
+            "development",
         ]
 
         for keyword in domain_keywords:
@@ -311,7 +374,9 @@ class ArxivScraper:
 
         return list(set(keywords))
 
-    async def scrape_recent_papers(self, days_back: int = 7, max_results: int = 100) -> List[ArxivPaper]:
+    async def scrape_recent_papers(
+        self, days_back: int = 7, max_results: int = 100
+    ) -> List[ArxivPaper]:
         """Scrape recent papers related to African AI research"""
         logger.info(f"Starting ArXiv scrape for last {days_back} days...")
 
@@ -320,21 +385,25 @@ class ArxivScraper:
         # Search with different keyword combinations
         keyword_groups = [
             settings.AFRICAN_AI_KEYWORDS[:3],  # General AI terms
-            ['healthcare AI africa', 'medical AI africa'],  # HealthTech
-            ['agriculture AI africa', 'farming AI africa'],  # AgriTech
-            ['financial AI africa', 'fintech africa'],  # FinTech
-            ['education AI africa', 'edtech africa']  # EdTech
+            ["healthcare AI africa", "medical AI africa"],  # HealthTech
+            ["agriculture AI africa", "farming AI africa"],  # AgriTech
+            ["financial AI africa", "fintech africa"],  # FinTech
+            ["education AI africa", "edtech africa"],  # EdTech
         ]
 
         for keywords in keyword_groups:
             try:
-                query_url = self.build_search_query(keywords, max_results // len(keyword_groups), days_back)
+                query_url = self.build_search_query(
+                    keywords, max_results // len(keyword_groups), days_back
+                )
                 paper_data = await self.fetch_papers(query_url)
 
                 for data in paper_data:
                     # Filter papers with minimum relevance scores
-                    if (data['african_relevance_score'] >= 0.3 and
-                        data['ai_relevance_score'] >= 0.2):
+                    if (
+                        data["african_relevance_score"] >= 0.3
+                        and data["ai_relevance_score"] >= 0.2
+                    ):
 
                         try:
                             paper = ArxivPaper(**data)
@@ -358,58 +427,72 @@ class ArxivScraper:
 
         result_papers = list(unique_papers.values())
         logger.info(f"Found {len(result_papers)} unique relevant papers")
-        
+
         # Store papers in database
         if result_papers:
             stored_papers = await self._store_papers_in_database(result_papers)
             logger.info(f"✅ Stored {len(stored_papers)} papers in database")
 
         return result_papers
-    
-    async def _store_papers_in_database(self, papers: List[ArxivPaper]) -> List[Dict[str, Any]]:
+
+    async def _store_papers_in_database(
+        self, papers: List[ArxivPaper]
+    ) -> List[Dict[str, Any]]:
         """Store ArXiv papers in Supabase database as publications"""
-        
+
         stored_records = []
-        
+
         for paper in papers:
             try:
                 # Convert ArXiv paper to publication format
                 publication_data = {
-                    'title': paper.title,
-                    'publication_type': 'preprint',
-                    'publication_date': paper.published_date.date() if paper.published_date else None,
-                    'year': paper.published_date.year if paper.published_date else None,
-                    'url': paper.url,
-                    'venue': 'arXiv',
-                    'abstract': paper.abstract,
-                    'keywords': paper.keywords + paper.categories,
-                    'source': 'arxiv',
-                    'source_id': paper.arxiv_id,
-                    'african_relevance_score': paper.african_relevance_score,
-                    'ai_relevance_score': paper.ai_relevance_score,
-                    'african_entities': paper.african_entities,
-                    'data_type': 'Academic Paper'
+                    "title": paper.title,
+                    "publication_type": "preprint",
+                    "publication_date": (
+                        paper.published_date.date() if paper.published_date else None
+                    ),
+                    "year": paper.published_date.year if paper.published_date else None,
+                    "url": paper.url,
+                    "venue": "arXiv",
+                    "abstract": paper.abstract,
+                    "keywords": paper.keywords + paper.categories,
+                    "source": "arxiv",
+                    "source_id": paper.arxiv_id,
+                    "african_relevance_score": paper.african_relevance_score,
+                    "ai_relevance_score": paper.ai_relevance_score,
+                    "african_entities": paper.african_entities,
+                    "data_type": "Academic Paper",
                 }
-                
+
                 # Store in database with deduplication
-                success, stored_record = await check_and_handle_publication_duplicates(publication_data)
-                action = 'processed'
-                
+                success, stored_record = await check_and_handle_publication_duplicates(
+                    publication_data
+                )
+                action = "processed"
+
                 if success and stored_record:
                     stored_records.append(stored_record)
-                    logger.info(f"✅ Stored ArXiv paper ({action}): {paper.title[:50]}...")
+                    logger.info(
+                        f"✅ Stored ArXiv paper ({action}): {paper.title[:50]}..."
+                    )
                 elif not success:
-                    logger.info(f"ℹ️ ArXiv paper handling ({action}): {paper.title[:50]}...")
-                    
+                    logger.info(
+                        f"ℹ️ ArXiv paper handling ({action}): {paper.title[:50]}..."
+                    )
+
             except Exception as e:
                 logger.error(f"❌ Error storing ArXiv paper {paper.title[:50]}: {e}")
                 continue
-        
-        logger.info(f"📊 ArXiv database storage complete: {len(stored_records)}/{len(papers)} papers stored")
+
+        logger.info(
+            f"📊 ArXiv database storage complete: {len(stored_records)}/{len(papers)} papers stored"
+        )
         return stored_records
 
 
-async def scrape_arxiv_papers(days_back: int = 7, max_results: int = 100) -> List[ArxivPaper]:
+async def scrape_arxiv_papers(
+    days_back: int = 7, max_results: int = 100
+) -> List[ArxivPaper]:
     """Main function to scrape ArXiv papers with monitoring"""
     from services.etl_context import ETLJobContext
 

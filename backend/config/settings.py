@@ -217,7 +217,6 @@ class Settings(BaseSettings):
         "healthcare machine learning",
         "clinical AI",
         "digital health",
-        
         # Human Capital Keywords
         "medical informatics education",
         "clinical AI training",
@@ -227,7 +226,6 @@ class Settings(BaseSettings):
         "medical AI workforce",
         "health informatics capacity",
         "clinical AI literacy",
-        
         # Physical Infrastructure Keywords
         "hospital EMR implementation",
         "medical imaging systems",
@@ -237,7 +235,6 @@ class Settings(BaseSettings):
         "PACS deployment",
         "health information systems",
         "clinical decision support systems",
-        
         # Regulatory Keywords
         "medical AI regulation",
         "health AI governance",
@@ -247,7 +244,6 @@ class Settings(BaseSettings):
         "clinical trial AI regulation",
         "medical AI safety standards",
         "health AI ethics",
-        
         # Economic Keywords
         "health AI market analysis",
         "medical AI investment",

@@ -18,53 +18,62 @@ from services.analytics_service import AHAIIAnalyticsService
 @click.version_option(version="1.0.0")
 def cli():
     """🏥 AHAII Analytics CLI
-    
+
     Generate impressive metrics and analytics for your health AI infrastructure data collection!
     """
     pass
 
 
 @cli.command()
-@click.option('--format', '-f', type=click.Choice(['table', 'json', 'summary']), default='summary', 
-              help='Output format')
-@click.option('--save', '-s', help='Save results to file')
+@click.option(
+    "--format",
+    "-f",
+    type=click.Choice(["table", "json", "summary"]),
+    default="summary",
+    help="Output format",
+)
+@click.option("--save", "-s", help="Save results to file")
 def dashboard(format, save):
     """Get dashboard analytics - the impressive headline numbers! 📊"""
-    
+
     click.echo("🔍 Compiling your impressive dashboard metrics...")
-    
+
     async def _get_dashboard():
         service = AHAIIAnalyticsService()
         summary = await service.get_dashboard_summary()
-        
-        if format == 'json':
+
+        if format == "json":
             output = json.dumps(summary, indent=2, default=str)
-        elif format == 'table':
+        elif format == "table":
             # Convert to table format
             headline_data = [
                 ["Total Records", summary["headline_stats"]["total_records"]],
                 ["Countries Covered", summary["headline_stats"]["countries_covered"]],
                 ["Days Operational", summary["headline_stats"]["days_operational"]],
-                ["Records Last 24h", summary["headline_stats"]["records_last_24h"]]
+                ["Records Last 24h", summary["headline_stats"]["records_last_24h"]],
             ]
-            
+
             sources_data = [
                 ["Academic Papers", summary["data_sources"]["academic_papers"]],
                 ["Government Docs", summary["data_sources"]["government_docs"]],
                 ["News Articles", summary["data_sources"]["news_articles"]],
-                ["Total Source Types", summary["data_sources"]["total_sources"]]
+                ["Total Source Types", summary["data_sources"]["total_sources"]],
             ]
-            
+
             output = "📈 HEADLINE STATS\n" + "=" * 50 + "\n"
-            output += tabulate(headline_data, headers=['Metric', 'Value'], tablefmt='grid')
+            output += tabulate(
+                headline_data, headers=["Metric", "Value"], tablefmt="grid"
+            )
             output += "\n\n📊 DATA SOURCES\n" + "=" * 50 + "\n"
-            output += tabulate(sources_data, headers=['Source', 'Count'], tablefmt='grid')
-            
+            output += tabulate(
+                sources_data, headers=["Source", "Count"], tablefmt="grid"
+            )
+
         else:  # summary format
             stats = summary["headline_stats"]
             sources = summary["data_sources"]
             quality = summary["quality_metrics"]
-            
+
             output = f"""
 🎉 AHAII Data Collection Success Story! 🎉
 {'='*50}
@@ -95,40 +104,40 @@ def dashboard(format, save):
 
 💪 We're working HARD for African Health AI! 💪
 """
-        
+
         if save:
-            with open(save, 'w') as f:
+            with open(save, "w") as f:
                 f.write(output)
             click.echo(f"📄 Results saved to {save}")
-        
+
         return output
-    
+
     result = asyncio.run(_get_dashboard())
     click.echo(result)
 
 
 @cli.command()
-@click.option('--days', '-d', default=30, help='Number of days for time series')
+@click.option("--days", "-d", default=30, help="Number of days for time series")
 def trends(days):
     """Show data collection trends over time 📈"""
-    
+
     click.echo(f"📈 Getting {days} days of collection trends...")
-    
+
     async def _get_trends():
         service = AHAIIAnalyticsService()
         time_series = await service.get_time_series_data(days)
-        
+
         daily_data = time_series.get("daily_collection", [])
         if not daily_data:
             return "No time series data available"
-        
+
         # Show recent days in table
         recent_days = daily_data[-7:]  # Last 7 days
         table_data = [[day["date"], day["records"]] for day in recent_days]
-        
+
         total_recent = sum(day["records"] for day in recent_days)
         avg_daily = total_recent / len(recent_days) if recent_days else 0
-        
+
         output = f"""
 📈 DATA COLLECTION TRENDS ({days} days)
 {'='*50}
@@ -145,7 +154,7 @@ Last 7 Days Activity:
 🔥 Consistent data collection shows we're committed! 🔥
 """
         return output
-    
+
     result = asyncio.run(_get_trends())
     click.echo(result)
 
@@ -153,23 +162,29 @@ Last 7 Days Activity:
 @cli.command()
 def domains():
     """Show breakdown of data sources by domain 🌐"""
-    
+
     click.echo("🌐 Analyzing data source domains...")
-    
+
     async def _get_domains():
         service = AHAIIAnalyticsService()
         metrics = await service.get_comprehensive_metrics()
-        
+
         if not metrics.domain_distribution:
             return "No domain data available"
-        
+
         # Top domains table
-        sorted_domains = sorted(metrics.domain_distribution.items(), key=lambda x: x[1], reverse=True)[:15]
+        sorted_domains = sorted(
+            metrics.domain_distribution.items(), key=lambda x: x[1], reverse=True
+        )[:15]
         table_data = [[domain, count] for domain, count in sorted_domains]
-        
+
         # Source types
-        source_data = list(metrics.source_distribution.items()) if metrics.source_distribution else []
-        
+        source_data = (
+            list(metrics.source_distribution.items())
+            if metrics.source_distribution
+            else []
+        )
+
         output = f"""
 🌐 DATA SOURCE DOMAIN ANALYSIS
 {'='*50}
@@ -179,10 +194,10 @@ Top 15 Domains by Records:
 
 📊 SOURCE TYPE BREAKDOWN:
 """
-        
+
         for source_type, count in source_data:
             output += f"• {source_type.replace('_', ' ').title()}: {count:,} records\n"
-        
+
         output += f"""
 
 🎯 DOMAIN DIVERSITY STATS:
@@ -194,7 +209,7 @@ Top 15 Domains by Records:
 🏅 We cast a WIDE net for comprehensive data! 🏅
 """
         return output
-    
+
     result = asyncio.run(_get_domains())
     click.echo(result)
 
@@ -202,30 +217,39 @@ Top 15 Domains by Records:
 @cli.command()
 def quality():
     """Show data quality and verification metrics 🏆"""
-    
+
     click.echo("🏆 Analyzing data quality achievements...")
-    
+
     async def _get_quality():
         service = AHAIIAnalyticsService()
         metrics = await service.get_comprehensive_metrics()
-        
+
         total = metrics.total_infrastructure_intelligence
         if total == 0:
             return "No data available for quality analysis"
-        
+
         verification_rate = (metrics.verified_records / total) * 100
         confidence_rate = (metrics.high_confidence_records / total) * 100
         peer_review_rate = (metrics.peer_reviewed_sources / total) * 100
-        
+
         quality_data = [
             ["Total Records", f"{total:,}"],
-            ["Verified Records", f"{metrics.verified_records:,} ({verification_rate:.1f}%)"],
-            ["High Confidence", f"{metrics.high_confidence_records:,} ({confidence_rate:.1f}%)"],
-            ["Peer Reviewed", f"{metrics.peer_reviewed_sources:,} ({peer_review_rate:.1f}%)"],
+            [
+                "Verified Records",
+                f"{metrics.verified_records:,} ({verification_rate:.1f}%)",
+            ],
+            [
+                "High Confidence",
+                f"{metrics.high_confidence_records:,} ({confidence_rate:.1f}%)",
+            ],
+            [
+                "Peer Reviewed",
+                f"{metrics.peer_reviewed_sources:,} ({peer_review_rate:.1f}%)",
+            ],
             ["Avg African Relevance", f"{metrics.african_relevance_avg*100:.1f}%"],
-            ["Avg AI Relevance", f"{metrics.ai_relevance_avg*100:.1f}%"]
+            ["Avg AI Relevance", f"{metrics.ai_relevance_avg*100:.1f}%"],
         ]
-        
+
         output = f"""
 🏆 DATA QUALITY EXCELLENCE REPORT
 {'='*50}
@@ -240,7 +264,7 @@ def quality():
 
 📊 QUALITY GRADES:
 """
-        
+
         # Quality grading
         if verification_rate >= 80:
             output += "• Verification: A+ (Excellent) ⭐⭐⭐\n"
@@ -248,18 +272,18 @@ def quality():
             output += "• Verification: B+ (Good) ⭐⭐\n"
         else:
             output += "• Verification: C+ (Improving) ⭐\n"
-        
+
         if confidence_rate >= 70:
             output += "• Confidence: A+ (Excellent) ⭐⭐⭐\n"
         elif confidence_rate >= 50:
             output += "• Confidence: B+ (Good) ⭐⭐\n"
         else:
             output += "• Confidence: C+ (Building) ⭐\n"
-        
+
         output += "\n🎯 Quality control is our TOP PRIORITY! 🎯\n"
-        
+
         return output
-    
+
     result = asyncio.run(_get_quality())
     click.echo(result)
 
@@ -267,22 +291,28 @@ def quality():
 @cli.command()
 def countries():
     """Show country coverage and geographic reach 🌍"""
-    
+
     click.echo("🌍 Analyzing geographic coverage...")
-    
+
     async def _get_countries():
         service = AHAIIAnalyticsService()
         metrics = await service.get_comprehensive_metrics()
-        
+
         if not metrics.country_coverage:
             return "No country coverage data available"
-        
+
         # Top countries by data
-        sorted_countries = sorted(metrics.country_coverage.items(), key=lambda x: x[1], reverse=True)[:15]
+        sorted_countries = sorted(
+            metrics.country_coverage.items(), key=lambda x: x[1], reverse=True
+        )[:15]
         table_data = [[country, records] for country, records in sorted_countries]
-        
-        coverage_rate = (len(metrics.country_coverage) / metrics.total_countries) * 100 if metrics.total_countries > 0 else 0
-        
+
+        coverage_rate = (
+            (len(metrics.country_coverage) / metrics.total_countries) * 100
+            if metrics.total_countries > 0
+            else 0
+        )
+
         output = f"""
 🌍 AFRICAN COUNTRY COVERAGE ANALYSIS
 {'='*50}
@@ -298,36 +328,40 @@ Top 15 Countries by Data Records:
 
 🎯 CONTINENTAL IMPACT:
 """
-        
+
         # Categorize coverage
         high_coverage = [c for c, r in sorted_countries if r >= 100]
         medium_coverage = [c for c, r in sorted_countries if 20 <= r < 100]
         emerging_coverage = [c for c, r in sorted_countries if 1 <= r < 20]
-        
+
         output += f"• High coverage countries (100+ records): {len(high_coverage)}\n"
-        output += f"• Medium coverage countries (20-99 records): {len(medium_coverage)}\n"
-        output += f"• Emerging coverage countries (1-19 records): {len(emerging_coverage)}\n"
-        
+        output += (
+            f"• Medium coverage countries (20-99 records): {len(medium_coverage)}\n"
+        )
+        output += (
+            f"• Emerging coverage countries (1-19 records): {len(emerging_coverage)}\n"
+        )
+
         output += f"\n🌟 We're building a CONTINENTAL view of African health AI! 🌟\n"
-        
+
         return output
-    
+
     result = asyncio.run(_get_countries())
     click.echo(result)
 
 
 @cli.command()
-@click.option('--save', '-s', help='Save comprehensive report to file')
+@click.option("--save", "-s", help="Save comprehensive report to file")
 def report(save):
     """Generate comprehensive analytics report 📑"""
-    
+
     click.echo("📑 Generating comprehensive analytics report...")
-    
+
     async def _generate_report():
         service = AHAIIAnalyticsService()
         metrics = await service.get_comprehensive_metrics()
         summary = await service.get_dashboard_summary()
-        
+
         report_content = f"""
 # AHAII Data Collection Analytics Report
 Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
@@ -374,19 +408,21 @@ The African Health AI Infrastructure Index (AHAII) has achieved remarkable data 
 
 ### Source Diversity
 """
-        
+
         # Add domain breakdown
         if metrics.domain_distribution:
             report_content += "\n#### Top Data Source Domains:\n"
             for domain, count in list(metrics.domain_distribution.items())[:10]:
                 report_content += f"- {domain}: {count:,} records\n"
-        
+
         # Add source type breakdown
         if metrics.source_distribution:
             report_content += "\n#### Source Type Distribution:\n"
             for source_type, count in metrics.source_distribution.items():
-                report_content += f"- {source_type.replace('_', ' ').title()}: {count:,} records\n"
-        
+                report_content += (
+                    f"- {source_type.replace('_', ' ').title()}: {count:,} records\n"
+                )
+
         report_content += f"""
 
 ## Conclusion
@@ -401,13 +437,13 @@ This data collection effort represents one of the most comprehensive attempts to
 Report generated by AHAII Analytics System
 {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 """
-        
+
         return report_content
-    
+
     report_content = asyncio.run(_generate_report())
-    
+
     if save:
-        with open(save, 'w') as f:
+        with open(save, "w") as f:
             f.write(report_content)
         click.echo(f"📄 Comprehensive report saved to {save}")
     else:
@@ -417,35 +453,39 @@ Report generated by AHAII Analytics System
 @cli.command()
 def test():
     """Test analytics system connectivity 🔧"""
-    
+
     click.echo("🔧 Testing analytics system...")
-    
+
     async def _test_system():
         try:
             service = AHAIIAnalyticsService()
-            
+
             # Test basic connectivity
             click.echo("  ✅ Analytics service initialized")
-            
+
             # Test database queries
             metrics = await service.get_comprehensive_metrics()
             click.echo(f"  ✅ Database queries successful")
-            click.echo(f"  📊 Found {metrics.total_infrastructure_intelligence:,} records")
-            
+            click.echo(
+                f"  📊 Found {metrics.total_infrastructure_intelligence:,} records"
+            )
+
             # Test dashboard summary
             summary = await service.get_dashboard_summary()
             click.echo(f"  ✅ Dashboard summary generated")
-            
+
             # Test time series
             time_series = await service.get_time_series_data(7)
-            click.echo(f"  ✅ Time series data retrieved ({len(time_series.get('daily_collection', []))} data points)")
-            
+            click.echo(
+                f"  ✅ Time series data retrieved ({len(time_series.get('daily_collection', []))} data points)"
+            )
+
             click.echo("\n🎉 Analytics system is working perfectly!")
-            
+
         except Exception as e:
             click.echo(f"  ❌ Error: {e}")
             click.echo("\n💡 Check your database connection and try again")
-    
+
     asyncio.run(_test_system())
 
 

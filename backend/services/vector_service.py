@@ -361,7 +361,7 @@ class VectorService:
     ) -> bool:
         """Add infrastructure intelligence to vector database"""
         combined_text = f"{title}. {summary}"
-        
+
         metadata = {
             "document_type": "infrastructure_intelligence",
             "intelligence_id": intelligence_id,
@@ -369,22 +369,24 @@ class VectorService:
             "source_type": source_type,  # 'academic_paper', 'news_article', 'government_report'
             "country_code": country_code,
             "affects_human_capital": pillar_impacts.get("human_capital", False),
-            "affects_physical_infrastructure": pillar_impacts.get("physical_infrastructure", False),
-            "affects_regulatory_framework": pillar_impacts.get("regulatory_framework", False),
+            "affects_physical_infrastructure": pillar_impacts.get(
+                "physical_infrastructure", False
+            ),
+            "affects_regulatory_framework": pillar_impacts.get(
+                "regulatory_framework", False
+            ),
             "affects_economic_market": pillar_impacts.get("economic_market", False),
             "impact_significance": significance,
             "timestamp": str(asyncio.get_event_loop().time()),
         }
-        
+
         if additional_metadata:
             metadata.update(additional_metadata)
-            
+
         document = VectorDocument(
-            id=f"intel_{intelligence_id}",
-            content=combined_text,
-            metadata=metadata
+            id=f"intel_{intelligence_id}", content=combined_text, metadata=metadata
         )
-        
+
         return await self.upsert_documents([document])
 
     async def add_health_ai_organization(
@@ -400,7 +402,7 @@ class VectorService:
         """Add health AI organization to vector database"""
         focus_text = ", ".join(focus_areas) if focus_areas else ""
         combined_text = f"{name}. {description}. Focus areas: {focus_text}"
-        
+
         metadata = {
             "document_type": "health_ai_organization",
             "organization_id": org_id,
@@ -410,16 +412,14 @@ class VectorService:
             "focus_areas": focus_areas,
             "timestamp": str(asyncio.get_event_loop().time()),
         }
-        
+
         if additional_metadata:
             metadata.update(additional_metadata)
-            
+
         document = VectorDocument(
-            id=f"org_{org_id}",
-            content=combined_text,
-            metadata=metadata
+            id=f"org_{org_id}", content=combined_text, metadata=metadata
         )
-        
+
         return await self.upsert_documents([document])
 
     async def search_by_infrastructure_pillar(
@@ -431,10 +431,10 @@ class VectorService:
     ) -> List[SearchResult]:
         """Search for documents affecting a specific infrastructure pillar"""
         filter_dict = {f"affects_{pillar}": True}
-        
+
         if country_code:
             filter_dict["country_code"] = country_code
-            
+
         return await self.search_similar(query, top_k, filter_dict)
 
     async def search_health_ai_organizations(
@@ -446,13 +446,13 @@ class VectorService:
     ) -> List[SearchResult]:
         """Search for health AI organizations"""
         filter_dict = {"document_type": "health_ai_organization"}
-        
+
         if organization_type:
             filter_dict["organization_type"] = organization_type
-            
+
         if country_code:
             filter_dict["country_code"] = country_code
-            
+
         return await self.search_similar(query, top_k, filter_dict)
 
     async def search_infrastructure_intelligence(
@@ -465,16 +465,16 @@ class VectorService:
     ) -> List[SearchResult]:
         """Search for infrastructure intelligence reports"""
         filter_dict = {"document_type": "infrastructure_intelligence"}
-        
+
         if source_type:
             filter_dict["source_type"] = source_type
-            
+
         if significance:
             filter_dict["impact_significance"] = significance
-            
+
         if country_code:
             filter_dict["country_code"] = country_code
-            
+
         return await self.search_similar(query, top_k, filter_dict)
 
     async def find_similar_by_country(
@@ -496,44 +496,41 @@ class VectorService:
         """Get insights for a specific infrastructure pillar"""
         try:
             # Search for high-impact documents for this pillar
-            filter_dict = {
-                f"affects_{pillar}": True,
-                "impact_significance": "high"
-            }
-            
+            filter_dict = {f"affects_{pillar}": True, "impact_significance": "high"}
+
             if country_code:
                 filter_dict["country_code"] = country_code
-                
+
             # Use a broad query to get pillar-relevant documents
             pillar_queries = {
                 "human_capital": "medical training clinical education health informatics AI curriculum",
                 "physical_infrastructure": "hospital system EMR implementation data center telemedicine platform",
                 "regulatory_framework": "medical device approval health regulation AI governance clinical validation",
-                "economic_market": "health AI funding medical AI investment digital health budget"
+                "economic_market": "health AI funding medical AI investment digital health budget",
             }
-            
+
             query = pillar_queries.get(pillar, pillar)
             results = await self.search_similar(query, limit, filter_dict)
-            
+
             # Analyze results
             source_types = {}
             countries = {}
             significance_counts = {"high": 0, "medium": 0, "low": 0}
-            
+
             for result in results:
                 # Count source types
                 source_type = result.metadata.get("source_type", "unknown")
                 source_types[source_type] = source_types.get(source_type, 0) + 1
-                
+
                 # Count countries
                 country = result.metadata.get("country_code", "unknown")
                 countries[country] = countries.get(country, 0) + 1
-                
+
                 # Count significance
                 sig = result.metadata.get("impact_significance", "low")
                 if sig in significance_counts:
                     significance_counts[sig] += 1
-            
+
             return {
                 "pillar": pillar,
                 "total_documents": len(results),
@@ -546,12 +543,14 @@ class VectorService:
                         "score": result.score,
                         "source_type": result.metadata.get("source_type", "unknown"),
                         "country_code": result.metadata.get("country_code", "unknown"),
-                        "significance": result.metadata.get("impact_significance", "low")
+                        "significance": result.metadata.get(
+                            "impact_significance", "low"
+                        ),
                     }
                     for result in results[:10]  # Top 10 results
-                ]
+                ],
             }
-            
+
         except Exception as e:
             logger.error(f"Error getting pillar insights for {pillar}: {e}")
             return {"error": str(e)}

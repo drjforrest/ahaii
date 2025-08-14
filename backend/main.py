@@ -24,15 +24,15 @@ from config.database import supabase
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler('logs/ahaii_backend.log', mode='a')
-    ]
+        logging.FileHandler("logs/ahaii_backend.log", mode="a"),
+    ],
 )
 
 # Create logs directory if it doesn't exist
-Path('logs').mkdir(exist_ok=True)
+Path("logs").mkdir(exist_ok=True)
 
 # Get logger
 logger = logging.getLogger("AHAII_Backend")
@@ -43,7 +43,7 @@ app = FastAPI(
     description="African Health AI Infrastructure Index - Backend API for automated country assessments and ETL pipeline",
     version="1.0.0",
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
 )
 
 # CORS middleware for frontend integration
@@ -66,6 +66,7 @@ app.add_middleware(
 app.include_router(countries_router)
 app.include_router(ahaii_router)
 
+
 # Startup event
 @app.on_event("startup")
 async def startup_event():
@@ -74,12 +75,14 @@ async def startup_event():
     logger.info("🔌 Connecting to Supabase database")
     logger.info("⚡ All systems initialized successfully")
 
-# Shutdown event  
+
+# Shutdown event
 @app.on_event("shutdown")
 async def shutdown_event():
     logger.info("🛑 AHAII Backend API Server Shutting Down...")
     logger.info("💾 Saving any pending data")
     logger.info("✅ Shutdown complete")
+
 
 # Health check endpoint
 @app.get("/health")
@@ -92,7 +95,7 @@ async def health_check():
         try:
             # Simple Supabase connection test
             test_response = supabase.table("countries").select("id").limit(1).execute()
-            if hasattr(test_response, 'error') and test_response.error:
+            if hasattr(test_response, "error") and test_response.error:
                 db_status = f"error: {test_response.error}"
                 logger.warning(f"Database connection warning: {test_response.error}")
             else:
@@ -100,7 +103,7 @@ async def health_check():
         except Exception as e:
             db_status = f"connection_failed: {str(e)}"
             logger.error(f"❌ Database connection failed: {str(e)}")
-        
+
         return {
             "status": "healthy",
             "timestamp": datetime.now().isoformat(),
@@ -110,8 +113,8 @@ async def health_check():
             "services": {
                 "countries_api": "active",
                 "etl_pipeline": "ready",
-                "scoring_service": "ready"
-            }
+                "scoring_service": "ready",
+            },
         }
     except Exception as e:
         return JSONResponse(
@@ -119,9 +122,10 @@ async def health_check():
             content={
                 "status": "unhealthy",
                 "error": str(e),
-                "timestamp": datetime.now().isoformat()
-            }
+                "timestamp": datetime.now().isoformat(),
+            },
         )
+
 
 # Root endpoint
 @app.get("/")
@@ -143,13 +147,13 @@ async def root():
             "ahaii_health": "/api/ahaii/health",
             "ahaii_scores": "/api/ahaii/scores",
             "ahaii_collect_data": "/api/ahaii/collect-data",
-            "ahaii_run_assessment": "/api/ahaii/run-complete-assessment"
+            "ahaii_run_assessment": "/api/ahaii/run-complete-assessment",
         },
         "etl_components": {
             "academic_processing": "ready",
-            "news_monitoring": "active", 
+            "news_monitoring": "active",
             "scoring_service": "automated",
-            "database_integration": "supabase"
+            "database_integration": "supabase",
         },
         "ahaii_components": {
             "world_bank_collector": "active",
@@ -157,10 +161,11 @@ async def root():
             "ecosystem_mapper": "active",
             "scoring_calculator": "active",
             "expert_validation": "active",
-            "report_generator": "active"
+            "report_generator": "active",
         },
-        "timestamp": datetime.now().isoformat()
+        "timestamp": datetime.now().isoformat(),
     }
+
 
 # Global exception handler
 @app.exception_handler(500)
@@ -170,39 +175,40 @@ async def internal_server_error_handler(request, exc):
         content={
             "error": "Internal server error",
             "message": "An unexpected error occurred. Please try again later.",
-            "timestamp": datetime.now().isoformat()
-        }
+            "timestamp": datetime.now().isoformat(),
+        },
     )
+
 
 # Configuration info endpoint (for debugging)
 @app.get("/config/info")
 async def config_info():
     """Configuration information endpoint (non-sensitive data only)"""
     return {
-        "ahaii_pillars": ["human_capital", "physical_infrastructure", "regulatory", "economic"],
+        "ahaii_pillars": [
+            "human_capital",
+            "physical_infrastructure",
+            "regulatory",
+            "economic",
+        ],
         "ai_keywords_count": len(settings.AFRICAN_AI_KEYWORDS),
         "database_tables": [
-            "countries", 
-            "ahaii_scores", 
+            "countries",
+            "ahaii_scores",
             "infrastructure_intelligence",
             "infrastructure_indicators",
-            "health_ai_organizations"
+            "health_ai_organizations",
         ],
         "supported_regions": [
             "North Africa",
-            "West Africa", 
+            "West Africa",
             "East Africa",
             "Central Africa",
-            "Southern Africa"
-        ]
+            "Southern Africa",
+        ],
     }
+
 
 if __name__ == "__main__":
     # Development server
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
-        log_level="info"
-    )
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, log_level="info")

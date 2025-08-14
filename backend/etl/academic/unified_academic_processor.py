@@ -22,80 +22,79 @@ from services.serpapi_service import SerpAPIService  # Google Scholar via SerpAP
 
 class HealthAIInfrastructureExtractor:
     """Extract specific health AI infrastructure indicators from academic papers"""
-    
+
     def __init__(self):
         # Infrastructure signal patterns for extraction
         self.indicator_patterns = {
             # Human Capital Indicators
-            'medical_informatics_programs': [
-                r'(\d+)\s*(?:new\s+)?medical informatics\s+programs?',
-                r'(\d+)\s*(?:new\s+)?health informatics\s+programs?',
-                r'(\d+)\s*biomedical informatics\s+curricula?',
+            "medical_informatics_programs": [
+                r"(\d+)\s*(?:new\s+)?medical informatics\s+programs?",
+                r"(\d+)\s*(?:new\s+)?health informatics\s+programs?",
+                r"(\d+)\s*biomedical informatics\s+curricula?",
             ],
-            'ai_training_graduates': [
-                r'(\d+)\s*graduates?\s+from\s+(?:AI|artificial intelligence)\s+programs?',
-                r'(\d+)\s*students?\s+trained\s+in\s+(?:clinical AI|medical AI)',
-                r'(\d+)\s*health professionals\s+certified\s+in\s+AI',
+            "ai_training_graduates": [
+                r"(\d+)\s*graduates?\s+from\s+(?:AI|artificial intelligence)\s+programs?",
+                r"(\d+)\s*students?\s+trained\s+in\s+(?:clinical AI|medical AI)",
+                r"(\d+)\s*health professionals\s+certified\s+in\s+AI",
             ],
-            'clinical_ai_literacy': [
-                r'(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:doctors|physicians|clinicians)\s*(?:have|possess)\s*(?:AI|artificial intelligence)\s*(?:skills|literacy)',
-                r'(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:AI|artificial intelligence)\s*literacy\s*among\s*healthcare\s*workers',
+            "clinical_ai_literacy": [
+                r"(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:doctors|physicians|clinicians)\s*(?:have|possess)\s*(?:AI|artificial intelligence)\s*(?:skills|literacy)",
+                r"(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:AI|artificial intelligence)\s*literacy\s*among\s*healthcare\s*workers",
             ],
-            
             # Physical Infrastructure Indicators
-            'emr_adoption_rate': [
-                r'(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:hospitals|facilities|clinics)\s*(?:have|use|implemented|adopted)\s*(?:EMR|electronic medical record|electronic health record|EHR)',
-                r'EMR\s*adoption\s*rate\s*of\s*(\d+(?:\.\d+)?)\s*(?:percent|%)',
+            "emr_adoption_rate": [
+                r"(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:hospitals|facilities|clinics)\s*(?:have|use|implemented|adopted)\s*(?:EMR|electronic medical record|electronic health record|EHR)",
+                r"EMR\s*adoption\s*rate\s*of\s*(\d+(?:\.\d+)?)\s*(?:percent|%)",
             ],
-            'telemedicine_capability': [
-                r'(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:hospitals|facilities).*?(?:offer|provide)\s*(?:telemedicine|telehealth)',
-                r'telemedicine\s*coverage\s*(?:of|at)\s*(\d+(?:\.\d+)?)\s*(?:percent|%)',
+            "telemedicine_capability": [
+                r"(\d+(?:\.\d+)?)\s*(?:percent|%)\s*(?:of\s+)?(?:hospitals|facilities).*?(?:offer|provide)\s*(?:telemedicine|telehealth)",
+                r"telemedicine\s*coverage\s*(?:of|at)\s*(\d+(?:\.\d+)?)\s*(?:percent|%)",
             ],
-            'pacs_deployment': [
-                r'(\d+)\s*(?:hospitals|facilities)\s*(?:have|implemented|deployed)\s*PACS',
-                r'PACS\s*(?:implementation|deployment)\s*in\s*(\d+)\s*(?:hospitals|facilities)',
+            "pacs_deployment": [
+                r"(\d+)\s*(?:hospitals|facilities)\s*(?:have|implemented|deployed)\s*PACS",
+                r"PACS\s*(?:implementation|deployment)\s*in\s*(\d+)\s*(?:hospitals|facilities)",
             ],
-            'health_data_centers': [
-                r'(\d+)\s*(?:new\s+)?health\s*data\s*centers?\s*(?:established|built|deployed)',
-                r'(\d+)\s*healthcare\s*data\s*(?:centers|facilities)\s*operational',
+            "health_data_centers": [
+                r"(\d+)\s*(?:new\s+)?health\s*data\s*centers?\s*(?:established|built|deployed)",
+                r"(\d+)\s*healthcare\s*data\s*(?:centers|facilities)\s*operational",
             ],
-            
             # Regulatory Framework Indicators
-            'ai_device_approvals': [
-                r'(\d+)\s*(?:AI|artificial intelligence)\s*(?:medical\s+)?devices?\s*approved',
-                r'(\d+)\s*medical\s*AI\s*(?:applications|tools)\s*(?:approved|licensed)',
+            "ai_device_approvals": [
+                r"(\d+)\s*(?:AI|artificial intelligence)\s*(?:medical\s+)?devices?\s*approved",
+                r"(\d+)\s*medical\s*AI\s*(?:applications|tools)\s*(?:approved|licensed)",
             ],
-            'health_ai_policies': [
-                r'(\d+)\s*(?:new\s+)?(?:health\s*AI|medical\s*AI)\s*(?:policies|regulations|guidelines)\s*(?:enacted|implemented|published)',
-                r'(\d+)\s*AI\s*governance\s*frameworks?\s*for\s*healthcare',
+            "health_ai_policies": [
+                r"(\d+)\s*(?:new\s+)?(?:health\s*AI|medical\s*AI)\s*(?:policies|regulations|guidelines)\s*(?:enacted|implemented|published)",
+                r"(\d+)\s*AI\s*governance\s*frameworks?\s*for\s*healthcare",
             ],
-            'clinical_validation_studies': [
-                r'(\d+)\s*clinical\s*validation\s*studies?\s*(?:for\s*AI|for\s*artificial intelligence)',
-                r'(\d+)\s*AI\s*(?:tools|systems)\s*clinically\s*validated',
+            "clinical_validation_studies": [
+                r"(\d+)\s*clinical\s*validation\s*studies?\s*(?:for\s*AI|for\s*artificial intelligence)",
+                r"(\d+)\s*AI\s*(?:tools|systems)\s*clinically\s*validated",
             ],
-            
             # Economic Market Indicators
-            'health_ai_funding': [
-                r'\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)\s*(?:in\s+)?(?:health\s*AI|medical\s*AI)\s*(?:funding|investment)',
-                r'([\d,]+(?:\.\d+)?)\s*million\s*USD\s*invested\s*in\s*(?:health\s*AI|digital\s*health)',
+            "health_ai_funding": [
+                r"\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)\s*(?:in\s+)?(?:health\s*AI|medical\s*AI)\s*(?:funding|investment)",
+                r"([\d,]+(?:\.\d+)?)\s*million\s*USD\s*invested\s*in\s*(?:health\s*AI|digital\s*health)",
             ],
-            'ai_startups': [
-                r'(\d+)\s*(?:new\s+)?(?:health\s*AI|medical\s*AI|digital\s*health)\s*startups?',
-                r'(\d+)\s*AI\s*companies?\s*(?:in\s*healthcare|in\s*medical\s*field)',
+            "ai_startups": [
+                r"(\d+)\s*(?:new\s+)?(?:health\s*AI|medical\s*AI|digital\s*health)\s*startups?",
+                r"(\d+)\s*AI\s*companies?\s*(?:in\s*healthcare|in\s*medical\s*field)",
             ],
-            'market_size': [
-                r'health\s*AI\s*market\s*(?:size|value)\s*of\s*\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)',
-                r'medical\s*AI\s*market\s*worth\s*\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)',
+            "market_size": [
+                r"health\s*AI\s*market\s*(?:size|value)\s*of\s*\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)",
+                r"medical\s*AI\s*market\s*worth\s*\$([\d,]+(?:\.\d+)?(?:\s*million|\s*billion)?)",
             ],
         }
-    
-    def extract_infrastructure_indicators(self, paper: Dict[str, Any]) -> List[Dict[str, Any]]:
+
+    def extract_infrastructure_indicators(
+        self, paper: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
         """Extract specific infrastructure metrics from papers"""
         indicators = []
-        
+
         # Combine title and abstract for content analysis
         content = f"{paper.get('title', '')} {paper.get('abstract', '')}"
-        
+
         # Extract indicators for each pattern
         for indicator_type, patterns in self.indicator_patterns.items():
             for pattern in patterns:
@@ -103,107 +102,118 @@ class HealthAIInfrastructureExtractor:
                 for match in matches:
                     try:
                         # Clean and convert the matched value
-                        value_str = match.replace(',', '') if isinstance(match, str) else str(match)
-                        
+                        value_str = (
+                            match.replace(",", "")
+                            if isinstance(match, str)
+                            else str(match)
+                        )
+
                         # Handle different value formats
-                        if 'million' in value_str.lower():
-                            value = float(value_str.lower().replace('million', '').strip()) * 1000000
-                            unit = 'USD'
-                        elif 'billion' in value_str.lower():
-                            value = float(value_str.lower().replace('billion', '').strip()) * 1000000000
-                            unit = 'USD'
-                        elif 'percent' in indicator_type or '%' in value_str:
-                            value = float(value_str.replace('%', '').strip())
-                            unit = 'percentage'
+                        if "million" in value_str.lower():
+                            value = (
+                                float(value_str.lower().replace("million", "").strip())
+                                * 1000000
+                            )
+                            unit = "USD"
+                        elif "billion" in value_str.lower():
+                            value = (
+                                float(value_str.lower().replace("billion", "").strip())
+                                * 1000000000
+                            )
+                            unit = "USD"
+                        elif "percent" in indicator_type or "%" in value_str:
+                            value = float(value_str.replace("%", "").strip())
+                            unit = "percentage"
                         else:
                             value = float(value_str)
-                            unit = 'count'
-                        
+                            unit = "count"
+
                         # Determine which pillar this indicator belongs to
                         pillar = self.determine_pillar(indicator_type)
-                        
+
                         # Create indicator record
                         indicator = {
-                            'indicator_name': indicator_type,
-                            'indicator_value': value,
-                            'indicator_unit': unit,
-                            'pillar': pillar,
-                            'confidence_score': 0.8,  # Base confidence for regex extraction
-                            'data_source': paper.get('journal', 'academic_paper'),
-                            'data_source_type': 'academic_peer_reviewed',
-                            'data_collection_method': 'literature_review',
-                            'verification_status': 'unverified',
-                            'confidence_level': 'medium',
-                            'validation_notes': f'Extracted from: {paper.get("title", "Unknown paper")}',
-                            'source_paper_id': paper.get('id'),
-                            'source_paper_doi': paper.get('doi'),
-                            'source_paper_url': paper.get('url'),
-                            'extracted_text': match,
-                            'extraction_pattern': pattern
+                            "indicator_name": indicator_type,
+                            "indicator_value": value,
+                            "indicator_unit": unit,
+                            "pillar": pillar,
+                            "confidence_score": 0.8,  # Base confidence for regex extraction
+                            "data_source": paper.get("journal", "academic_paper"),
+                            "data_source_type": "academic_peer_reviewed",
+                            "data_collection_method": "literature_review",
+                            "verification_status": "unverified",
+                            "confidence_level": "medium",
+                            "validation_notes": f'Extracted from: {paper.get("title", "Unknown paper")}',
+                            "source_paper_id": paper.get("id"),
+                            "source_paper_doi": paper.get("doi"),
+                            "source_paper_url": paper.get("url"),
+                            "extracted_text": match,
+                            "extraction_pattern": pattern,
                         }
-                        
+
                         indicators.append(indicator)
-                        
+
                     except (ValueError, TypeError) as e:
-                        logger.warning(f"Could not parse value '{match}' for indicator {indicator_type}: {e}")
+                        logger.warning(
+                            f"Could not parse value '{match}' for indicator {indicator_type}: {e}"
+                        )
                         continue
-        
+
         return indicators
-    
+
     def determine_pillar(self, indicator_type: str) -> str:
         """Determine which AHAII pillar an indicator belongs to"""
         pillar_mapping = {
             # Human Capital
-            'medical_informatics_programs': 'human_capital',
-            'ai_training_graduates': 'human_capital',
-            'clinical_ai_literacy': 'human_capital',
-            
+            "medical_informatics_programs": "human_capital",
+            "ai_training_graduates": "human_capital",
+            "clinical_ai_literacy": "human_capital",
             # Physical Infrastructure
-            'emr_adoption_rate': 'physical_infrastructure',
-            'telemedicine_capability': 'physical_infrastructure',
-            'pacs_deployment': 'physical_infrastructure',
-            'health_data_centers': 'physical_infrastructure',
-            
+            "emr_adoption_rate": "physical_infrastructure",
+            "telemedicine_capability": "physical_infrastructure",
+            "pacs_deployment": "physical_infrastructure",
+            "health_data_centers": "physical_infrastructure",
             # Regulatory Framework
-            'ai_device_approvals': 'regulatory_framework',
-            'health_ai_policies': 'regulatory_framework',
-            'clinical_validation_studies': 'regulatory_framework',
-            
+            "ai_device_approvals": "regulatory_framework",
+            "health_ai_policies": "regulatory_framework",
+            "clinical_validation_studies": "regulatory_framework",
             # Economic Market
-            'health_ai_funding': 'economic_market',
-            'ai_startups': 'economic_market',
-            'market_size': 'economic_market',
+            "health_ai_funding": "economic_market",
+            "ai_startups": "economic_market",
+            "market_size": "economic_market",
         }
-        
-        return pillar_mapping.get(indicator_type, 'unknown')
-    
-    def calculate_pillar_impact_score(self, indicators: List[Dict[str, Any]]) -> Dict[str, float]:
+
+        return pillar_mapping.get(indicator_type, "unknown")
+
+    def calculate_pillar_impact_score(
+        self, indicators: List[Dict[str, Any]]
+    ) -> Dict[str, float]:
         """Calculate impact scores by pillar based on extracted indicators"""
         pillar_scores = {
-            'human_capital': 0.0,
-            'physical_infrastructure': 0.0,
-            'regulatory_framework': 0.0,
-            'economic_market': 0.0
+            "human_capital": 0.0,
+            "physical_infrastructure": 0.0,
+            "regulatory_framework": 0.0,
+            "economic_market": 0.0,
         }
-        
+
         pillar_counts = {
-            'human_capital': 0,
-            'physical_infrastructure': 0,
-            'regulatory_framework': 0,
-            'economic_market': 0
+            "human_capital": 0,
+            "physical_infrastructure": 0,
+            "regulatory_framework": 0,
+            "economic_market": 0,
         }
-        
+
         for indicator in indicators:
-            pillar = indicator.get('pillar', 'unknown')
+            pillar = indicator.get("pillar", "unknown")
             if pillar in pillar_scores:
-                pillar_scores[pillar] += indicator.get('confidence_score', 0.5)
+                pillar_scores[pillar] += indicator.get("confidence_score", 0.5)
                 pillar_counts[pillar] += 1
-        
+
         # Calculate average scores
         for pillar in pillar_scores:
             if pillar_counts[pillar] > 0:
                 pillar_scores[pillar] = pillar_scores[pillar] / pillar_counts[pillar]
-        
+
         return pillar_scores
 
 
@@ -333,45 +343,55 @@ class UnifiedAcademicProcessor:
                 innovation_type=None,  # General AI research
                 country=None,  # All African countries
                 year_from=2020,  # Recent papers
-                num_results=max_results
+                num_results=max_results,
             )
-            
+
             standardized_papers = []
             for result in scholar_results:
                 try:
                     # Convert SerpAPI Scholar result to paper format
                     paper_data = {
-                        'title': result.title,
-                        'authors': result.authors or [],
-                        'abstract': result.snippet,
-                        'journal': result.publication or '',
-                        'year': result.year,
-                        'publication_date': None,  # Not available from Scholar
-                        'doi': '',  # Not available from Scholar
-                        'url': str(result.link) if result.link else '',
-                        'pdf_url': '',  # Not available from Scholar
-                        'citation_count': result.cited_by or 0,
-                        'african_relevance_score': self._calculate_scholar_african_relevance(result),
-                        'ai_relevance_score': self._calculate_scholar_ai_relevance(result),
-                        'african_entities': self._extract_african_entities_from_text(f"{result.title} {result.snippet}"),
-                        'keywords': self._extract_keywords_from_text(f"{result.title} {result.snippet}"),
-                        'categories': [],
-                        'project_domain': '',
-                        'funding_source': '',
-                        'ai_techniques': '',
-                        'geographic_scope': '',
-                        'key_outcomes': '',
-                        'data_type': 'Academic Paper'
+                        "title": result.title,
+                        "authors": result.authors or [],
+                        "abstract": result.snippet,
+                        "journal": result.publication or "",
+                        "year": result.year,
+                        "publication_date": None,  # Not available from Scholar
+                        "doi": "",  # Not available from Scholar
+                        "url": str(result.link) if result.link else "",
+                        "pdf_url": "",  # Not available from Scholar
+                        "citation_count": result.cited_by or 0,
+                        "african_relevance_score": self._calculate_scholar_african_relevance(
+                            result
+                        ),
+                        "ai_relevance_score": self._calculate_scholar_ai_relevance(
+                            result
+                        ),
+                        "african_entities": self._extract_african_entities_from_text(
+                            f"{result.title} {result.snippet}"
+                        ),
+                        "keywords": self._extract_keywords_from_text(
+                            f"{result.title} {result.snippet}"
+                        ),
+                        "categories": [],
+                        "project_domain": "",
+                        "funding_source": "",
+                        "ai_techniques": "",
+                        "geographic_scope": "",
+                        "key_outcomes": "",
+                        "data_type": "Academic Paper",
                     }
-                    
-                    standardized = self.standardize_paper_format(paper_data, "google_scholar")
+
+                    standardized = self.standardize_paper_format(
+                        paper_data, "google_scholar"
+                    )
                     if standardized:
                         standardized_papers.append(standardized)
-                        
+
                 except Exception as e:
                     logger.error(f"Error processing Scholar result: {e}")
                     continue
-                    
+
             return standardized_papers
 
     def standardize_paper_format(
@@ -585,9 +605,9 @@ class UnifiedAcademicProcessor:
                     :15
                 ]
             ),
-            "avg_african_relevance": sum(african_scores) / len(african_scores)
-            if african_scores
-            else 0,
+            "avg_african_relevance": (
+                sum(african_scores) / len(african_scores) if african_scores else 0
+            ),
             "avg_ai_relevance": sum(ai_scores) / len(ai_scores) if ai_scores else 0,
             "avg_citations": sum(citations) / len(citations) if citations else 0,
             "high_relevance_papers": len(

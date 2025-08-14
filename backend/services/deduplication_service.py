@@ -529,9 +529,11 @@ class DeduplicationService:
                             existing_record_id=record["id"],
                             existing_record=record,
                             reason=f"Title similarity: {similarity:.2f}",
-                            action=DuplicateAction.MERGE
-                            if similarity > 0.95
-                            else DuplicateAction.LINK,
+                            action=(
+                                DuplicateAction.MERGE
+                                if similarity > 0.95
+                                else DuplicateAction.LINK
+                            ),
                         )
 
             return DuplicateMatch(
@@ -623,9 +625,11 @@ class DeduplicationService:
                             existing_record_id=org["id"],
                             existing_record=org,
                             reason=f"Organization name similarity: {similarity:.2f}",
-                            action=DuplicateAction.MERGE
-                            if similarity > 0.95
-                            else DuplicateAction.LINK,
+                            action=(
+                                DuplicateAction.MERGE
+                                if similarity > 0.95
+                                else DuplicateAction.LINK
+                            ),
                         )
 
             return DuplicateMatch(

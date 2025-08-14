@@ -123,12 +123,12 @@ class SystematicReviewProcessor:
                 "project_domain": project_domain if project_domain != "nan" else "",
                 "funding_source": funding_source if funding_source != "nan" else "",
                 "ai_techniques": ai_techniques if ai_techniques != "nan" else "",
-                "geographic_scope": geographic_scope
-                if geographic_scope != "nan"
-                else "",
-                "project_duration": project_duration
-                if project_duration != "nan"
-                else "",
+                "geographic_scope": (
+                    geographic_scope if geographic_scope != "nan" else ""
+                ),
+                "project_duration": (
+                    project_duration if project_duration != "nan" else ""
+                ),
                 "key_outcomes": key_outcomes if key_outcomes != "nan" else "",
                 "keywords": keywords,
                 "african_entities": african_entities,

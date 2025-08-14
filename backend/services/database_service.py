@@ -484,7 +484,9 @@ class DatabaseService:
             indicator_record = {
                 "id": str(uuid4()),
                 "country_id": indicator_data.get("country_id"),
-                "pillar": indicator_data.get("pillar"),  # 'human_capital', 'physical', 'regulatory', 'economic'
+                "pillar": indicator_data.get(
+                    "pillar"
+                ),  # 'human_capital', 'physical', 'regulatory', 'economic'
                 "indicator_name": indicator_data.get("indicator_name"),
                 "indicator_value": indicator_data.get("indicator_value"),
                 "indicator_unit": indicator_data.get("indicator_unit"),
@@ -494,24 +496,36 @@ class DatabaseService:
                 "data_source_type": indicator_data.get("data_source_type", "unknown"),
                 "data_collection_method": indicator_data.get("data_collection_method"),
                 "sample_size": indicator_data.get("sample_size"),
-                "geographic_coverage": indicator_data.get("geographic_coverage", "national"),
-                "verification_status": indicator_data.get("verification_status", "unverified"),
+                "geographic_coverage": indicator_data.get(
+                    "geographic_coverage", "national"
+                ),
+                "verification_status": indicator_data.get(
+                    "verification_status", "unverified"
+                ),
                 "confidence_level": indicator_data.get("confidence_level", "medium"),
                 "confidence_score": indicator_data.get("confidence_score"),
                 "validation_notes": indicator_data.get("validation_notes"),
-                "global_benchmark_available": indicator_data.get("global_benchmark_available", False),
+                "global_benchmark_available": indicator_data.get(
+                    "global_benchmark_available", False
+                ),
                 "global_percentile": indicator_data.get("global_percentile"),
                 "african_percentile": indicator_data.get("african_percentile"),
                 "regional_percentile": indicator_data.get("regional_percentile"),
                 "created_at": datetime.utcnow().isoformat(),
                 "updated_at": datetime.utcnow().isoformat(),
             }
-            
+
             # Remove None values
-            indicator_record = {k: v for k, v in indicator_record.items() if v is not None}
-            
-            result = self.client.table("infrastructure_indicators").insert(indicator_record).execute()
-            
+            indicator_record = {
+                k: v for k, v in indicator_record.items() if v is not None
+            }
+
+            result = (
+                self.client.table("infrastructure_indicators")
+                .insert(indicator_record)
+                .execute()
+            )
+
             if result.data:
                 logger.info(
                     f"✅ Created infrastructure indicator: {indicator_data.get('indicator_name', 'Unknown')} for {indicator_data.get('pillar', 'Unknown')}"
@@ -520,7 +534,7 @@ class DatabaseService:
             else:
                 logger.error(f"❌ Failed to create infrastructure indicator: {result}")
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error creating infrastructure indicator: {e}")
             return None
@@ -538,46 +552,65 @@ class DatabaseService:
                 "global_ranking": scores.get("global_ranking"),
                 "regional_ranking": scores.get("regional_ranking"),
                 "sub_regional_ranking": scores.get("sub_regional_ranking"),
-                
                 # Pillar scores
                 "human_capital_score": scores.get("human_capital_score"),
-                "human_capital_clinical_literacy": scores.get("human_capital_clinical_literacy"),
-                "human_capital_informatics_capacity": scores.get("human_capital_informatics_capacity"),
-                "human_capital_workforce_pipeline": scores.get("human_capital_workforce_pipeline"),
-                
-                "physical_infrastructure_score": scores.get("physical_infrastructure_score"),
-                "physical_digitization_level": scores.get("physical_digitization_level"),
-                "physical_computational_capacity": scores.get("physical_computational_capacity"),
-                "physical_connectivity_reliability": scores.get("physical_connectivity_reliability"),
-                
-                "regulatory_infrastructure_score": scores.get("regulatory_infrastructure_score"),
-                "regulatory_approval_pathways": scores.get("regulatory_approval_pathways"),
+                "human_capital_clinical_literacy": scores.get(
+                    "human_capital_clinical_literacy"
+                ),
+                "human_capital_informatics_capacity": scores.get(
+                    "human_capital_informatics_capacity"
+                ),
+                "human_capital_workforce_pipeline": scores.get(
+                    "human_capital_workforce_pipeline"
+                ),
+                "physical_infrastructure_score": scores.get(
+                    "physical_infrastructure_score"
+                ),
+                "physical_digitization_level": scores.get(
+                    "physical_digitization_level"
+                ),
+                "physical_computational_capacity": scores.get(
+                    "physical_computational_capacity"
+                ),
+                "physical_connectivity_reliability": scores.get(
+                    "physical_connectivity_reliability"
+                ),
+                "regulatory_infrastructure_score": scores.get(
+                    "regulatory_infrastructure_score"
+                ),
+                "regulatory_approval_pathways": scores.get(
+                    "regulatory_approval_pathways"
+                ),
                 "regulatory_data_governance": scores.get("regulatory_data_governance"),
                 "regulatory_market_access": scores.get("regulatory_market_access"),
-                
                 "economic_market_score": scores.get("economic_market_score"),
                 "economic_market_maturity": scores.get("economic_market_maturity"),
-                "economic_financial_sustainability": scores.get("economic_financial_sustainability"),
+                "economic_financial_sustainability": scores.get(
+                    "economic_financial_sustainability"
+                ),
                 "economic_research_funding": scores.get("economic_research_funding"),
-                
                 "readiness_tier": scores.get("readiness_tier"),
                 "tier_justification": scores.get("tier_justification"),
                 "overall_confidence_score": scores.get("overall_confidence_score"),
-                "data_completeness_percentage": scores.get("data_completeness_percentage"),
+                "data_completeness_percentage": scores.get(
+                    "data_completeness_percentage"
+                ),
                 "expert_validation_score": scores.get("expert_validation_score"),
                 "peer_review_status": scores.get("peer_review_status", "pending"),
-                
                 "development_trajectory": scores.get("development_trajectory"),
                 "key_strengths": scores.get("key_strengths", []),
-                "priority_improvement_areas": scores.get("priority_improvement_areas", []),
-                "assessment_methodology_version": scores.get("assessment_methodology_version", "1.0"),
-                
+                "priority_improvement_areas": scores.get(
+                    "priority_improvement_areas", []
+                ),
+                "assessment_methodology_version": scores.get(
+                    "assessment_methodology_version", "1.0"
+                ),
                 "created_at": datetime.utcnow().isoformat(),
             }
-            
+
             # Remove None values
             score_record = {k: v for k, v in score_record.items() if v is not None}
-            
+
             # Try to update existing record first
             existing = (
                 self.client.table("ahaii_scores")
@@ -587,7 +620,7 @@ class DatabaseService:
                 .eq("assessment_quarter", scores.get("assessment_quarter") or 1)
                 .execute()
             )
-            
+
             if existing.data:
                 # Update existing record
                 result = (
@@ -600,15 +633,17 @@ class DatabaseService:
             else:
                 # Insert new record
                 score_record["id"] = str(uuid4())
-                result = self.client.table("ahaii_scores").insert(score_record).execute()
+                result = (
+                    self.client.table("ahaii_scores").insert(score_record).execute()
+                )
                 logger.info(f"✅ Created AHAII scores for country {country_id}")
-            
+
             if result.data:
                 return result.data[0]
             else:
                 logger.error(f"❌ Failed to update AHAII scores: {result}")
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error updating AHAII scores: {e}")
             return None
@@ -628,44 +663,64 @@ class DatabaseService:
                 "employee_count": org_data.get("employee_count"),
                 "website": org_data.get("website"),
                 "description": org_data.get("description"),
-                
                 # Health AI specific fields
                 "primary_health_ai_focus": org_data.get("primary_health_ai_focus", []),
                 "clinical_partnerships": org_data.get("clinical_partnerships", []),
                 "regulatory_approvals": org_data.get("regulatory_approvals", []),
-                
                 # Funding and investment
                 "total_funding_usd": org_data.get("total_funding_usd"),
                 "latest_funding_round_usd": org_data.get("latest_funding_round_usd"),
-                "latest_funding_date": self.serialize_date(org_data.get("latest_funding_date")),
+                "latest_funding_date": self.serialize_date(
+                    org_data.get("latest_funding_date")
+                ),
                 "funding_sources": org_data.get("funding_sources", []),
-                
                 # Clinical implementation
-                "active_clinical_deployments": org_data.get("active_clinical_deployments", 0),
-                "countries_with_deployments": org_data.get("countries_with_deployments", []),
-                "validated_clinical_outcomes": org_data.get("validated_clinical_outcomes", False),
-                "peer_reviewed_publications": org_data.get("peer_reviewed_publications", 0),
-                
+                "active_clinical_deployments": org_data.get(
+                    "active_clinical_deployments", 0
+                ),
+                "countries_with_deployments": org_data.get(
+                    "countries_with_deployments", []
+                ),
+                "validated_clinical_outcomes": org_data.get(
+                    "validated_clinical_outcomes", False
+                ),
+                "peer_reviewed_publications": org_data.get(
+                    "peer_reviewed_publications", 0
+                ),
                 # International recognition
                 "who_collaboration": org_data.get("who_collaboration", False),
-                "international_partnerships": org_data.get("international_partnerships", []),
-                "global_health_initiatives": org_data.get("global_health_initiatives", []),
-                
+                "international_partnerships": org_data.get(
+                    "international_partnerships", []
+                ),
+                "global_health_initiatives": org_data.get(
+                    "global_health_initiatives", []
+                ),
                 # Infrastructure contributions
-                "contributes_to_human_capital": org_data.get("contributes_to_human_capital", False),
-                "contributes_to_physical_infra": org_data.get("contributes_to_physical_infra", False),
-                "contributes_to_regulatory_framework": org_data.get("contributes_to_regulatory_framework", False),
-                "contributes_to_market_development": org_data.get("contributes_to_market_development", False),
-                
+                "contributes_to_human_capital": org_data.get(
+                    "contributes_to_human_capital", False
+                ),
+                "contributes_to_physical_infra": org_data.get(
+                    "contributes_to_physical_infra", False
+                ),
+                "contributes_to_regulatory_framework": org_data.get(
+                    "contributes_to_regulatory_framework", False
+                ),
+                "contributes_to_market_development": org_data.get(
+                    "contributes_to_market_development", False
+                ),
                 "created_at": datetime.utcnow().isoformat(),
                 "updated_at": datetime.utcnow().isoformat(),
             }
-            
+
             # Remove None values
             org_record = {k: v for k, v in org_record.items() if v is not None}
-            
-            result = self.client.table("health_ai_organizations").insert(org_record).execute()
-            
+
+            result = (
+                self.client.table("health_ai_organizations")
+                .insert(org_record)
+                .execute()
+            )
+
             if result.data:
                 logger.info(
                     f"✅ Created health AI organization: {org_data.get('name', 'Unknown')}"
@@ -674,7 +729,7 @@ class DatabaseService:
             else:
                 logger.error(f"❌ Failed to create health AI organization: {result}")
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error creating health AI organization: {e}")
             return None
@@ -686,49 +741,68 @@ class DatabaseService:
         try:
             intelligence_record = {
                 "id": str(uuid4()),
-                "report_type": intelligence_data.get("report_type"),  # 'academic_scan', 'news_monitoring', etc.
+                "report_type": intelligence_data.get(
+                    "report_type"
+                ),  # 'academic_scan', 'news_monitoring', etc.
                 "country_id": intelligence_data.get("country_id"),
                 "report_title": intelligence_data.get("report_title", ""),
                 "report_summary": intelligence_data.get("report_summary"),
                 "key_findings": intelligence_data.get("key_findings", {}),
-                
                 # Source information
                 "source_type": intelligence_data.get("source_type"),
                 "source_url": intelligence_data.get("source_url"),
                 "source_publication": intelligence_data.get("source_publication"),
-                "publication_date": self.serialize_date(intelligence_data.get("publication_date")),
-                
+                "publication_date": self.serialize_date(
+                    intelligence_data.get("publication_date")
+                ),
                 # Infrastructure impact
-                "affects_human_capital": intelligence_data.get("affects_human_capital", False),
-                "affects_physical_infrastructure": intelligence_data.get("affects_physical_infrastructure", False),
-                "affects_regulatory_framework": intelligence_data.get("affects_regulatory_framework", False),
-                "affects_economic_market": intelligence_data.get("affects_economic_market", False),
-                
-                "impact_significance": intelligence_data.get("impact_significance", "low"),
-                
+                "affects_human_capital": intelligence_data.get(
+                    "affects_human_capital", False
+                ),
+                "affects_physical_infrastructure": intelligence_data.get(
+                    "affects_physical_infrastructure", False
+                ),
+                "affects_regulatory_framework": intelligence_data.get(
+                    "affects_regulatory_framework", False
+                ),
+                "affects_economic_market": intelligence_data.get(
+                    "affects_economic_market", False
+                ),
+                "impact_significance": intelligence_data.get(
+                    "impact_significance", "low"
+                ),
                 # Processing metadata
                 "processed_by_ai": intelligence_data.get("processed_by_ai", True),
                 "confidence_score": intelligence_data.get("confidence_score"),
-                "verification_status": intelligence_data.get("verification_status", "pending"),
-                
+                "verification_status": intelligence_data.get(
+                    "verification_status", "pending"
+                ),
                 "created_at": datetime.utcnow().isoformat(),
                 "updated_at": datetime.utcnow().isoformat(),
             }
-            
+
             # Remove None values
-            intelligence_record = {k: v for k, v in intelligence_record.items() if v is not None}
-            
-            result = self.client.table("infrastructure_intelligence").insert(intelligence_record).execute()
-            
+            intelligence_record = {
+                k: v for k, v in intelligence_record.items() if v is not None
+            }
+
+            result = (
+                self.client.table("infrastructure_intelligence")
+                .insert(intelligence_record)
+                .execute()
+            )
+
             if result.data:
                 logger.info(
                     f"✅ Created infrastructure intelligence: {intelligence_data.get('report_title', 'Unknown')[:50]}..."
                 )
                 return result.data[0]
             else:
-                logger.error(f"❌ Failed to create infrastructure intelligence: {result}")
+                logger.error(
+                    f"❌ Failed to create infrastructure intelligence: {result}"
+                )
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error creating infrastructure intelligence: {e}")
             return None
@@ -743,17 +817,19 @@ class DatabaseService:
                 .eq("iso_code_alpha3", iso_code.upper())
                 .execute()
             )
-            
+
             if result.data:
                 return result.data[0]
             else:
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error fetching country by ISO code {iso_code}: {e}")
             return None
 
-    async def get_latest_ahaii_scores(self, country_id: str) -> Optional[Dict[str, Any]]:
+    async def get_latest_ahaii_scores(
+        self, country_id: str
+    ) -> Optional[Dict[str, Any]]:
         """Get latest AHAII scores for a country"""
         try:
             result = (
@@ -765,12 +841,12 @@ class DatabaseService:
                 .limit(1)
                 .execute()
             )
-            
+
             if result.data:
                 return result.data[0]
             else:
                 return None
-                
+
         except Exception as e:
             logger.error(f"❌ Error fetching latest AHAII scores for {country_id}: {e}")
             return None
@@ -786,13 +862,13 @@ class DatabaseService:
                 .eq("country_id", country_id)
                 .eq("pillar", pillar)
             )
-            
+
             if data_year:
                 query = query.eq("data_year", data_year)
-            
+
             result = query.execute()
             return result.data if result.data else []
-            
+
         except Exception as e:
             logger.error(f"❌ Error fetching infrastructure indicators: {e}")
             return []
@@ -801,39 +877,55 @@ class DatabaseService:
         """Get AHAII database statistics"""
         try:
             stats = {}
-            
+
             # Count countries
             country_result = (
                 self.client.table("countries").select("id", count="exact").execute()
             )
-            stats["total_countries"] = country_result.count if country_result.count else 0
-            
+            stats["total_countries"] = (
+                country_result.count if country_result.count else 0
+            )
+
             # Count infrastructure indicators
             indicator_result = (
-                self.client.table("infrastructure_indicators").select("id", count="exact").execute()
+                self.client.table("infrastructure_indicators")
+                .select("id", count="exact")
+                .execute()
             )
-            stats["total_infrastructure_indicators"] = indicator_result.count if indicator_result.count else 0
-            
+            stats["total_infrastructure_indicators"] = (
+                indicator_result.count if indicator_result.count else 0
+            )
+
             # Count health AI organizations
             org_result = (
-                self.client.table("health_ai_organizations").select("id", count="exact").execute()
+                self.client.table("health_ai_organizations")
+                .select("id", count="exact")
+                .execute()
             )
-            stats["total_health_ai_organizations"] = org_result.count if org_result.count else 0
-            
+            stats["total_health_ai_organizations"] = (
+                org_result.count if org_result.count else 0
+            )
+
             # Count infrastructure intelligence
             intel_result = (
-                self.client.table("infrastructure_intelligence").select("id", count="exact").execute()
+                self.client.table("infrastructure_intelligence")
+                .select("id", count="exact")
+                .execute()
             )
-            stats["total_infrastructure_intelligence"] = intel_result.count if intel_result.count else 0
-            
+            stats["total_infrastructure_intelligence"] = (
+                intel_result.count if intel_result.count else 0
+            )
+
             # Count AHAII scores
             scores_result = (
                 self.client.table("ahaii_scores").select("id", count="exact").execute()
             )
-            stats["total_ahaii_assessments"] = scores_result.count if scores_result.count else 0
-            
+            stats["total_ahaii_assessments"] = (
+                scores_result.count if scores_result.count else 0
+            )
+
             return stats
-            
+
         except Exception as e:
             logger.error(f"❌ Error fetching AHAII statistics: {e}")
             return {}

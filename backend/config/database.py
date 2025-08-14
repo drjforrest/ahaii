@@ -25,7 +25,7 @@ try:
     engine = create_engine(
         db_url, pool_pre_ping=True, pool_recycle=300, echo=settings.DEBUG
     )
-    
+
     # Async engine for async operations
     async_engine = create_async_engine(
         db_url.replace("postgresql://", "postgresql+asyncpg://"),
@@ -53,7 +53,9 @@ if async_engine is not None:
 def get_db():
     """Dependency to get database session"""
     if SessionLocal is None:
-        raise RuntimeError("Database session not available - use Supabase client instead")
+        raise RuntimeError(
+            "Database session not available - use Supabase client instead"
+        )
     db = SessionLocal()
     try:
         yield db
@@ -64,7 +66,9 @@ def get_db():
 async def get_async_db():
     """Dependency to get async database session"""
     if AsyncSessionLocal is None:
-        raise RuntimeError("Async database session not available - use Supabase client instead")
+        raise RuntimeError(
+            "Async database session not available - use Supabase client instead"
+        )
     async with AsyncSessionLocal() as session:
         try:
             yield session

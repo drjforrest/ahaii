@@ -495,9 +495,9 @@ class PubMedScraper:
                     "title": paper.title,
                     "publication_type": "journal_paper",
                     "publication_date": paper.publication_date,
-                    "year": paper.publication_date.year
-                    if paper.publication_date
-                    else None,
+                    "year": (
+                        paper.publication_date.year if paper.publication_date else None
+                    ),
                     "doi": paper.doi,
                     "url": paper.url,
                     "journal": paper.journal,
