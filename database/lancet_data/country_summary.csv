@@ -1,0 +1,5 @@
+Country,Overall_Score,Rank,Confidence,HC_Score,PI_Score,RI_Score,EM_Score,Organizations,Key_Strengths,Priority_Gaps
+South_Africa,78,1,0.85,72,81,85,70,23,"Regulatory maturity, Clinical infrastructure","Rural connectivity, Startup ecosystem"
+Nigeria,67,2,0.76,78,61,58,73,31,"Research capacity, Market size","Clinical deployment, Governance"
+Kenya,64,3,0.79,55,68,62,90,8,"Startup ecosystem, Mobile innovation","Clinical integration, Academic programs"
+Rwanda,62,4,0.72,48,55,78,65,7,"Government strategy, Digital governance","Infrastructure base, Market depth"

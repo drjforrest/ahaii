@@ -1,0 +1,165 @@
+{
+  "collection_summary": {
+    "total_countries": 5,
+    "total_indicators": 12,
+    "total_data_points": 240,
+    "available_data_points": 175,
+    "overall_completeness": 72.91666666666666
+  },
+  "by_country": {
+    "ZAF": {
+      "country_name": "South Africa",
+      "total_data_points": 48,
+      "available_data_points": 38,
+      "completeness_pct": 79.16666666666666,
+      "avg_confidence": 0.994736842105263
+    },
+    "KEN": {
+      "country_name": "Kenya",
+      "total_data_points": 48,
+      "available_data_points": 32,
+      "completeness_pct": 66.66666666666666,
+      "avg_confidence": 0.98125
+    },
+    "NGA": {
+      "country_name": "Nigeria",
+      "total_data_points": 48,
+      "available_data_points": 32,
+      "completeness_pct": 66.66666666666666,
+      "avg_confidence": 0.99375
+    },
+    "GHA": {
+      "country_name": "Ghana",
+      "total_data_points": 48,
+      "available_data_points": 37,
+      "completeness_pct": 77.08333333333334,
+      "avg_confidence": 1.0
+    },
+    "EGY": {
+      "country_name": "Egypt",
+      "total_data_points": 48,
+      "available_data_points": 36,
+      "completeness_pct": 75.0,
+      "avg_confidence": 0.9888888888888889
+    }
+  },
+  "by_indicator": {
+    "EG.ELC.ACCS.ZS": {
+      "indicator_name": "electricity_access_pct",
+      "total_data_points": 20,
+      "available_data_points": 20,
+      "completeness_pct": 100.0,
+      "avg_confidence": 1.0
+    },
+    "IT.CEL.SETS.P2": {
+      "indicator_name": "mobile_subscriptions_per_100",
+      "total_data_points": 20,
+      "available_data_points": 20,
+      "completeness_pct": 100.0,
+      "avg_confidence": 1.0
+    },
+    "IT.NET.USER.ZS": {
+      "indicator_name": "internet_users_pct",
+      "total_data_points": 20,
+      "available_data_points": 17,
+      "completeness_pct": 85.0,
+      "avg_confidence": 0.9882352941176471
+    },
+    "GB.XPD.RSDV.GD.ZS": {
+      "indicator_name": "rd_expenditure_pct_gdp",
+      "total_data_points": 20,
+      "available_data_points": 9,
+      "completeness_pct": 45.0,
+      "avg_confidence": 0.9777777777777779
+    },
+    "SH.MED.BEDS.ZS": {
+      "indicator_name": "hospital_beds_per_1000",
+      "total_data_points": 20,
+      "available_data_points": 1,
+      "completeness_pct": 5.0,
+      "avg_confidence": 0.8
+    },
+    "SH.XPD.CHEX.GD.ZS": {
+      "indicator_name": "current_health_expenditure_pct_gdp",
+      "total_data_points": 20,
+      "available_data_points": 15,
+      "completeness_pct": 75.0,
+      "avg_confidence": 1.0
+    },
+    "SE.TER.ENRR": {
+      "indicator_name": "tertiary_education_enrollment_rate",
+      "total_data_points": 20,
+      "available_data_points": 10,
+      "completeness_pct": 50.0,
+      "avg_confidence": 1.0
+    },
+    "IT.MLT.MAIN.P2": {
+      "indicator_name": "fixed_broadband_subscriptions_per_100",
+      "total_data_points": 20,
+      "available_data_points": 20,
+      "completeness_pct": 100.0,
+      "avg_confidence": 1.0
+    },
+    "SH.MED.PHYS.ZS": {
+      "indicator_name": "physicians_per_1000",
+      "total_data_points": 20,
+      "available_data_points": 9,
+      "completeness_pct": 45.0,
+      "avg_confidence": 0.9111111111111112
+    },
+    "NY.GDP.PCAP.CD": {
+      "indicator_name": "gdp_per_capita_current_usd",
+      "total_data_points": 20,
+      "available_data_points": 20,
+      "completeness_pct": 100.0,
+      "avg_confidence": 1.0
+    },
+    "SP.POP.TOTL": {
+      "indicator_name": "total_population",
+      "total_data_points": 20,
+      "available_data_points": 20,
+      "completeness_pct": 100.0,
+      "avg_confidence": 1.0
+    },
+    "SE.XPD.TOTL.GD.ZS": {
+      "indicator_name": "government_expenditure_on_education_pct_gdp",
+      "total_data_points": 20,
+      "available_data_points": 14,
+      "completeness_pct": 70.0,
+      "avg_confidence": 1.0
+    }
+  },
+  "by_year": {
+    "2020": {
+      "total_data_points": 60,
+      "available_data_points": 46,
+      "completeness_pct": 76.66666666666667,
+      "avg_confidence": 0.9913043478260868
+    },
+    "2021": {
+      "total_data_points": 60,
+      "available_data_points": 46,
+      "completeness_pct": 76.66666666666667,
+      "avg_confidence": 0.9913043478260868
+    },
+    "2022": {
+      "total_data_points": 60,
+      "available_data_points": 47,
+      "completeness_pct": 78.33333333333333,
+      "avg_confidence": 0.9936170212765958
+    },
+    "2023": {
+      "total_data_points": 60,
+      "available_data_points": 36,
+      "completeness_pct": 60.0,
+      "avg_confidence": 0.9916666666666667
+    }
+  },
+  "confidence_analysis": {
+    "mean_confidence": 0.9920000000000001,
+    "median_confidence": 1.0,
+    "min_confidence": 0.8,
+    "max_confidence": 1.0,
+    "high_confidence_pct": 100.0
+  }
+}

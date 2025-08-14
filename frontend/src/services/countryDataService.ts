@@ -18,6 +18,11 @@ class CountryDataService {
   private baseApiUrl = process.env.NEXT_PUBLIC_API_URL || 
     (process.env.NODE_ENV === 'production' ? 'https://api.taifa-fiala.net' : 'http://localhost:8030');
 
+  constructor() {
+    console.log('🔧 CountryDataService initialized with baseApiUrl:', this.baseApiUrl);
+    console.log('🌍 Environment:', process.env.NODE_ENV);
+  }
+
   /**
    * Fetch all African countries with their current AHAII scores
    * Automatically calculated from ETL data
@@ -44,16 +49,41 @@ class CountryDataService {
    * - Large population/GDP significance
    */
   async getFeaturedCountries(limit: number = 8): Promise<CountryWithScore[]> {
+    const url = `${this.baseApiUrl}/api/countries/featured?limit=${limit}`;
+    console.log('🔄 Fetching featured countries from:', url);
+    
     try {
-      const response = await fetch(`${this.baseApiUrl}/api/countries/featured?limit=${limit}`);
-      if (!response.ok) throw new Error('Failed to fetch featured countries');
+      const response = await fetch(url);
+      console.log('📡 API Response status:', response.status, response.statusText);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch featured countries: ${response.status} ${response.statusText}`);
+      }
       
       const data = await response.json();
-      return data.countries.map((country: any) => this.transformCountryData(country));
+      console.log('📊 Received data:', { 
+        countriesCount: data.countries?.length || 0,
+        firstCountry: data.countries?.[0]?.name || 'None'
+      });
+      
+      if (data.countries && Array.isArray(data.countries)) {
+        return data.countries.map((country: any) => this.transformCountryData(country));
+      } else {
+        console.warn('⚠️ No countries array in response, falling back to all countries');
+        const allCountries = await this.getAllCountriesWithScores();
+        return this.selectFeaturedCountries(allCountries, limit);
+      }
     } catch (error) {
-      console.error('Error fetching featured countries:', error);
-      const allCountries = await this.getAllCountriesWithScores();
-      return this.selectFeaturedCountries(allCountries, limit);
+      console.error('❌ Error fetching featured countries:', error);
+      console.log('🔄 Attempting fallback to all countries...');
+      
+      try {
+        const allCountries = await this.getAllCountriesWithScores();
+        return this.selectFeaturedCountries(allCountries, limit);
+      } catch (fallbackError) {
+        console.error('❌ Fallback also failed:', fallbackError);
+        throw error; // Re-throw original error
+      }
     }
   }
 

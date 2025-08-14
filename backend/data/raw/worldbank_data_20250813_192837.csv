@@ -1,0 +1,241 @@
+country_code,indicator_code,year,value,confidence_score,data_source,indicator_name,country_name
+ZAF,EG.ELC.ACCS.ZS,2023,87.7,1.0,world_bank_api,electricity_access_pct,South Africa
+ZAF,EG.ELC.ACCS.ZS,2022,86.5,1.0,world_bank_api,electricity_access_pct,South Africa
+ZAF,EG.ELC.ACCS.ZS,2021,89.3,1.0,world_bank_api,electricity_access_pct,South Africa
+ZAF,EG.ELC.ACCS.ZS,2020,90.0,1.0,world_bank_api,electricity_access_pct,South Africa
+ZAF,IT.CEL.SETS.P2,2023,171.509,1.0,world_bank_api,mobile_subscriptions_per_100,South Africa
+ZAF,IT.CEL.SETS.P2,2022,160.729,1.0,world_bank_api,mobile_subscriptions_per_100,South Africa
+ZAF,IT.CEL.SETS.P2,2021,163.128,1.0,world_bank_api,mobile_subscriptions_per_100,South Africa
+ZAF,IT.CEL.SETS.P2,2020,158.447,1.0,world_bank_api,mobile_subscriptions_per_100,South Africa
+ZAF,IT.NET.USER.ZS,2023,75.7,1.0,world_bank_api,internet_users_pct,South Africa
+ZAF,IT.NET.USER.ZS,2022,75.5,1.0,world_bank_api,internet_users_pct,South Africa
+ZAF,IT.NET.USER.ZS,2021,75.0,1.0,world_bank_api,internet_users_pct,South Africa
+ZAF,IT.NET.USER.ZS,2020,72.1,1.0,world_bank_api,internet_users_pct,South Africa
+ZAF,GB.XPD.RSDV.GD.ZS,2023,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,South Africa
+ZAF,GB.XPD.RSDV.GD.ZS,2022,0.617290019989014,1.0,world_bank_api,rd_expenditure_pct_gdp,South Africa
+ZAF,GB.XPD.RSDV.GD.ZS,2021,0.615029990673065,1.0,world_bank_api,rd_expenditure_pct_gdp,South Africa
+ZAF,GB.XPD.RSDV.GD.ZS,2020,0.602400004863739,1.0,world_bank_api,rd_expenditure_pct_gdp,South Africa
+ZAF,SH.MED.BEDS.ZS,2023,,0.0,world_bank_api_missing,hospital_beds_per_1000,South Africa
+ZAF,SH.MED.BEDS.ZS,2022,,0.0,world_bank_api_missing,hospital_beds_per_1000,South Africa
+ZAF,SH.MED.BEDS.ZS,2021,,0.0,world_bank_api_missing,hospital_beds_per_1000,South Africa
+ZAF,SH.MED.BEDS.ZS,2020,,0.0,world_bank_api_missing,hospital_beds_per_1000,South Africa
+ZAF,SH.XPD.CHEX.GD.ZS,2023,,0.0,world_bank_api_missing,current_health_expenditure_pct_gdp,South Africa
+ZAF,SH.XPD.CHEX.GD.ZS,2022,8.77086639,1.0,world_bank_api,current_health_expenditure_pct_gdp,South Africa
+ZAF,SH.XPD.CHEX.GD.ZS,2021,8.67432785,1.0,world_bank_api,current_health_expenditure_pct_gdp,South Africa
+ZAF,SH.XPD.CHEX.GD.ZS,2020,9.01329231,1.0,world_bank_api,current_health_expenditure_pct_gdp,South Africa
+ZAF,SE.TER.ENRR,2023,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,South Africa
+ZAF,SE.TER.ENRR,2022,27.1743202209473,1.0,world_bank_api,tertiary_education_enrollment_rate,South Africa
+ZAF,SE.TER.ENRR,2021,25.3566093444824,1.0,world_bank_api,tertiary_education_enrollment_rate,South Africa
+ZAF,SE.TER.ENRR,2020,25.1296806335449,1.0,world_bank_api,tertiary_education_enrollment_rate,South Africa
+ZAF,IT.MLT.MAIN.P2,2023,2.14,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,South Africa
+ZAF,IT.MLT.MAIN.P2,2022,2.1,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,South Africa
+ZAF,IT.MLT.MAIN.P2,2021,2.39,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,South Africa
+ZAF,IT.MLT.MAIN.P2,2020,3.47,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,South Africa
+ZAF,SH.MED.PHYS.ZS,2023,,0.0,world_bank_api_missing,physicians_per_1000,South Africa
+ZAF,SH.MED.PHYS.ZS,2022,,0.0,world_bank_api_missing,physicians_per_1000,South Africa
+ZAF,SH.MED.PHYS.ZS,2021,0.809,0.8,world_bank_api,physicians_per_1000,South Africa
+ZAF,SH.MED.PHYS.ZS,2020,,0.0,world_bank_api_missing,physicians_per_1000,South Africa
+ZAF,NY.GDP.PCAP.CD,2023,6022.54254192335,1.0,world_bank_api,gdp_per_capita_current_usd,South Africa
+ZAF,NY.GDP.PCAP.CD,2022,6523.41097815853,1.0,world_bank_api,gdp_per_capita_current_usd,South Africa
+ZAF,NY.GDP.PCAP.CD,2021,6843.39941886204,1.0,world_bank_api,gdp_per_capita_current_usd,South Africa
+ZAF,NY.GDP.PCAP.CD,2020,5580.60383075189,1.0,world_bank_api,gdp_per_capita_current_usd,South Africa
+ZAF,SP.POP.TOTL,2023,63212384.0,1.0,world_bank_api,total_population,South Africa
+ZAF,SP.POP.TOTL,2022,62378410.0,1.0,world_bank_api,total_population,South Africa
+ZAF,SP.POP.TOTL,2021,61502603.0,1.0,world_bank_api,total_population,South Africa
+ZAF,SP.POP.TOTL,2020,60562381.0,1.0,world_bank_api,total_population,South Africa
+ZAF,SE.XPD.TOTL.GD.ZS,2023,6.14838981628418,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,South Africa
+ZAF,SE.XPD.TOTL.GD.ZS,2022,6.16726016998291,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,South Africa
+ZAF,SE.XPD.TOTL.GD.ZS,2021,6.54902982711792,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,South Africa
+ZAF,SE.XPD.TOTL.GD.ZS,2020,6.17067003250122,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,South Africa
+KEN,EG.ELC.ACCS.ZS,2023,76.2,1.0,world_bank_api,electricity_access_pct,Kenya
+KEN,EG.ELC.ACCS.ZS,2022,76.0,1.0,world_bank_api,electricity_access_pct,Kenya
+KEN,EG.ELC.ACCS.ZS,2021,76.5,1.0,world_bank_api,electricity_access_pct,Kenya
+KEN,EG.ELC.ACCS.ZS,2020,71.5,1.0,world_bank_api,electricity_access_pct,Kenya
+KEN,IT.CEL.SETS.P2,2023,120.612,1.0,world_bank_api,mobile_subscriptions_per_100,Kenya
+KEN,IT.CEL.SETS.P2,2022,121.169,1.0,world_bank_api,mobile_subscriptions_per_100,Kenya
+KEN,IT.CEL.SETS.P2,2021,122.298,1.0,world_bank_api,mobile_subscriptions_per_100,Kenya
+KEN,IT.CEL.SETS.P2,2020,117.603,1.0,world_bank_api,mobile_subscriptions_per_100,Kenya
+KEN,IT.NET.USER.ZS,2023,35.0,0.8,world_bank_api,internet_users_pct,Kenya
+KEN,IT.NET.USER.ZS,2022,,0.0,world_bank_api_missing,internet_users_pct,Kenya
+KEN,IT.NET.USER.ZS,2021,,0.0,world_bank_api_missing,internet_users_pct,Kenya
+KEN,IT.NET.USER.ZS,2020,,0.0,world_bank_api_missing,internet_users_pct,Kenya
+KEN,GB.XPD.RSDV.GD.ZS,2023,0.808740019798279,0.9,world_bank_api,rd_expenditure_pct_gdp,Kenya
+KEN,GB.XPD.RSDV.GD.ZS,2022,0.410189986228943,0.9,world_bank_api,rd_expenditure_pct_gdp,Kenya
+KEN,GB.XPD.RSDV.GD.ZS,2021,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Kenya
+KEN,GB.XPD.RSDV.GD.ZS,2020,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Kenya
+KEN,SH.MED.BEDS.ZS,2023,,0.0,world_bank_api_missing,hospital_beds_per_1000,Kenya
+KEN,SH.MED.BEDS.ZS,2022,,0.0,world_bank_api_missing,hospital_beds_per_1000,Kenya
+KEN,SH.MED.BEDS.ZS,2021,,0.0,world_bank_api_missing,hospital_beds_per_1000,Kenya
+KEN,SH.MED.BEDS.ZS,2020,,0.0,world_bank_api_missing,hospital_beds_per_1000,Kenya
+KEN,SH.XPD.CHEX.GD.ZS,2023,,0.0,world_bank_api_missing,current_health_expenditure_pct_gdp,Kenya
+KEN,SH.XPD.CHEX.GD.ZS,2022,4.32603645,1.0,world_bank_api,current_health_expenditure_pct_gdp,Kenya
+KEN,SH.XPD.CHEX.GD.ZS,2021,4.56525421,1.0,world_bank_api,current_health_expenditure_pct_gdp,Kenya
+KEN,SH.XPD.CHEX.GD.ZS,2020,4.49248838,1.0,world_bank_api,current_health_expenditure_pct_gdp,Kenya
+KEN,SE.TER.ENRR,2023,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Kenya
+KEN,SE.TER.ENRR,2022,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Kenya
+KEN,SE.TER.ENRR,2021,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Kenya
+KEN,SE.TER.ENRR,2020,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Kenya
+KEN,IT.MLT.MAIN.P2,2023,0.123,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Kenya
+KEN,IT.MLT.MAIN.P2,2022,0.116,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Kenya
+KEN,IT.MLT.MAIN.P2,2021,0.115,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Kenya
+KEN,IT.MLT.MAIN.P2,2020,0.128,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Kenya
+KEN,SH.MED.PHYS.ZS,2023,,0.0,world_bank_api_missing,physicians_per_1000,Kenya
+KEN,SH.MED.PHYS.ZS,2022,0.102,0.9,world_bank_api,physicians_per_1000,Kenya
+KEN,SH.MED.PHYS.ZS,2021,0.098,0.9,world_bank_api,physicians_per_1000,Kenya
+KEN,SH.MED.PHYS.ZS,2020,,0.0,world_bank_api_missing,physicians_per_1000,Kenya
+KEN,NY.GDP.PCAP.CD,2023,1952.30457929636,1.0,world_bank_api,gdp_per_capita_current_usd,Kenya
+KEN,NY.GDP.PCAP.CD,2022,2109.56288513137,1.0,world_bank_api,gdp_per_capita_current_usd,Kenya
+KEN,NY.GDP.PCAP.CD,2021,2061.35622089594,1.0,world_bank_api,gdp_per_capita_current_usd,Kenya
+KEN,NY.GDP.PCAP.CD,2020,1927.66459027849,1.0,world_bank_api,gdp_per_capita_current_usd,Kenya
+KEN,SP.POP.TOTL,2023,55339003.0,1.0,world_bank_api,total_population,Kenya
+KEN,SP.POP.TOTL,2022,54252461.0,1.0,world_bank_api,total_population,Kenya
+KEN,SP.POP.TOTL,2021,53219166.0,1.0,world_bank_api,total_population,Kenya
+KEN,SP.POP.TOTL,2020,52217334.0,1.0,world_bank_api,total_population,Kenya
+KEN,SE.XPD.TOTL.GD.ZS,2023,3.96229314804077,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Kenya
+KEN,SE.XPD.TOTL.GD.ZS,2022,4.51101779937744,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Kenya
+KEN,SE.XPD.TOTL.GD.ZS,2021,4.89040184020996,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Kenya
+KEN,SE.XPD.TOTL.GD.ZS,2020,5.04574871063232,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Kenya
+NGA,EG.ELC.ACCS.ZS,2023,61.2,1.0,world_bank_api,electricity_access_pct,Nigeria
+NGA,EG.ELC.ACCS.ZS,2022,60.5,1.0,world_bank_api,electricity_access_pct,Nigeria
+NGA,EG.ELC.ACCS.ZS,2021,59.5,1.0,world_bank_api,electricity_access_pct,Nigeria
+NGA,EG.ELC.ACCS.ZS,2020,55.4,1.0,world_bank_api,electricity_access_pct,Nigeria
+NGA,IT.CEL.SETS.P2,2023,98.4773,1.0,world_bank_api,mobile_subscriptions_per_100,Nigeria
+NGA,IT.CEL.SETS.P2,2022,99.5852,1.0,world_bank_api,mobile_subscriptions_per_100,Nigeria
+NGA,IT.CEL.SETS.P2,2021,89.2916,1.0,world_bank_api,mobile_subscriptions_per_100,Nigeria
+NGA,IT.CEL.SETS.P2,2020,95.4357,1.0,world_bank_api,mobile_subscriptions_per_100,Nigeria
+NGA,IT.NET.USER.ZS,2023,39.2,1.0,world_bank_api,internet_users_pct,Nigeria
+NGA,IT.NET.USER.ZS,2022,37.7,1.0,world_bank_api,internet_users_pct,Nigeria
+NGA,IT.NET.USER.ZS,2021,35.5,1.0,world_bank_api,internet_users_pct,Nigeria
+NGA,IT.NET.USER.ZS,2020,31.9,1.0,world_bank_api,internet_users_pct,Nigeria
+NGA,GB.XPD.RSDV.GD.ZS,2023,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Nigeria
+NGA,GB.XPD.RSDV.GD.ZS,2022,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Nigeria
+NGA,GB.XPD.RSDV.GD.ZS,2021,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Nigeria
+NGA,GB.XPD.RSDV.GD.ZS,2020,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Nigeria
+NGA,SH.MED.BEDS.ZS,2023,,0.0,world_bank_api_missing,hospital_beds_per_1000,Nigeria
+NGA,SH.MED.BEDS.ZS,2022,,0.0,world_bank_api_missing,hospital_beds_per_1000,Nigeria
+NGA,SH.MED.BEDS.ZS,2021,,0.0,world_bank_api_missing,hospital_beds_per_1000,Nigeria
+NGA,SH.MED.BEDS.ZS,2020,,0.0,world_bank_api_missing,hospital_beds_per_1000,Nigeria
+NGA,SH.XPD.CHEX.GD.ZS,2023,,0.0,world_bank_api_missing,current_health_expenditure_pct_gdp,Nigeria
+NGA,SH.XPD.CHEX.GD.ZS,2022,4.27090406,1.0,world_bank_api,current_health_expenditure_pct_gdp,Nigeria
+NGA,SH.XPD.CHEX.GD.ZS,2021,4.07625723,1.0,world_bank_api,current_health_expenditure_pct_gdp,Nigeria
+NGA,SH.XPD.CHEX.GD.ZS,2020,3.38063431,1.0,world_bank_api,current_health_expenditure_pct_gdp,Nigeria
+NGA,SE.TER.ENRR,2023,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Nigeria
+NGA,SE.TER.ENRR,2022,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Nigeria
+NGA,SE.TER.ENRR,2021,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Nigeria
+NGA,SE.TER.ENRR,2020,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Nigeria
+NGA,IT.MLT.MAIN.P2,2023,0.0491,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Nigeria
+NGA,IT.MLT.MAIN.P2,2022,0.0435,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Nigeria
+NGA,IT.MLT.MAIN.P2,2021,0.0487,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Nigeria
+NGA,IT.MLT.MAIN.P2,2020,0.05,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Nigeria
+NGA,SH.MED.PHYS.ZS,2023,,0.0,world_bank_api_missing,physicians_per_1000,Nigeria
+NGA,SH.MED.PHYS.ZS,2022,0.394,0.9,world_bank_api,physicians_per_1000,Nigeria
+NGA,SH.MED.PHYS.ZS,2021,0.395,0.9,world_bank_api,physicians_per_1000,Nigeria
+NGA,SH.MED.PHYS.ZS,2020,,0.0,world_bank_api_missing,physicians_per_1000,Nigeria
+NGA,NY.GDP.PCAP.CD,2023,1596.63696129001,1.0,world_bank_api,gdp_per_capita_current_usd,Nigeria
+NGA,NY.GDP.PCAP.CD,2022,2139.37478476974,1.0,world_bank_api,gdp_per_capita_current_usd,Nigeria
+NGA,NY.GDP.PCAP.CD,2021,2017.27486481527,1.0,world_bank_api,gdp_per_capita_current_usd,Nigeria
+NGA,NY.GDP.PCAP.CD,2020,2019.65706326224,1.0,world_bank_api,gdp_per_capita_current_usd,Nigeria
+NGA,SP.POP.TOTL,2023,227882945.0,1.0,world_bank_api,total_population,Nigeria
+NGA,SP.POP.TOTL,2022,223150896.0,1.0,world_bank_api,total_population,Nigeria
+NGA,SP.POP.TOTL,2021,218529286.0,1.0,world_bank_api,total_population,Nigeria
+NGA,SP.POP.TOTL,2020,213996181.0,1.0,world_bank_api,total_population,Nigeria
+NGA,SE.XPD.TOTL.GD.ZS,2023,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Nigeria
+NGA,SE.XPD.TOTL.GD.ZS,2022,0.348516702651978,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Nigeria
+NGA,SE.XPD.TOTL.GD.ZS,2021,0.381919115781784,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Nigeria
+NGA,SE.XPD.TOTL.GD.ZS,2020,0.359637647867203,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Nigeria
+GHA,EG.ELC.ACCS.ZS,2023,89.5,1.0,world_bank_api,electricity_access_pct,Ghana
+GHA,EG.ELC.ACCS.ZS,2022,85.1,1.0,world_bank_api,electricity_access_pct,Ghana
+GHA,EG.ELC.ACCS.ZS,2021,86.3,1.0,world_bank_api,electricity_access_pct,Ghana
+GHA,EG.ELC.ACCS.ZS,2020,85.4,1.0,world_bank_api,electricity_access_pct,Ghana
+GHA,IT.CEL.SETS.P2,2023,98.8059,1.0,world_bank_api,mobile_subscriptions_per_100,Ghana
+GHA,IT.CEL.SETS.P2,2022,120.803,1.0,world_bank_api,mobile_subscriptions_per_100,Ghana
+GHA,IT.CEL.SETS.P2,2021,124.403,1.0,world_bank_api,mobile_subscriptions_per_100,Ghana
+GHA,IT.CEL.SETS.P2,2020,126.887,1.0,world_bank_api,mobile_subscriptions_per_100,Ghana
+GHA,IT.NET.USER.ZS,2023,69.9,1.0,world_bank_api,internet_users_pct,Ghana
+GHA,IT.NET.USER.ZS,2022,69.4,1.0,world_bank_api,internet_users_pct,Ghana
+GHA,IT.NET.USER.ZS,2021,68.6,1.0,world_bank_api,internet_users_pct,Ghana
+GHA,IT.NET.USER.ZS,2020,62.5,1.0,world_bank_api,internet_users_pct,Ghana
+GHA,GB.XPD.RSDV.GD.ZS,2023,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Ghana
+GHA,GB.XPD.RSDV.GD.ZS,2022,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Ghana
+GHA,GB.XPD.RSDV.GD.ZS,2021,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Ghana
+GHA,GB.XPD.RSDV.GD.ZS,2020,,0.0,world_bank_api_missing,rd_expenditure_pct_gdp,Ghana
+GHA,SH.MED.BEDS.ZS,2023,,0.0,world_bank_api_missing,hospital_beds_per_1000,Ghana
+GHA,SH.MED.BEDS.ZS,2022,,0.0,world_bank_api_missing,hospital_beds_per_1000,Ghana
+GHA,SH.MED.BEDS.ZS,2021,,0.0,world_bank_api_missing,hospital_beds_per_1000,Ghana
+GHA,SH.MED.BEDS.ZS,2020,,0.0,world_bank_api_missing,hospital_beds_per_1000,Ghana
+GHA,SH.XPD.CHEX.GD.ZS,2023,,0.0,world_bank_api_missing,current_health_expenditure_pct_gdp,Ghana
+GHA,SH.XPD.CHEX.GD.ZS,2022,3.6993649,1.0,world_bank_api,current_health_expenditure_pct_gdp,Ghana
+GHA,SH.XPD.CHEX.GD.ZS,2021,3.86030865,1.0,world_bank_api,current_health_expenditure_pct_gdp,Ghana
+GHA,SH.XPD.CHEX.GD.ZS,2020,4.4331708,1.0,world_bank_api,current_health_expenditure_pct_gdp,Ghana
+GHA,SE.TER.ENRR,2023,21.990140914917,1.0,world_bank_api,tertiary_education_enrollment_rate,Ghana
+GHA,SE.TER.ENRR,2022,20.3897304534912,1.0,world_bank_api,tertiary_education_enrollment_rate,Ghana
+GHA,SE.TER.ENRR,2021,19.1863193511963,1.0,world_bank_api,tertiary_education_enrollment_rate,Ghana
+GHA,SE.TER.ENRR,2020,18.6487197875977,1.0,world_bank_api,tertiary_education_enrollment_rate,Ghana
+GHA,IT.MLT.MAIN.P2,2023,0.946,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Ghana
+GHA,IT.MLT.MAIN.P2,2022,0.996,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Ghana
+GHA,IT.MLT.MAIN.P2,2021,0.97,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Ghana
+GHA,IT.MLT.MAIN.P2,2020,0.965,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Ghana
+GHA,SH.MED.PHYS.ZS,2023,,0.0,world_bank_api_missing,physicians_per_1000,Ghana
+GHA,SH.MED.PHYS.ZS,2022,0.141,1.0,world_bank_api,physicians_per_1000,Ghana
+GHA,SH.MED.PHYS.ZS,2021,0.127,1.0,world_bank_api,physicians_per_1000,Ghana
+GHA,SH.MED.PHYS.ZS,2020,0.164,1.0,world_bank_api,physicians_per_1000,Ghana
+GHA,NY.GDP.PCAP.CD,2023,2383.90410483418,1.0,world_bank_api,gdp_per_capita_current_usd,Ghana
+GHA,NY.GDP.PCAP.CD,2022,2229.89122647803,1.0,world_bank_api,gdp_per_capita_current_usd,Ghana
+GHA,NY.GDP.PCAP.CD,2021,2445.18662529344,1.0,world_bank_api,gdp_per_capita_current_usd,Ghana
+GHA,NY.GDP.PCAP.CD,2020,2195.45481659987,1.0,world_bank_api,gdp_per_capita_current_usd,Ghana
+GHA,SP.POP.TOTL,2023,33787914.0,1.0,world_bank_api,total_population,Ghana
+GHA,SP.POP.TOTL,2022,33149152.0,1.0,world_bank_api,total_population,Ghana
+GHA,SP.POP.TOTL,2021,32518665.0,1.0,world_bank_api,total_population,Ghana
+GHA,SP.POP.TOTL,2020,31887809.0,1.0,world_bank_api,total_population,Ghana
+GHA,SE.XPD.TOTL.GD.ZS,2023,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Ghana
+GHA,SE.XPD.TOTL.GD.ZS,2022,2.90529441833496,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Ghana
+GHA,SE.XPD.TOTL.GD.ZS,2021,3.41949439048767,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Ghana
+GHA,SE.XPD.TOTL.GD.ZS,2020,3.40915989875793,1.0,world_bank_api,government_expenditure_on_education_pct_gdp,Ghana
+EGY,EG.ELC.ACCS.ZS,2023,100.0,1.0,world_bank_api,electricity_access_pct,Egypt
+EGY,EG.ELC.ACCS.ZS,2022,100.0,1.0,world_bank_api,electricity_access_pct,Egypt
+EGY,EG.ELC.ACCS.ZS,2021,100.0,1.0,world_bank_api,electricity_access_pct,Egypt
+EGY,EG.ELC.ACCS.ZS,2020,100.0,1.0,world_bank_api,electricity_access_pct,Egypt
+EGY,IT.CEL.SETS.P2,2023,92.8262,1.0,world_bank_api,mobile_subscriptions_per_100,Egypt
+EGY,IT.CEL.SETS.P2,2022,90.6795,1.0,world_bank_api,mobile_subscriptions_per_100,Egypt
+EGY,IT.CEL.SETS.P2,2021,84.0866,1.0,world_bank_api,mobile_subscriptions_per_100,Egypt
+EGY,IT.CEL.SETS.P2,2020,87.2317,1.0,world_bank_api,mobile_subscriptions_per_100,Egypt
+EGY,IT.NET.USER.ZS,2023,72.7,1.0,world_bank_api,internet_users_pct,Egypt
+EGY,IT.NET.USER.ZS,2022,72.2,1.0,world_bank_api,internet_users_pct,Egypt
+EGY,IT.NET.USER.ZS,2021,72.1,1.0,world_bank_api,internet_users_pct,Egypt
+EGY,IT.NET.USER.ZS,2020,71.9,1.0,world_bank_api,internet_users_pct,Egypt
+EGY,GB.XPD.RSDV.GD.ZS,2023,1.03356003761292,1.0,world_bank_api,rd_expenditure_pct_gdp,Egypt
+EGY,GB.XPD.RSDV.GD.ZS,2022,1.01968002319336,1.0,world_bank_api,rd_expenditure_pct_gdp,Egypt
+EGY,GB.XPD.RSDV.GD.ZS,2021,0.911750018596649,1.0,world_bank_api,rd_expenditure_pct_gdp,Egypt
+EGY,GB.XPD.RSDV.GD.ZS,2020,0.915639996528625,1.0,world_bank_api,rd_expenditure_pct_gdp,Egypt
+EGY,SH.MED.BEDS.ZS,2023,,0.0,world_bank_api_missing,hospital_beds_per_1000,Egypt
+EGY,SH.MED.BEDS.ZS,2022,,0.0,world_bank_api_missing,hospital_beds_per_1000,Egypt
+EGY,SH.MED.BEDS.ZS,2021,,0.0,world_bank_api_missing,hospital_beds_per_1000,Egypt
+EGY,SH.MED.BEDS.ZS,2020,1.13,0.8,world_bank_api,hospital_beds_per_1000,Egypt
+EGY,SH.XPD.CHEX.GD.ZS,2023,,0.0,world_bank_api_missing,current_health_expenditure_pct_gdp,Egypt
+EGY,SH.XPD.CHEX.GD.ZS,2022,4.70438385,1.0,world_bank_api,current_health_expenditure_pct_gdp,Egypt
+EGY,SH.XPD.CHEX.GD.ZS,2021,4.60955143,1.0,world_bank_api,current_health_expenditure_pct_gdp,Egypt
+EGY,SH.XPD.CHEX.GD.ZS,2020,4.15384626,1.0,world_bank_api,current_health_expenditure_pct_gdp,Egypt
+EGY,SE.TER.ENRR,2023,39.3823089599609,1.0,world_bank_api,tertiary_education_enrollment_rate,Egypt
+EGY,SE.TER.ENRR,2022,37.8184509277344,1.0,world_bank_api,tertiary_education_enrollment_rate,Egypt
+EGY,SE.TER.ENRR,2021,,0.0,world_bank_api_missing,tertiary_education_enrollment_rate,Egypt
+EGY,SE.TER.ENRR,2020,40.012939453125,1.0,world_bank_api,tertiary_education_enrollment_rate,Egypt
+EGY,IT.MLT.MAIN.P2,2023,10.9,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Egypt
+EGY,IT.MLT.MAIN.P2,2022,10.3,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Egypt
+EGY,IT.MLT.MAIN.P2,2021,9.94,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Egypt
+EGY,IT.MLT.MAIN.P2,2020,9.02,1.0,world_bank_api,fixed_broadband_subscriptions_per_100,Egypt
+EGY,SH.MED.PHYS.ZS,2023,,0.0,world_bank_api_missing,physicians_per_1000,Egypt
+EGY,SH.MED.PHYS.ZS,2022,,0.0,world_bank_api_missing,physicians_per_1000,Egypt
+EGY,SH.MED.PHYS.ZS,2021,,0.0,world_bank_api_missing,physicians_per_1000,Egypt
+EGY,SH.MED.PHYS.ZS,2020,0.683,0.8,world_bank_api,physicians_per_1000,Egypt
+EGY,NY.GDP.PCAP.CD,2023,3456.78968456253,1.0,world_bank_api,gdp_per_capita_current_usd,Egypt
+EGY,NY.GDP.PCAP.CD,2022,4233.30783744856,1.0,world_bank_api,gdp_per_capita_current_usd,Egypt
+EGY,NY.GDP.PCAP.CD,2021,3827.35415374308,1.0,world_bank_api,gdp_per_capita_current_usd,Egypt
+EGY,NY.GDP.PCAP.CD,2020,3511.11381026379,1.0,world_bank_api,gdp_per_capita_current_usd,Egypt
+EGY,SP.POP.TOTL,2023,114535772.0,1.0,world_bank_api,total_population,Egypt
+EGY,SP.POP.TOTL,2022,112618250.0,1.0,world_bank_api,total_population,Egypt
+EGY,SP.POP.TOTL,2021,110957008.0,1.0,world_bank_api,total_population,Egypt
+EGY,SP.POP.TOTL,2020,109315124.0,1.0,world_bank_api,total_population,Egypt
+EGY,SE.XPD.TOTL.GD.ZS,2023,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Egypt
+EGY,SE.XPD.TOTL.GD.ZS,2022,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Egypt
+EGY,SE.XPD.TOTL.GD.ZS,2021,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Egypt
+EGY,SE.XPD.TOTL.GD.ZS,2020,,0.0,world_bank_api_missing,government_expenditure_on_education_pct_gdp,Egypt

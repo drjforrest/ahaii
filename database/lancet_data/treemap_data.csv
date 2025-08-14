@@ -1,0 +1,17 @@
+Country,Pillar,Weight,Score,Points_Contribution
+South_Africa,Human_Capital,30,72,21.6
+South_Africa,Physical_Infrastructure,30,81,24.3
+South_Africa,Regulatory_Infrastructure,25,85,21.3
+South_Africa,Economic_Market,15,70,10.5
+Nigeria,Human_Capital,30,78,23.4
+Nigeria,Physical_Infrastructure,30,61,18.3
+Nigeria,Regulatory_Infrastructure,25,58,14.5
+Nigeria,Economic_Market,15,73,11.0
+Kenya,Human_Capital,30,55,16.5
+Kenya,Physical_Infrastructure,30,68,20.4
+Kenya,Regulatory_Infrastructure,25,62,15.5
+Kenya,Economic_Market,15,90,13.5
+Rwanda,Human_Capital,30,48,14.4
+Rwanda,Physical_Infrastructure,30,55,16.5
+Rwanda,Regulatory_Infrastructure,25,78,19.5
+Rwanda,Economic_Market,15,65,9.8

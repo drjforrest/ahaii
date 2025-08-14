@@ -1,0 +1,445 @@
+[
+  {
+    "country_code": "ZAF",
+    "country_name": "South Africa",
+    "assessment_date": "2025-08-13T21:12:52.404342",
+    "total_score": 33.84,
+    "overall_confidence": 0.92,
+    "tier": 3,
+    "pillar_scores": [
+      {
+        "name": "human_capital",
+        "score": 32.249406127929696,
+        "confidence": 0.9333333333333332,
+        "sub_components": {
+          "tertiary_education_enrollment_rate": 27.1743202209473,
+          "government_expenditure_on_education_pct_gdp": 61.4838981628418,
+          "physicians_per_1000": 8.09
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "tertiary_education_enrollment_rate": 27.1743202209473,
+          "government_expenditure_on_education_pct_gdp": 61.4838981628418,
+          "physicians_per_1000": 8.09
+        }
+      },
+      {
+        "name": "physical_infrastructure",
+        "score": 50.686899999999994,
+        "confidence": 0.8,
+        "sub_components": {
+          "electricity_access_pct": 87.7,
+          "internet_users_pct": 75.7,
+          "mobile_subscriptions_per_100": 85.7545,
+          "fixed_broadband_subscriptions_per_100": 4.28,
+          "hospital_beds_per_1000": 0.0
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "electricity_access_pct": 87.7,
+          "internet_users_pct": 75.7,
+          "mobile_subscriptions_per_100": 85.7545,
+          "fixed_broadband_subscriptions_per_100": 4.28,
+          "hospital_beds_per_1000": 0.0
+        }
+      },
+      {
+        "name": "regulatory_framework",
+        "score": 12.345800399780279,
+        "confidence": 1.0,
+        "sub_components": {
+          "rd_expenditure_pct_gdp": 12.345800399780279
+        },
+        "weight": 0.25,
+        "normalized_indicators": {
+          "rd_expenditure_pct_gdp": 12.345800399780279
+        }
+      },
+      {
+        "name": "economic_market",
+        "score": 39.14303662282623,
+        "confidence": 1.0,
+        "sub_components": {
+          "gdp_per_capita_current_usd": 6.022542541923349,
+          "current_health_expenditure_pct_gdp": 43.85433195,
+          "total_population": 67.55223537655534
+        },
+        "weight": 0.15,
+        "normalized_indicators": {
+          "gdp_per_capita_current_usd": 6.022542541923349,
+          "current_health_expenditure_pct_gdp": 43.85433195,
+          "total_population": 67.55223537655534
+        }
+      }
+    ],
+    "improvement_recommendations": [
+      "Focus on basic digital health infrastructure and workforce development",
+      "Develop national AI strategy with health AI components",
+      "Establish medical AI regulatory approval pathways",
+      "Create health data governance and privacy frameworks",
+      "Invest in health informatics training programs for healthcare professionals"
+    ],
+    "data_quality_issues": [
+      "10 data points have low confidence scores",
+      "24 data points are more than 3 years old",
+      "Incomplete time series for hospital_beds_per_1000 (0/4 years)",
+      "Incomplete time series for physicians_per_1000 (1/4 years)"
+    ],
+    "regional_rank": 1
+  },
+  {
+    "country_code": "EGY",
+    "country_name": "Egypt",
+    "assessment_date": "2025-08-13T21:12:52.264367",
+    "total_score": 29.73,
+    "overall_confidence": 0.87,
+    "tier": 3,
+    "pillar_scores": [
+      {
+        "name": "human_capital",
+        "score": 15.404102986653633,
+        "confidence": 0.6,
+        "sub_components": {
+          "tertiary_education_enrollment_rate": 39.3823089599609,
+          "government_expenditure_on_education_pct_gdp": 0.0,
+          "physicians_per_1000": 6.83
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "tertiary_education_enrollment_rate": 39.3823089599609,
+          "government_expenditure_on_education_pct_gdp": 0.0,
+          "physicians_per_1000": 6.83
+        }
+      },
+      {
+        "name": "physical_infrastructure",
+        "score": 49.68928666666666,
+        "confidence": 0.96,
+        "sub_components": {
+          "electricity_access_pct": 100,
+          "internet_users_pct": 72.7,
+          "mobile_subscriptions_per_100": 46.4131,
+          "fixed_broadband_subscriptions_per_100": 21.8,
+          "hospital_beds_per_1000": 7.533333333333332
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "electricity_access_pct": 100,
+          "internet_users_pct": 72.7,
+          "mobile_subscriptions_per_100": 46.4131,
+          "fixed_broadband_subscriptions_per_100": 21.8,
+          "hospital_beds_per_1000": 7.533333333333332
+        }
+      },
+      {
+        "name": "regulatory_framework",
+        "score": 20.671200752258397,
+        "confidence": 1.0,
+        "sub_components": {
+          "rd_expenditure_pct_gdp": 20.671200752258397
+        },
+        "weight": 0.25,
+        "normalized_indicators": {
+          "rd_expenditure_pct_gdp": 20.671200752258397
+        }
+      },
+      {
+        "name": "economic_market",
+        "score": 33.58565651516935,
+        "confidence": 1.0,
+        "sub_components": {
+          "gdp_per_capita_current_usd": 3.45678968456253,
+          "current_health_expenditure_pct_gdp": 23.52191925,
+          "total_population": 73.77826061094551
+        },
+        "weight": 0.15,
+        "normalized_indicators": {
+          "gdp_per_capita_current_usd": 3.45678968456253,
+          "current_health_expenditure_pct_gdp": 23.52191925,
+          "total_population": 73.77826061094551
+        }
+      }
+    ],
+    "improvement_recommendations": [
+      "Focus on basic digital health infrastructure and workforce development",
+      "Invest in health informatics training programs for healthcare professionals",
+      "Establish medical AI and biomedical informatics curricula in universities",
+      "Create continuous professional development programs for clinical AI literacy",
+      "Develop national AI strategy with health AI components"
+    ],
+    "data_quality_issues": [
+      "12 data points have low confidence scores",
+      "24 data points are more than 3 years old",
+      "Incomplete time series for government_expenditure_on_education_pct_gdp (0/4 years)",
+      "Incomplete time series for hospital_beds_per_1000 (1/4 years)",
+      "Incomplete time series for physicians_per_1000 (1/4 years)"
+    ],
+    "regional_rank": 2
+  },
+  {
+    "country_code": "KEN",
+    "country_name": "Kenya",
+    "assessment_date": "2025-08-13T21:12:52.336514",
+    "total_score": 22.9,
+    "overall_confidence": 0.79,
+    "tier": 3,
+    "pillar_scores": [
+      {
+        "name": "human_capital",
+        "score": 13.547643826802569,
+        "confidence": 0.6333333333333333,
+        "sub_components": {
+          "tertiary_education_enrollment_rate": 0.0,
+          "government_expenditure_on_education_pct_gdp": 39.6229314804077,
+          "physicians_per_1000": 1.0199999999999998
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "tertiary_education_enrollment_rate": 0.0,
+          "government_expenditure_on_education_pct_gdp": 39.6229314804077,
+          "physicians_per_1000": 1.0199999999999998
+        }
+      },
+      {
+        "name": "physical_infrastructure",
+        "score": 34.3504,
+        "confidence": 0.76,
+        "sub_components": {
+          "electricity_access_pct": 76.2,
+          "internet_users_pct": 35.0,
+          "mobile_subscriptions_per_100": 60.30599999999999,
+          "fixed_broadband_subscriptions_per_100": 0.246,
+          "hospital_beds_per_1000": 0.0
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "electricity_access_pct": 76.2,
+          "internet_users_pct": 35.0,
+          "mobile_subscriptions_per_100": 60.30599999999999,
+          "fixed_broadband_subscriptions_per_100": 0.246,
+          "hospital_beds_per_1000": 0.0
+        }
+      },
+      {
+        "name": "regulatory_framework",
+        "score": 16.17480039596558,
+        "confidence": 0.9,
+        "sub_components": {
+          "rd_expenditure_pct_gdp": 16.17480039596558
+        },
+        "weight": 0.25,
+        "normalized_indicators": {
+          "rd_expenditure_pct_gdp": 16.17480039596558
+        }
+      },
+      {
+        "name": "economic_market",
+        "score": 29.913784591705873,
+        "confidence": 1.0,
+        "sub_components": {
+          "gdp_per_capita_current_usd": 1.95230457929636,
+          "current_health_expenditure_pct_gdp": 21.63018225,
+          "total_population": 66.15886694582126
+        },
+        "weight": 0.15,
+        "normalized_indicators": {
+          "gdp_per_capita_current_usd": 1.95230457929636,
+          "current_health_expenditure_pct_gdp": 21.63018225,
+          "total_population": 66.15886694582126
+        }
+      }
+    ],
+    "improvement_recommendations": [
+      "Focus on basic digital health infrastructure and workforce development",
+      "Invest in health informatics training programs for healthcare professionals",
+      "Establish medical AI and biomedical informatics curricula in universities",
+      "Create continuous professional development programs for clinical AI literacy",
+      "Develop national AI strategy with health AI components"
+    ],
+    "data_quality_issues": [
+      "16 data points have low confidence scores",
+      "24 data points are more than 3 years old",
+      "Incomplete time series for hospital_beds_per_1000 (0/4 years)",
+      "Incomplete time series for tertiary_education_enrollment_rate (0/4 years)",
+      "Incomplete time series for internet_users_pct (1/4 years)"
+    ],
+    "regional_rank": 3
+  },
+  {
+    "country_code": "GHA",
+    "country_name": "Ghana",
+    "assessment_date": "2025-08-13T21:12:52.293277",
+    "total_score": 21.98,
+    "overall_confidence": 0.69,
+    "tier": 3,
+    "pillar_scores": [
+      {
+        "name": "human_capital",
+        "score": 17.484361699422198,
+        "confidence": 1.0,
+        "sub_components": {
+          "tertiary_education_enrollment_rate": 21.990140914917,
+          "government_expenditure_on_education_pct_gdp": 29.0529441833496,
+          "physicians_per_1000": 1.4099999999999997
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "tertiary_education_enrollment_rate": 21.990140914917,
+          "government_expenditure_on_education_pct_gdp": 29.0529441833496,
+          "physicians_per_1000": 1.4099999999999997
+        }
+      },
+      {
+        "name": "physical_infrastructure",
+        "score": 42.13899,
+        "confidence": 0.8,
+        "sub_components": {
+          "electricity_access_pct": 89.5,
+          "internet_users_pct": 69.9,
+          "mobile_subscriptions_per_100": 49.40295,
+          "fixed_broadband_subscriptions_per_100": 1.892,
+          "hospital_beds_per_1000": 0.0
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "electricity_access_pct": 89.5,
+          "internet_users_pct": 69.9,
+          "mobile_subscriptions_per_100": 49.40295,
+          "fixed_broadband_subscriptions_per_100": 1.892,
+          "hospital_beds_per_1000": 0.0
+        }
+      },
+      {
+        "name": "regulatory_framework",
+        "score": 0.0,
+        "confidence": 0.0,
+        "sub_components": {
+          "rd_expenditure_pct_gdp": 0.0
+        },
+        "weight": 0.25,
+        "normalized_indicators": {
+          "rd_expenditure_pct_gdp": 0.0
+        }
+      },
+      {
+        "name": "economic_market",
+        "score": 27.290547499061592,
+        "confidence": 1.0,
+        "sub_components": {
+          "gdp_per_capita_current_usd": 2.3839041048341802,
+          "current_health_expenditure_pct_gdp": 18.4968245,
+          "total_population": 60.990913892350605
+        },
+        "weight": 0.15,
+        "normalized_indicators": {
+          "gdp_per_capita_current_usd": 2.3839041048341802,
+          "current_health_expenditure_pct_gdp": 18.4968245,
+          "total_population": 60.990913892350605
+        }
+      }
+    ],
+    "improvement_recommendations": [
+      "Focus on basic digital health infrastructure and workforce development",
+      "Develop national AI strategy with health AI components",
+      "Establish medical AI regulatory approval pathways",
+      "Create health data governance and privacy frameworks",
+      "Invest in health informatics training programs for healthcare professionals"
+    ],
+    "data_quality_issues": [
+      "11 data points have low confidence scores",
+      "24 data points are more than 3 years old",
+      "Incomplete time series for rd_expenditure_pct_gdp (0/4 years)",
+      "Incomplete time series for hospital_beds_per_1000 (0/4 years)"
+    ],
+    "regional_rank": 4
+  },
+  {
+    "country_code": "NGA",
+    "country_name": "Nigeria",
+    "assessment_date": "2025-08-13T21:12:52.372286",
+    "total_score": 14.92,
+    "overall_confidence": 0.58,
+    "tier": 3,
+    "pillar_scores": [
+      {
+        "name": "human_capital",
+        "score": 2.4750556755065936,
+        "confidence": 0.6333333333333333,
+        "sub_components": {
+          "tertiary_education_enrollment_rate": 0.0,
+          "government_expenditure_on_education_pct_gdp": 3.4851670265197794,
+          "physicians_per_1000": 3.9400000000000004
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "tertiary_education_enrollment_rate": 0.0,
+          "government_expenditure_on_education_pct_gdp": 3.4851670265197794,
+          "physicians_per_1000": 3.9400000000000004
+        }
+      },
+      {
+        "name": "physical_infrastructure",
+        "score": 29.94737,
+        "confidence": 0.8,
+        "sub_components": {
+          "electricity_access_pct": 61.199999999999996,
+          "internet_users_pct": 39.2,
+          "mobile_subscriptions_per_100": 49.23865,
+          "fixed_broadband_subscriptions_per_100": 0.0982,
+          "hospital_beds_per_1000": 0.0
+        },
+        "weight": 0.3,
+        "normalized_indicators": {
+          "electricity_access_pct": 61.199999999999996,
+          "internet_users_pct": 39.2,
+          "mobile_subscriptions_per_100": 49.23865,
+          "fixed_broadband_subscriptions_per_100": 0.0982,
+          "hospital_beds_per_1000": 0.0
+        }
+      },
+      {
+        "name": "regulatory_framework",
+        "score": 0.0,
+        "confidence": 0.0,
+        "sub_components": {
+          "rd_expenditure_pct_gdp": 0.0
+        },
+        "weight": 0.25,
+        "normalized_indicators": {
+          "rd_expenditure_pct_gdp": 0.0
+        }
+      },
+      {
+        "name": "economic_market",
+        "score": 34.64514483537446,
+        "confidence": 1.0,
+        "sub_components": {
+          "gdp_per_capita_current_usd": 1.59663696129001,
+          "current_health_expenditure_pct_gdp": 21.3545203,
+          "total_population": 80.98427724483338
+        },
+        "weight": 0.15,
+        "normalized_indicators": {
+          "gdp_per_capita_current_usd": 1.59663696129001,
+          "current_health_expenditure_pct_gdp": 21.3545203,
+          "total_population": 80.98427724483338
+        }
+      }
+    ],
+    "improvement_recommendations": [
+      "Focus on basic digital health infrastructure and workforce development",
+      "Develop national AI strategy with health AI components",
+      "Establish medical AI regulatory approval pathways",
+      "Create health data governance and privacy frameworks",
+      "Invest in health informatics training programs for healthcare professionals"
+    ],
+    "data_quality_issues": [
+      "16 data points have low confidence scores",
+      "24 data points are more than 3 years old",
+      "Incomplete time series for rd_expenditure_pct_gdp (0/4 years)",
+      "Incomplete time series for hospital_beds_per_1000 (0/4 years)",
+      "Incomplete time series for tertiary_education_enrollment_rate (0/4 years)"
+    ],
+    "regional_rank": 5
+  }
+]

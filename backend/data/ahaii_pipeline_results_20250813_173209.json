@@ -1,0 +1,323 @@
+{
+  "data_collection": {
+    "world_bank": {
+      "status": "failed",
+      "error": "keys must be str, int, float, bool or None, not int64"
+    },
+    "policy": {
+      "status": "failed",
+      "error": "keys must be str, int, float, bool or None, not tuple"
+    },
+    "ecosystem": {
+      "organizations": {
+        "_is_copy": null,
+        "_mgr": {},
+        "_item_cache": {
+          "country_name": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 38)",
+                  "_name": null,
+                  "_cache": {},
+                  "_id": "<object object at 0x11e89fb50>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 38 dtype: object,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "object"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9bec0; to 'Series' at 0x11e35b140>"
+            },
+            "_name": "country_name",
+            "_cacher": "('country_name', <weakref at 0x11df9ade0; to 'DataFrame' at 0x11e972060>)"
+          },
+          "organization_type": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 38)",
+                  "_name": null,
+                  "_cache": {},
+                  "_id": "<object object at 0x11e89fb50>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 38 dtype: object,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "object"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9b8d0; to 'Series' at 0x11f52eae0>"
+            },
+            "_name": "organization_type",
+            "_cacher": "('organization_type', <weakref at 0x11df9ade0; to 'DataFrame' at 0x11e972060>)"
+          }
+        },
+        "_attrs": {},
+        "_flags": {
+          "_allows_duplicate_labels": true,
+          "_obj": "<weakref at 0x11df9ade0; to 'DataFrame' at 0x11e972060>"
+        }
+      },
+      "metrics": {
+        "_is_copy": null,
+        "_mgr": {},
+        "_item_cache": {
+          "estimated_ecosystem_maturity": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: float64,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "float64"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9a7a0; to 'Series' at 0x11ea38cb0>"
+            },
+            "_name": "estimated_ecosystem_maturity",
+            "_cacher": "('estimated_ecosystem_maturity', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          },
+          "overall_ecosystem_score": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: int64,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "int64"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df993f0; to 'Series' at 0x11ea38f20>"
+            },
+            "_name": "overall_ecosystem_score",
+            "_cacher": "('overall_ecosystem_score', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          },
+          "country_name": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: object,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "object"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9bd30; to 'Series' at 0x11df85cd0>"
+            },
+            "_name": "country_name",
+            "_cacher": "('country_name', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          },
+          "universities_with_programs": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: int64,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "int64"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df99170; to 'Series' at 0x11e6fe600>"
+            },
+            "_name": "universities_with_programs",
+            "_cacher": "('universities_with_programs', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          },
+          "active_startups": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: int64,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "int64"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9a8e0; to 'Series' at 0x11e6fe510>"
+            },
+            "_name": "active_startups",
+            "_cacher": "('active_startups', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          },
+          "hospital_ai_programs": {
+            "_is_copy": null,
+            "_mgr": {
+              "axes": [
+                {
+                  "_range": "range(0, 5)",
+                  "_name": null,
+                  "_cache": {
+                    "_data": "[0 1 2 3 4]",
+                    "_engine": "<pandas._libs.index.Int64Engine object at 0x11e0047c0>"
+                  },
+                  "_id": "<object object at 0x11e89fb70>",
+                  "_references": null
+                }
+              ],
+              "blocks": "(NumpyBlock: 5 dtype: int64,)",
+              "_cache": {
+                "_block": {
+                  "_cache": {
+                    "dtype": "int64"
+                  }
+                }
+              }
+            },
+            "_item_cache": {},
+            "_attrs": {},
+            "_flags": {
+              "_allows_duplicate_labels": true,
+              "_obj": "<weakref at 0x11df9b380; to 'Series' at 0x11f13ddc0>"
+            },
+            "_name": "hospital_ai_programs",
+            "_cacher": "('hospital_ai_programs', <weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>)"
+          }
+        },
+        "_attrs": {},
+        "_flags": {
+          "_allows_duplicate_labels": true,
+          "_obj": "<weakref at 0x11df9ad90; to 'DataFrame' at 0x11e6fe750>"
+        }
+      },
+      "report": "data/raw/ecosystem_mapping/ecosystem_mapping_report_20250813_173209.json",
+      "status": "success",
+      "organizations_mapped": 38
+    }
+  },
+  "validation": {},
+  "reporting": {
+    "final_report": {
+      "status": "skipped",
+      "reason": "no_enhanced_results"
+    }
+  },
+  "summary": {
+    "start_time": "2025-08-13T16:46:17.139973",
+    "phases_completed": [
+      "data_collection",
+      "scoring",
+      "validation",
+      "reporting"
+    ],
+    "phases_failed": [],
+    "overall_status": "success",
+    "end_time": "2025-08-13T17:32:09.256718",
+    "execution_time_seconds": 2752.12
+  },
+  "connectivity": {
+    "world_bank_api": true,
+    "local_databases": true,
+    "file_system_access": true,
+    "dependencies": true
+  }
+}

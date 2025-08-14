@@ -28,12 +28,24 @@ from app.analysis.pilot_assessment.ahaii_pilot_report import AHAIIPilotReportGen
 from app.main_integration import AHAIIIntegrationManager
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)],
-)
+log_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+# Create console handler
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(log_formatter)
+
+# Create file handler
+Path("logs").mkdir(exist_ok=True)
+file_handler = logging.FileHandler("logs/ahaii_assessment_api.log", mode="a")
+file_handler.setFormatter(log_formatter)
+
 logger = logging.getLogger("AHAII_Assessment_API")
+logger.setLevel(logging.INFO)
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
+
+# Prevent duplicate logs
+logger.propagate = False
 
 # Create API router
 router = APIRouter(prefix="/api/ahaii", tags=["AHAII Assessment"])

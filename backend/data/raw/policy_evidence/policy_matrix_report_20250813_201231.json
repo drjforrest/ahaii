@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "report_date": "2025-08-13T20:12:31.065505",
+    "total_countries": 5,
+    "total_indicators": 5,
+    "collection_method": "automated_with_expert_validation_pending"
+  },
+  "summary_statistics": {
+    "indicators_by_country": {
+      "EGY_Egypt": 0,
+      "GHA_Ghana": 0,
+      "KEN_Kenya": 0,
+      "NGA_Nigeria": 0,
+      "ZAF_South Africa": 0
+    },
+    "countries_by_indicator": {
+      "ai_ethics_guidelines": 0,
+      "data_protection_regulation": 0,
+      "digital_health_strategy": 0,
+      "health_data_governance": 0,
+      "national_ai_strategy": 0
+    },
+    "average_confidence_by_country": {
+      "EGY_Egypt": 0.9960000000000001,
+      "GHA_Ghana": 1.0,
+      "KEN_Kenya": 1.0,
+      "NGA_Nigeria": 1.0,
+      "ZAF_South Africa": 1.0
+    },
+    "average_confidence_by_indicator": {
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 0.9960000000000001
+    }
+  },
+  "policy_matrix": [
+    {
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "ai_ethics_guidelines": false,
+      "data_protection_regulation": false,
+      "digital_health_strategy": false,
+      "health_data_governance": false,
+      "national_ai_strategy": false
+    },
+    {
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "ai_ethics_guidelines": false,
+      "data_protection_regulation": false,
+      "digital_health_strategy": false,
+      "health_data_governance": false,
+      "national_ai_strategy": false
+    },
+    {
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "ai_ethics_guidelines": false,
+      "data_protection_regulation": false,
+      "digital_health_strategy": false,
+      "health_data_governance": false,
+      "national_ai_strategy": false
+    },
+    {
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "ai_ethics_guidelines": false,
+      "data_protection_regulation": false,
+      "digital_health_strategy": false,
+      "health_data_governance": false,
+      "national_ai_strategy": false
+    },
+    {
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "ai_ethics_guidelines": false,
+      "data_protection_regulation": false,
+      "digital_health_strategy": false,
+      "health_data_governance": false,
+      "national_ai_strategy": false
+    }
+  ],
+  "confidence_matrix": [
+    {
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 0.98
+    },
+    {
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 1.0
+    },
+    {
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 1.0
+    },
+    {
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 1.0
+    },
+    {
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "ai_ethics_guidelines": 1.0,
+      "data_protection_regulation": 1.0,
+      "digital_health_strategy": 1.0,
+      "health_data_governance": 1.0,
+      "national_ai_strategy": 1.0
+    }
+  ],
+  "expert_validation_needed": [],
+  "data_sources": {
+    "oxford_gari": "Oxford Insights Government AI Readiness Index 2023",
+    "government_websites": "Official government ministry websites",
+    "au_strategy": "African Union Continental AI Strategy 2021-2030"
+  }
+}

@@ -8,6 +8,7 @@ import json
 import logging
 import re
 import sqlite3
+import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -19,6 +20,10 @@ import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+
+# Add backend directory to path for utils import
+sys.path.append(str(Path(__file__).parent.parent.parent))
+from utils.json_serialization import make_json_serializable, save_json
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -648,22 +653,18 @@ class PolicyIndicatorCollector:
         report = {
             "metadata": {
                 "report_date": datetime.now().isoformat(),
-                "total_countries": len(policy_matrix),
-                "total_indicators": len(policy_matrix.columns),
+                "total_countries": int(len(policy_matrix)),
+                "total_indicators": int(len(policy_matrix.columns)),
                 "collection_method": "automated_with_expert_validation_pending",
             },
             "summary_statistics": {
-                "indicators_by_country": policy_matrix.sum(axis=1).to_dict(),
-                "countries_by_indicator": policy_matrix.sum(axis=0).to_dict(),
-                "average_confidence_by_country": confidence_matrix.mean(
-                    axis=1
-                ).to_dict(),
-                "average_confidence_by_indicator": confidence_matrix.mean(
-                    axis=0
-                ).to_dict(),
+                "indicators_by_country": policy_matrix.sum(axis=1),
+                "countries_by_indicator": policy_matrix.sum(axis=0),
+                "average_confidence_by_country": confidence_matrix.mean(axis=1),
+                "average_confidence_by_indicator": confidence_matrix.mean(axis=0),
             },
-            "policy_matrix": policy_matrix.to_dict(),
-            "confidence_matrix": confidence_matrix.to_dict(),
+            "policy_matrix": policy_matrix,
+            "confidence_matrix": confidence_matrix,
             "expert_validation_needed": [
                 f"{row['country_name']}: {row['indicator_name']}"
                 for _, row in policy_df[policy_df["confidence_score"] < 0.7].iterrows()
@@ -675,14 +676,13 @@ class PolicyIndicatorCollector:
             },
         }
 
-        # Save report
+        # Save report using centralized serialization utility
         report_path = (
             self.policy_cache_dir
             / f"policy_matrix_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         )
-        with open(report_path, "w") as f:
-            json.dump(report, f, indent=2)
-
+        
+        save_json(report, str(report_path))
         logger.info(f"Policy matrix report saved to: {report_path}")
         return str(report_path)
 

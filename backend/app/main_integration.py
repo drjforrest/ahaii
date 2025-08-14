@@ -11,6 +11,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict
 
+# Import centralized serialization utility
+sys.path.append(str(Path(__file__).parent.parent))
+from utils.json_serialization import make_json_serializable, save_json
+
 from app.analysis.pilot_assessment.ahaii_pilot_report import AHAIIPilotReportGenerator
 from app.data_collection.health_ai_ecosystem_mapper import HealthAIEcosystemMapper
 from app.data_collection.policy_indicator_collector import PolicyIndicatorCollector
@@ -176,11 +180,16 @@ class AHAIIIntegrationManager:
             wb_report = self.wb_collector.generate_data_completeness_report(wb_data)
 
             collection_results["world_bank"] = {
-                "data": wb_data,
-                "report": wb_report,
                 "status": "success",
                 "data_points": len(wb_data),
+                "report_summary": {
+                    "total_countries": wb_report.get("collection_summary", {}).get("total_countries", 0),
+                    "total_indicators": wb_report.get("collection_summary", {}).get("total_indicators", 0),
+                    "overall_completeness": wb_report.get("collection_summary", {}).get("overall_completeness", 0)
+                }
             }
+            # Store the data separately for use in scoring phase
+            setattr(self, '_wb_data', wb_data)
             logger.info(
                 f"✓ World Bank collection: {len(wb_data)} data points collected"
             )
@@ -251,8 +260,8 @@ class AHAIIIntegrationManager:
 
         scoring_results = {}
 
-        # Extract data from collection results
-        wb_data = collection_results.get("world_bank", {}).get("data")
+        # Extract data from collection results and stored attributes
+        wb_data = getattr(self, '_wb_data', None)
         policy_data = collection_results.get("policy", {}).get("data")
         ecosystem_metrics = collection_results.get("ecosystem", {}).get("metrics")
 
@@ -448,17 +457,6 @@ class AHAIIIntegrationManager:
         scoring_results: Dict[str, Any],
         validation_results: Dict[str, Any],
     ) -> Dict[str, Any]:
-        """
-        Execute final reporting phase of AHAII pipeline
-
-        Args:
-            collection_results: Results from data collection phase
-            scoring_results: Results from scoring phase
-            validation_results: Results from validation phase
-
-        Returns:
-            Dictionary with reporting results
-        """
         logger.info("=== Starting Reporting Phase ===")
 
         reporting_results = {}
@@ -466,7 +464,6 @@ class AHAIIIntegrationManager:
         # Extract required data
         enhanced_results = scoring_results.get("enhanced_scores", {}).get("results", [])
         expert_validation = validation_results.get("expert_validation", {})
-        data_quality = validation_results.get("data_quality", {})
 
         if enhanced_results:
             try:
@@ -525,60 +522,41 @@ class AHAIIIntegrationManager:
         }
 
         try:
-            # Phase 1: System Connectivity Test
-            logger.info("Phase 0: Testing system connectivity...")
-            connectivity_results = self.test_system_connectivity()
-
-            if not all(connectivity_results.values()):
-                logger.warning(
-                    "Some connectivity tests failed - pipeline may have issues"
-                )
-
             # Phase 1: Data Collection
-            try:
-                collection_results = self.run_data_collection_phase()
+            logger.info("🔄 Phase 1: Data Collection")
+            collection_results = self.run_data_collection_phase()
+            if any(result.get("status") == "success" for result in collection_results.values()):
                 pipeline_summary["phases_completed"].append("data_collection")
-            except Exception as e:
-                logger.error(f"Data collection phase failed: {e}")
+            else:
                 pipeline_summary["phases_failed"].append("data_collection")
-                collection_results = {}
 
             # Phase 2: Scoring
-            try:
-                scoring_results = self.run_scoring_phase(collection_results)
+            logger.info("🔄 Phase 2: Scoring")
+            scoring_results = self.run_scoring_phase(collection_results)
+            if scoring_results.get("enhanced_scores", {}).get("status") == "success":
                 pipeline_summary["phases_completed"].append("scoring")
-            except Exception as e:
-                logger.error(f"Scoring phase failed: {e}")
+            else:
                 pipeline_summary["phases_failed"].append("scoring")
-                scoring_results = {}
 
             # Phase 3: Validation
-            try:
-                validation_results = self.run_validation_phase(
-                    collection_results, scoring_results
-                )
+            logger.info("🔄 Phase 3: Validation")
+            validation_results = self.run_validation_phase(collection_results, scoring_results)
+            if any(result.get("status") == "success" for result in validation_results.values()):
                 pipeline_summary["phases_completed"].append("validation")
-            except Exception as e:
-                logger.error(f"Validation phase failed: {e}")
+            else:
                 pipeline_summary["phases_failed"].append("validation")
-                validation_results = {}
 
             # Phase 4: Reporting
-            try:
-                reporting_results = self.run_reporting_phase(
-                    collection_results, scoring_results, validation_results
-                )
+            logger.info("🔄 Phase 4: Reporting")
+            reporting_results = self.run_reporting_phase(collection_results, scoring_results, validation_results)
+            if reporting_results.get("final_report", {}).get("status") == "success":
                 pipeline_summary["phases_completed"].append("reporting")
-            except Exception as e:
-                logger.error(f"Reporting phase failed: {e}")
+            else:
                 pipeline_summary["phases_failed"].append("reporting")
-                reporting_results = {}
 
-            # Final pipeline status
-            if len(pipeline_summary["phases_failed"]) == 0:
-                pipeline_summary["overall_status"] = "success"
-            elif len(pipeline_summary["phases_completed"]) > 0:
-                pipeline_summary["overall_status"] = "partial_success"
+            # Set overall status
+            if len(pipeline_summary["phases_completed"]) >= 2:  # At least data collection and scoring
+                pipeline_summary["overall_status"] = "completed"
             else:
                 pipeline_summary["overall_status"] = "failed"
 
@@ -595,7 +573,6 @@ class AHAIIIntegrationManager:
 
         # Store complete results
         self.pipeline_results["summary"] = pipeline_summary
-        self.pipeline_results["connectivity"] = connectivity_results
 
         # Save pipeline results
         results_path = (
@@ -604,15 +581,8 @@ class AHAIIIntegrationManager:
         )
 
         try:
-            import json
-
-            with open(results_path, "w") as f:
-                # Convert results to JSON-serializable format
-                serializable_results = self._make_json_serializable(
-                    self.pipeline_results
-                )
-                json.dump(serializable_results, f, indent=2)
-
+            # Use centralized serialization utility
+            save_json(self.pipeline_results, str(results_path))
             logger.info(f"Pipeline results saved to: {results_path}")
         except Exception as e:
             logger.error(f"Failed to save pipeline results: {e}")
@@ -624,26 +594,6 @@ class AHAIIIntegrationManager:
 
         return self.pipeline_results
 
-    def _make_json_serializable(self, obj: Any) -> Any:
-        """Convert objects to JSON-serializable format"""
-        if hasattr(obj, "__dict__"):
-            return {k: self._make_json_serializable(v) for k, v in obj.__dict__.items()}
-        elif isinstance(obj, dict):
-            return {k: self._make_json_serializable(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [self._make_json_serializable(item) for item in obj]
-        elif hasattr(obj, "value"):  # For Enums
-            return obj.value
-        elif hasattr(obj, "isoformat"):  # For datetime objects
-            return obj.isoformat()
-        else:
-            try:
-                import json
-
-                json.dumps(obj)  # Test if already serializable
-                return obj
-            except:
-                return str(obj)  # Convert to string as fallback
 
 
 def main():

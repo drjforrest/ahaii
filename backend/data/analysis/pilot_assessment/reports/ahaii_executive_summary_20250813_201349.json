@@ -1,0 +1,43 @@
+{
+  "title": "AHAII Pilot Assessment - Executive Summary",
+  "date": "August 2025",
+  "overview": {
+    "purpose": "Assess health AI infrastructure readiness across 5 pilot African countries",
+    "methodology": "Four-pillar quantitative assessment framework",
+    "countries_assessed": [
+      "South Africa",
+      "Egypt",
+      "Ghana",
+      "Kenya",
+      "Nigeria"
+    ],
+    "assessment_period": "2023-2024"
+  },
+  "key_results": {
+    "regional_average_score": "24.0/100",
+    "tier_distribution": {
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 5
+    },
+    "top_performer": "South Africa",
+    "strongest_pillar": "Physical Infrastructure"
+  },
+  "critical_findings": [
+    "Regional average AHAII score: 24.0/100",
+    "0 countries achieve Implementation Ready status",
+    "Strongest regional pillar: Physical Infrastructure",
+    "Greatest improvement opportunity: Regulatory Framework",
+    "Significant variation in health AI infrastructure readiness across countries"
+  ],
+  "priority_recommendations": [
+    "Prioritize health AI infrastructure development based on pillar-specific gaps",
+    "Establish regional health AI collaboration networks and standards",
+    "Invest in systematic data collection for ongoing AHAII monitoring"
+  ],
+  "next_steps": [
+    "Scale AHAII assessment to all African Union member countries",
+    "Implement automated data collection and real-time monitoring",
+    "Develop health AI impact assessment framework"
+  ]
+}

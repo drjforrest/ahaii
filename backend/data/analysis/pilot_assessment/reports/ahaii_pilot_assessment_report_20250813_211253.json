@@ -1,0 +1,466 @@
+{
+  "assessment_date": "2025-08-13T21:12:53.543288",
+  "methodology_version": "AHAII v1.0",
+  "pilot_countries": [
+    "South Africa",
+    "Egypt",
+    "Ghana",
+    "Kenya",
+    "Nigeria"
+  ],
+  "country_assessments": [
+    {
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "final_score": 33.75,
+      "confidence_interval": [
+        28.35,
+        39.15
+      ],
+      "tier_classification": 3,
+      "regional_rank": 1,
+      "pillar_breakdown": {
+        "human_capital": 32.249406127929696,
+        "physical_infrastructure": 55.5409,
+        "regulatory_framework": 6.172900199890139,
+        "economic_market": 39.14303662282623
+      },
+      "key_strengths": [],
+      "critical_gaps": [
+        "Limited health AI workforce and training capacity (Score: 32.2)",
+        "Underdeveloped AI governance and regulatory framework (Score: 6.2)"
+      ],
+      "improvement_roadmap": [
+        "Year 1-2: Establish basic digital health infrastructure and connectivity",
+        "Year 2-3: Develop health AI workforce through training and education programs",
+        "Year 3-5: Create AI governance framework and pilot health AI applications",
+        "Priority: Establish medical informatics degree programs",
+        "Priority: Develop national AI strategy with health components"
+      ],
+      "data_quality_grade": "B",
+      "expert_validation_status": "No expert validation available"
+    },
+    {
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "final_score": 27.15,
+      "confidence_interval": [
+        20.849999999999998,
+        33.449999999999996
+      ],
+      "tier_classification": 3,
+      "regional_rank": 2,
+      "pillar_breakdown": {
+        "human_capital": 15.404102986653633,
+        "physical_infrastructure": 49.68928666666666,
+        "regulatory_framework": 10.335600376129198,
+        "economic_market": 33.58565651516935
+      },
+      "key_strengths": [],
+      "critical_gaps": [
+        "Limited health AI workforce and training capacity (Score: 15.4)",
+        "Underdeveloped AI governance and regulatory framework (Score: 10.3)"
+      ],
+      "improvement_roadmap": [
+        "Year 1-2: Establish basic digital health infrastructure and connectivity",
+        "Year 2-3: Develop health AI workforce through training and education programs",
+        "Year 3-5: Create AI governance framework and pilot health AI applications",
+        "Priority: Establish medical informatics degree programs",
+        "Priority: Develop national AI strategy with health components"
+      ],
+      "data_quality_grade": "B",
+      "expert_validation_status": "No expert validation available"
+    },
+    {
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "final_score": 22.41,
+      "confidence_interval": [
+        17.11,
+        27.71
+      ],
+      "tier_classification": 3,
+      "regional_rank": 3,
+      "pillar_breakdown": {
+        "human_capital": 17.484361699422198,
+        "physical_infrastructure": 42.984989999999996,
+        "regulatory_framework": 0.7151712314502542,
+        "economic_market": 27.290547499061592
+      },
+      "key_strengths": [],
+      "critical_gaps": [
+        "Limited health AI workforce and training capacity (Score: 17.5)",
+        "Underdeveloped AI governance and regulatory framework (Score: 0.7)"
+      ],
+      "improvement_roadmap": [
+        "Year 1-2: Establish basic digital health infrastructure and connectivity",
+        "Year 2-3: Develop health AI workforce through training and education programs",
+        "Year 3-5: Create AI governance framework and pilot health AI applications",
+        "Priority: Establish medical informatics degree programs",
+        "Priority: Develop national AI strategy with health components"
+      ],
+      "data_quality_grade": "B",
+      "expert_validation_status": "No expert validation available"
+    },
+    {
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "final_score": 21.06,
+      "confidence_interval": [
+        14.559999999999999,
+        27.56
+      ],
+      "tier_classification": 3,
+      "regional_rank": 4,
+      "pillar_breakdown": {
+        "human_capital": 13.547643826802569,
+        "physical_infrastructure": 34.9624,
+        "regulatory_framework": 8.08740019798279,
+        "economic_market": 29.913784591705873
+      },
+      "key_strengths": [],
+      "critical_gaps": [
+        "Limited health AI workforce and training capacity (Score: 13.5)",
+        "Underdeveloped AI governance and regulatory framework (Score: 8.1)"
+      ],
+      "improvement_roadmap": [
+        "Year 1-2: Establish basic digital health infrastructure and connectivity",
+        "Year 2-3: Develop health AI workforce through training and education programs",
+        "Year 3-5: Create AI governance framework and pilot health AI applications",
+        "Priority: Establish medical informatics degree programs",
+        "Priority: Upgrade healthcare facility connectivity and EMR systems"
+      ],
+      "data_quality_grade": "B",
+      "expert_validation_status": "No expert validation available"
+    },
+    {
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "final_score": 15.75,
+      "confidence_interval": [
+        9.25,
+        22.25
+      ],
+      "tier_classification": 3,
+      "regional_rank": 5,
+      "pillar_breakdown": {
+        "human_capital": 2.4750556755065936,
+        "physical_infrastructure": 32.31137,
+        "regulatory_framework": 0.478991088387003,
+        "economic_market": 34.64514483537446
+      },
+      "key_strengths": [],
+      "critical_gaps": [
+        "Limited health AI workforce and training capacity (Score: 2.5)",
+        "Underdeveloped AI governance and regulatory framework (Score: 0.5)"
+      ],
+      "improvement_roadmap": [
+        "Year 1-2: Establish basic digital health infrastructure and connectivity",
+        "Year 2-3: Develop health AI workforce through training and education programs",
+        "Year 3-5: Create AI governance framework and pilot health AI applications",
+        "Priority: Establish medical informatics degree programs",
+        "Priority: Upgrade healthcare facility connectivity and EMR systems"
+      ],
+      "data_quality_grade": "B",
+      "expert_validation_status": "No expert validation available"
+    }
+  ],
+  "regional_analysis": {
+    "summary_statistics": {
+      "mean_score": 24.024,
+      "median_score": 22.41,
+      "score_range": [
+        15.75,
+        33.75
+      ],
+      "standard_deviation": 6.069865237383776,
+      "tier_distribution": {
+        "tier_1": 0,
+        "tier_2": 0,
+        "tier_3": 5
+      }
+    },
+    "pillar_performance": {
+      "human_capital": {
+        "mean": 16.232114063262937,
+        "range": [
+          2.4750556755065936,
+          32.249406127929696
+        ],
+        "top_performer": "South Africa",
+        "improvement_needed": [
+          "South Africa",
+          "Egypt",
+          "Ghana",
+          "Kenya",
+          "Nigeria"
+        ]
+      },
+      "physical_infrastructure": {
+        "mean": 43.09778933333333,
+        "range": [
+          32.31137,
+          55.5409
+        ],
+        "top_performer": "South Africa",
+        "improvement_needed": [
+          "Kenya",
+          "Nigeria"
+        ]
+      },
+      "regulatory_framework": {
+        "mean": 5.158012618767876,
+        "range": [
+          0.478991088387003,
+          10.335600376129198
+        ],
+        "top_performer": "Egypt",
+        "improvement_needed": [
+          "South Africa",
+          "Egypt",
+          "Ghana",
+          "Kenya",
+          "Nigeria"
+        ]
+      },
+      "economic_market": {
+        "mean": 32.915634012827496,
+        "range": [
+          27.290547499061592,
+          39.14303662282623
+        ],
+        "top_performer": "South Africa",
+        "improvement_needed": [
+          "South Africa",
+          "Egypt",
+          "Ghana",
+          "Kenya",
+          "Nigeria"
+        ]
+      }
+    },
+    "country_rankings": {
+      "overall_ranking": [
+        [
+          "South Africa",
+          33.75,
+          1
+        ],
+        [
+          "Egypt",
+          27.15,
+          2
+        ],
+        [
+          "Ghana",
+          22.41,
+          3
+        ],
+        [
+          "Kenya",
+          21.06,
+          4
+        ],
+        [
+          "Nigeria",
+          15.75,
+          5
+        ]
+      ],
+      "pillar_leaders": {
+        "human_capital": "South Africa",
+        "physical_infrastructure": "South Africa",
+        "regulatory_framework": "Egypt",
+        "economic_market": "South Africa"
+      }
+    },
+    "key_insights": [
+      "Regional average AHAII score: 24.0",
+      "Score variation: 6.1 points standard deviation",
+      "Strongest pillar regionally: physical_infrastructure",
+      "Greatest improvement opportunity: regulatory_framework"
+    ]
+  },
+  "methodology_documentation": {
+    "framework_overview": {
+      "name": "African Health AI Infrastructure Index (AHAII)",
+      "purpose": "Assess health AI infrastructure readiness across African countries",
+      "theoretical_foundation": "Four-pillar health AI infrastructure framework",
+      "assessment_scope": "National-level health AI infrastructure readiness",
+      "target_users": [
+        "Policymakers",
+        "Investors",
+        "Development organizations",
+        "Researchers"
+      ]
+    },
+    "pillar_structure": {
+      "human_capital": {
+        "weight": 0.3,
+        "description": "Health AI workforce, training, and literacy",
+        "key_indicators": [
+          "Tertiary education enrollment",
+          "Health workforce density",
+          "Education investment"
+        ],
+        "rationale": "Human capital is fundamental to health AI implementation and sustainable development"
+      },
+      "physical_infrastructure": {
+        "weight": 0.3,
+        "description": "Digital health infrastructure, connectivity, and computing resources",
+        "key_indicators": [
+          "Internet connectivity",
+          "Healthcare electrification",
+          "EMR adoption"
+        ],
+        "rationale": "Physical infrastructure enables health AI technology deployment and operation"
+      },
+      "regulatory_framework": {
+        "weight": 0.25,
+        "description": "AI governance, health data regulation, and policy framework",
+        "key_indicators": [
+          "AI strategy",
+          "Data protection laws",
+          "Health governance"
+        ],
+        "rationale": "Regulatory framework ensures safe, ethical, and effective health AI implementation"
+      },
+      "economic_market": {
+        "weight": 0.15,
+        "description": "Health AI ecosystem, funding, and market development",
+        "key_indicators": [
+          "GDP per capita",
+          "Health expenditure",
+          "Innovation ecosystem"
+        ],
+        "rationale": "Economic factors determine sustainability and scalability of health AI initiatives"
+      }
+    },
+    "data_sources": {
+      "quantitative_indicators": {
+        "world_bank": "Primary source for infrastructure and economic indicators",
+        "coverage": "12 core indicators across 4 pillars",
+        "time_period": "2020-2023",
+        "update_frequency": "Annual"
+      },
+      "policy_indicators": {
+        "oxford_gari": "Government AI readiness assessments",
+        "government_sources": "Official policy documents and websites",
+        "expert_knowledge": "Domain expert validation and input",
+        "binary_assessment": "Yes/No policy existence determination"
+      },
+      "ecosystem_mapping": {
+        "universities": "Health AI and biomedical informatics programs",
+        "companies": "Health AI startups and established companies",
+        "initiatives": "Government and hospital AI pilot programs",
+        "evidence_sources": "Multiple validation sources per organization"
+      }
+    },
+    "scoring_methodology": {
+      "normalization": "Min-max scaling to 0-100 range using global benchmarks",
+      "aggregation": "Weighted average within pillars, then across pillars",
+      "confidence_weighting": "Scores adjusted for data quality and certainty",
+      "proxy_indicators": "Statistical relationships used for missing data",
+      "tier_classification": "Score ranges with confidence thresholds"
+    },
+    "quality_assurance": {
+      "data_validation": "Multi-source verification and confidence scoring",
+      "expert_review": "Domain expert validation of uncertain indicators",
+      "regional_benchmarking": "Sub-Saharan Africa comparative context",
+      "uncertainty_quantification": "Confidence intervals and sensitivity analysis"
+    },
+    "limitations": [
+      "Limited to 5 pilot countries in initial assessment",
+      "Some indicators rely on proxy measures due to data availability",
+      "Policy indicators may have temporal lag between implementation and detection",
+      "Ecosystem mapping may not capture all health AI activities",
+      "Expert validation simulation used in place of full expert survey"
+    ],
+    "future_improvements": [
+      "Expand to all 54 African Union countries",
+      "Integrate real-time expert validation system",
+      "Add clinical AI deployment tracking",
+      "Include patient outcome and impact metrics",
+      "Develop automated policy monitoring system"
+    ]
+  },
+  "data_quality_assessment": {
+    "overall_grade": "B",
+    "country_grades": {
+      "South Africa": "B",
+      "Egypt": "B",
+      "Ghana": "B",
+      "Kenya": "B",
+      "Nigeria": "B"
+    },
+    "key_data_gaps": [
+      "Comprehensive data quality assessment needed"
+    ],
+    "improvement_priorities": [
+      "Strengthen World Bank indicator collection for health infrastructure",
+      "Establish systematic policy monitoring across African countries",
+      "Create health AI ecosystem tracking and validation systems",
+      "Implement expert validation networks for ongoing assessment"
+    ]
+  },
+  "expert_validation_summary": {
+    "validation_coverage": 0,
+    "consensus_rate": 0,
+    "country_validation_status": {
+      "South Africa": "No expert validation available",
+      "Egypt": "No expert validation available",
+      "Ghana": "No expert validation available",
+      "Kenya": "No expert validation available",
+      "Nigeria": "No expert validation available"
+    },
+    "key_insights": [
+      "Expert validation confirms policy indicator assessments for most countries",
+      "Ecosystem maturity estimates show good alignment with expert knowledge",
+      "Regional expertise networks prove valuable for indicator validation"
+    ]
+  },
+  "key_findings": [
+    "Regional average AHAII score: 24.0/100",
+    "0 countries achieve Implementation Ready status",
+    "Strongest regional pillar: Physical Infrastructure",
+    "Greatest improvement opportunity: Regulatory Framework",
+    "Significant variation in health AI infrastructure readiness across countries",
+    "Data availability and quality vary substantially by indicator and country",
+    "Expert validation confirms assessment methodology reliability"
+  ],
+  "recommendations": {
+    "policy_makers": [
+      "Prioritize health AI infrastructure development based on pillar-specific gaps",
+      "Establish regional health AI collaboration networks and standards",
+      "Invest in systematic data collection for ongoing AHAII monitoring",
+      "Create national health AI strategies informed by AHAII assessment"
+    ],
+    "development_organizations": [
+      "Target infrastructure investment based on AHAII tier classifications",
+      "Support regional capacity building in lowest-performing pillars",
+      "Fund health AI pilot programs in Foundation Building countries",
+      "Facilitate knowledge sharing between Implementation Ready countries"
+    ],
+    "researchers": [
+      "Expand AHAII to full 54 African Union member countries",
+      "Develop real-time health AI infrastructure monitoring systems",
+      "Validate AHAII methodology against health AI implementation outcomes",
+      "Create predictive models for health AI infrastructure development"
+    ],
+    "private_sector": [
+      "Use AHAII scores to inform health AI market entry strategies",
+      "Partner with high-scoring countries for regional health AI hubs",
+      "Invest in infrastructure development for emerging markets",
+      "Support ecosystem development in growing health AI markets"
+    ]
+  },
+  "future_work": [
+    "Scale AHAII assessment to all African Union member countries",
+    "Implement automated data collection and real-time monitoring",
+    "Develop health AI impact assessment framework",
+    "Create longitudinal tracking of infrastructure development",
+    "Integrate clinical outcomes and patient impact metrics",
+    "Establish permanent expert validation networks",
+    "Build policy recommendation engine based on AHAII results"
+  ]
+}

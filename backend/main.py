@@ -12,6 +12,7 @@ import os
 import logging
 import sys
 from pathlib import Path
+from contextlib import asynccontextmanager
 
 # Import API routers
 from api.countries import router as countries_router
@@ -21,6 +22,9 @@ from api.ahaii_assessment import router as ahaii_router
 from config.settings import settings
 from config.database import supabase
 
+# Create logs directory if it doesn't exist
+Path("logs").mkdir(exist_ok=True)
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -29,21 +33,35 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout),
         logging.FileHandler("logs/ahaii_backend.log", mode="a"),
     ],
+    force=True  # Override any existing logging configuration
 )
-
-# Create logs directory if it doesn't exist
-Path("logs").mkdir(exist_ok=True)
 
 # Get logger
 logger = logging.getLogger("AHAII_Backend")
 
-# Initialize FastAPI app
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup event
+    logger.info("🚀 AHAII Backend API Server Starting...")
+    logger.info("📊 Loading AHAII Assessment Framework")
+    logger.info("🔌 Connecting to Supabase database")
+    logger.info("⚡ All systems initialized successfully")
+    
+    yield
+    
+    # Shutdown event
+    logger.info("🛑 AHAII Backend API Server Shutting Down...")
+    logger.info("💾 Saving any pending data")
+    logger.info("✅ Shutdown complete")
+
+# Initialize FastAPI app with lifespan
 app = FastAPI(
     title="AHAII Backend API",
     description="African Health AI Infrastructure Index - Backend API for automated country assessments and ETL pipeline",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
+    lifespan=lifespan
 )
 
 # CORS middleware for frontend integration
@@ -67,21 +85,6 @@ app.include_router(countries_router)
 app.include_router(ahaii_router)
 
 
-# Startup event
-@app.on_event("startup")
-async def startup_event():
-    logger.info("🚀 AHAII Backend API Server Starting...")
-    logger.info("📊 Loading AHAII Assessment Framework")
-    logger.info("🔌 Connecting to Supabase database")
-    logger.info("⚡ All systems initialized successfully")
-
-
-# Shutdown event
-@app.on_event("shutdown")
-async def shutdown_event():
-    logger.info("🛑 AHAII Backend API Server Shutting Down...")
-    logger.info("💾 Saving any pending data")
-    logger.info("✅ Shutdown complete")
 
 
 # Health check endpoint

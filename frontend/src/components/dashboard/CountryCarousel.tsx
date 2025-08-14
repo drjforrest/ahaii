@@ -63,8 +63,8 @@ const CountryCarousel: React.FC<CountryCarouselProps> = ({
     if (onCountrySelect) {
       onCountrySelect(countryId);
     } else {
-      // Default navigation to country detail page
-      window.location.href = `/country?id=${countryId}`;
+      // Default navigation to country profiles page
+      window.location.href = `/country-profiles/${countryId}`;
     }
   };
 
@@ -107,7 +107,7 @@ const CountryCarousel: React.FC<CountryCarouselProps> = ({
       {/* Main Carousel Container */}
       <div 
         ref={carouselRef}
-        className="relative h-[85vh] overflow-hidden"
+        className="relative h-[600px] overflow-hidden"
       >
         <motion.div
           className="flex gap-8 h-full"
@@ -134,97 +134,103 @@ const CountryCarousel: React.FC<CountryCarouselProps> = ({
               <motion.div
                 key={country.id}
                 className={`
-                  flex-shrink-0 w-96 h-full relative cursor-pointer
+                  flex-shrink-0 w-80 h-full relative cursor-pointer
                   ${isActive ? 'z-20' : isAdjacent ? 'z-10' : 'z-0'}
                 `}
                 animate={{
-                  scale: isActive ? 1 : isAdjacent ? 0.85 : 0.7,
-                  opacity: distance > 2 ? 0.3 : distance > 1 ? 0.6 : 1,
-                  rotateY: isActive ? 0 : (index < currentIndex ? 15 : -15),
+                  scale: isActive ? 1 : isAdjacent ? 0.9 : 0.8,
+                  opacity: distance > 2 ? 0.3 : distance > 1 ? 0.7 : 1,
+                  rotateY: isActive ? 0 : (index < currentIndex ? 10 : -10),
                 }}
                 transition={{
                   type: "spring",
                   stiffness: 300,
-                  damping: 20
+                  damping: 25
                 }}
                 onClick={() => handleCountryClick(country.id)}
                 whileHover={isActive ? { scale: 1.02 } : {}}
               >
-                <div className="card h-full bg-gradient-to-br from-section-1 to-section-2 border-2 border-section-3 overflow-hidden">
+                <div className="card h-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-xl overflow-hidden">
                   
                   {/* Country Header */}
-                  <div className="relative p-6 pb-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-4">
-                        <Image
-                          src={country.flag_image}
-                          alt={`${country.name} flag`}
-                          width={48}
-                          height={32}
-                          className="rounded shadow-md"
-                        />
-                        <div>
-                          <h3 className="text-2xl font-bold text-foreground">
-                            {country.name}
-                          </h3>
-                          <p className="text-sm text-paragraph-section-1">
-                            {country.region}
-                          </p>
-                        </div>
-                      </div>
-                      
-                      {/* AHAII Score Badge */}
-                      {country.ahaii_score && (
-                        <div className={`domain-badge ${getTierBadgeColor(country.ahaii_score.readiness_tier)} text-center`}>
-                          <div className={`text-2xl font-bold ${getScoreColor(country.ahaii_score.total_score)}`}>
+                  <div className="relative p-6 text-center">
+                    {/* Country Name at Top */}
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {country.name}
+                    </h3>
+                    
+                    {/* Prominent Flag */}
+                    <div className="flex justify-center mb-4">
+                      <Image
+                        src={country.flag_image}
+                        alt={`${country.name} flag`}
+                        width={80}
+                        height={60}
+                        className="rounded-lg shadow-lg border-2 border-gray-100"
+                      />
+                    </div>
+                    
+                    <p className="text-sm text-gray-600 mb-4">
+                      {country.region}
+                    </p>
+                    
+                    {/* AHAII Score Badge */}
+                    {country.ahaii_score && (
+                      <div className="inline-flex items-center gap-3 bg-gray-50 rounded-lg px-4 py-2 mb-4">
+                        <div className="text-center">
+                          <div className={`text-xl font-bold ${getScoreColor(country.ahaii_score.total_score)}`}>
                             {country.ahaii_score.total_score.toFixed(1)}
                           </div>
-                          <div className="text-xs opacity-75">
-                            Tier {country.ahaii_score.readiness_tier}
+                          <div className="text-xs text-gray-500">
+                            Overall Score
                           </div>
                         </div>
-                      )}
-                    </div>
+                        <div className="text-center">
+                          <div className="text-lg font-semibold text-blue-600">
+                            {country.ahaii_score.readiness_tier}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Tier
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Rankings */}
                     {country.ahaii_score && (
-                      <div className="flex gap-4 text-sm">
-                        <div>
-                          <span className="text-paragraph-section-1">Global:</span>
-                          <span className="font-semibold ml-1">
-                            #{country.ahaii_score.global_ranking}
-                          </span>
+                      <div className="flex justify-center gap-6 text-sm mb-4">
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-900">#{country.ahaii_score.global_ranking}</div>
+                          <div className="text-xs text-gray-500">Global</div>
                         </div>
-                        <div>
-                          <span className="text-paragraph-section-1">Regional:</span>
-                          <span className="font-semibold ml-1">
-                            #{country.ahaii_score.regional_ranking}
-                          </span>
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-900">#{country.ahaii_score.regional_ranking}</div>
+                          <div className="text-xs text-gray-500">Regional</div>
                         </div>
                       </div>
                     )}
                   </div>
 
                   {/* Country Outline Visual */}
-                  <div className="relative h-48 bg-section-3 bg-opacity-20 flex items-center justify-center">
+                  <div className="relative h-40 bg-gray-50 flex items-center justify-center">
                     <Image
                       src={country.country_outline_image}
                       alt={`${country.name} outline`}
-                      width={200}
-                      height={150}
-                      className="opacity-80 filter drop-shadow-lg"
+                      width={160}
+                      height={120}
+                      className="opacity-60 filter grayscale"
                     />
                     
                     {/* Trend Indicator */}
                     {country.ahaii_score && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-3 right-3">
                         <motion.div
-                          className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
+                          className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
                             country.ahaii_score.development_trajectory === 'improving' 
-                              ? 'bg-green-100 text-green-800' 
+                              ? 'bg-green-100 text-green-700' 
                               : country.ahaii_score.development_trajectory === 'declining'
-                              ? 'bg-red-100 text-red-800'
-                              : 'bg-gray-100 text-gray-800'
+                              ? 'bg-red-100 text-red-700'
+                              : 'bg-gray-100 text-gray-700'
                           }`}
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
@@ -240,74 +246,66 @@ const CountryCarousel: React.FC<CountryCarouselProps> = ({
 
                   {/* Four Pillars Quick View */}
                   {country.ahaii_score && (
-                    <div className="p-6">
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="text-center">
-                          <div className={`text-lg font-bold domain-human-capital`}>
+                    <div className="p-4">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="text-center p-2 bg-blue-50 rounded">
+                          <div className="text-lg font-bold text-blue-600">
                             {country.ahaii_score.human_capital_score.toFixed(1)}
                           </div>
-                          <div className="text-xs text-paragraph-section-1">Human Capital</div>
+                          <div className="text-xs text-gray-600">Human Capital</div>
                         </div>
-                        <div className="text-center">
-                          <div className={`text-lg font-bold domain-physical`}>
+                        <div className="text-center p-2 bg-green-50 rounded">
+                          <div className="text-lg font-bold text-green-600">
                             {country.ahaii_score.physical_infrastructure_score.toFixed(1)}
                           </div>
-                          <div className="text-xs text-paragraph-section-1">Physical Infra</div>
+                          <div className="text-xs text-gray-600">Physical Infra</div>
                         </div>
-                        <div className="text-center">
-                          <div className={`text-lg font-bold domain-regulatory`}>
+                        <div className="text-center p-2 bg-purple-50 rounded">
+                          <div className="text-lg font-bold text-purple-600">
                             {country.ahaii_score.regulatory_infrastructure_score.toFixed(1)}
                           </div>
-                          <div className="text-xs text-paragraph-section-1">Regulatory</div>
+                          <div className="text-xs text-gray-600">Regulatory</div>
                         </div>
-                        <div className="text-center">
-                          <div className={`text-lg font-bold domain-economic`}>
+                        <div className="text-center p-2 bg-orange-50 rounded">
+                          <div className="text-lg font-bold text-orange-600">
                             {country.ahaii_score.economic_market_score.toFixed(1)}
                           </div>
-                          <div className="text-xs text-paragraph-section-1">Economic</div>
+                          <div className="text-xs text-gray-600">Economic</div>
                         </div>
                       </div>
                     </div>
                   )}
 
                   {/* Country Stats */}
-                  <div className="px-6 pb-6">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-paragraph-section-1">Population:</span>
-                        <div className="font-semibold">{formatPopulation(country.population)}</div>
+                  <div className="px-4 pb-4">
+                    <div className="grid grid-cols-2 gap-4 text-sm mb-3">
+                      <div className="text-center">
+                        <div className="font-semibold text-gray-900">{formatPopulation(country.population)}</div>
+                        <div className="text-xs text-gray-500">Population</div>
                       </div>
-                      <div>
-                        <span className="text-paragraph-section-1">GDP:</span>
-                        <div className="font-semibold">{formatGDP(country.gdp_usd)}</div>
+                      <div className="text-center">
+                        <div className="font-semibold text-gray-900">{formatGDP(country.gdp_usd)}</div>
+                        <div className="text-xs text-gray-500">GDP</div>
                       </div>
                     </div>
                     
-                    <div className="mt-4 text-sm">
-                      <span className="text-paragraph-section-1">Healthcare Spending:</span>
-                      <span className="font-semibold ml-1">
+                    <div className="text-center text-sm mb-3">
+                      <div className="font-semibold text-gray-900">
                         {country.healthcare_spending_percent_gdp}% of GDP
-                      </span>
+                      </div>
+                      <div className="text-xs text-gray-500">Healthcare Spending</div>
                     </div>
 
                     {/* Intelligence Activity */}
                     {country.recent_intelligence_count && (
-                      <div className="mt-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Image
-                            src="/images/svg-icons/other-icons/ai-software-icon-light.svg"
-                            alt="Intelligence"
-                            width={16}
-                            height={16}
-                          />
-                          <span className="text-paragraph-section-1">Recent Activity:</span>
-                          <span className="font-semibold text-primary">
-                            {country.recent_intelligence_count} signals
-                          </span>
+                      <div className="text-center text-sm">
+                        <div className="font-semibold text-blue-600">
+                          {country.recent_intelligence_count} signals
                         </div>
+                        <div className="text-xs text-gray-500">Recent Activity</div>
                         {country.last_updated && (
-                          <div className="text-xs text-paragraph-section-1 opacity-75 mt-1">
-                            Last updated: {country.last_updated}
+                          <div className="text-xs text-gray-400 mt-1">
+                            Updated: {country.last_updated}
                           </div>
                         )}
                       </div>
@@ -315,9 +313,9 @@ const CountryCarousel: React.FC<CountryCarouselProps> = ({
                   </div>
 
                   {/* Call to Action */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-section-1 to-transparent">
+                  <div className="p-4 mt-auto">
                     <motion.button
-                      className="w-full btn btn-primary btn-sm"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >

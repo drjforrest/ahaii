@@ -1,0 +1,765 @@
+{
+  "metadata": {
+    "report_date": "2025-08-13T21:12:52.211767",
+    "total_countries": 5,
+    "total_organizations": 38,
+    "mapping_methodology": "multi_source_ecosystem_analysis"
+  },
+  "summary_statistics": {
+    "organizations_by_country": {
+      "South Africa": 9,
+      "Kenya": 8,
+      "Nigeria": 8,
+      "Egypt": 7,
+      "Ghana": 6
+    },
+    "organizations_by_type": {
+      "university": 15,
+      "startup": 12,
+      "government": 5,
+      "hospital": 4,
+      "company": 1,
+      "research_institute": 1
+    },
+    "average_ecosystem_maturity": 59.7,
+    "top_performing_country": "South Africa"
+  },
+  "ecosystem_metrics": [
+    {
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "total_organizations": 9,
+      "universities_with_programs": 4,
+      "active_startups": 2,
+      "research_institutes": 0,
+      "hospital_ai_programs": 1,
+      "government_initiatives": 1,
+      "estimated_ecosystem_maturity": 61.5,
+      "funding_activity_score": 60,
+      "academic_activity_score": 80,
+      "clinical_deployment_score": 45,
+      "overall_ecosystem_score": 72,
+      "confidence_score": 0.79
+    },
+    {
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "total_organizations": 8,
+      "universities_with_programs": 3,
+      "active_startups": 3,
+      "research_institutes": 0,
+      "hospital_ai_programs": 1,
+      "government_initiatives": 1,
+      "estimated_ecosystem_maturity": 67.5,
+      "funding_activity_score": 90,
+      "academic_activity_score": 60,
+      "clinical_deployment_score": 45,
+      "overall_ecosystem_score": 64,
+      "confidence_score": 0.79
+    },
+    {
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "total_organizations": 8,
+      "universities_with_programs": 3,
+      "active_startups": 3,
+      "research_institutes": 1,
+      "hospital_ai_programs": 0,
+      "government_initiatives": 1,
+      "estimated_ecosystem_maturity": 64.5,
+      "funding_activity_score": 90,
+      "academic_activity_score": 75,
+      "clinical_deployment_score": 20,
+      "overall_ecosystem_score": 64,
+      "confidence_score": 0.79
+    },
+    {
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "total_organizations": 6,
+      "universities_with_programs": 2,
+      "active_startups": 2,
+      "research_institutes": 0,
+      "hospital_ai_programs": 1,
+      "government_initiatives": 1,
+      "estimated_ecosystem_maturity": 49.5,
+      "funding_activity_score": 60,
+      "academic_activity_score": 40,
+      "clinical_deployment_score": 45,
+      "overall_ecosystem_score": 48,
+      "confidence_score": 0.78
+    },
+    {
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "total_organizations": 7,
+      "universities_with_programs": 3,
+      "active_startups": 2,
+      "research_institutes": 0,
+      "hospital_ai_programs": 1,
+      "government_initiatives": 1,
+      "estimated_ecosystem_maturity": 55.5,
+      "funding_activity_score": 60,
+      "academic_activity_score": 60,
+      "clinical_deployment_score": 45,
+      "overall_ecosystem_score": 56,
+      "confidence_score": 0.79
+    }
+  ],
+  "detailed_organizations": [
+    {
+      "name": "University of Cape Town",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "university",
+      "focus_areas": [
+        "medical_informatics",
+        "biomedical_engineering"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: medical_informatics, biomedical_engineering",
+      "website_url": "https://uct.ac.za",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:11:38.580334"
+    },
+    {
+      "name": "University of the Witwatersrand",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_informatics",
+        "medical_ai"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_informatics, medical_ai",
+      "website_url": "https://wits.ac.za",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:11:40.616780"
+    },
+    {
+      "name": "Stellenbosch University",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "university",
+      "focus_areas": [
+        "biomedical_engineering",
+        "health_tech"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: biomedical_engineering, health_tech",
+      "website_url": "https://sun.ac.za",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:11:50.150084"
+    },
+    {
+      "name": "University of KwaZulu-Natal",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "university",
+      "focus_areas": [
+        "medical_informatics"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: medical_informatics",
+      "website_url": "https://ukzn.ac.za",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:11:57.188906"
+    },
+    {
+      "name": "Pic4Care",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "startup",
+      "focus_areas": [
+        "medical_imaging",
+        "ai_diagnostics"
+      ],
+      "founded_year": 2019.0,
+      "description": "Health AI startup focusing on: medical_imaging, ai_diagnostics",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:00.099966"
+    },
+    {
+      "name": "Entelect Health",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "company",
+      "focus_areas": [
+        "health_analytics",
+        "ai_platform"
+      ],
+      "founded_year": 2015.0,
+      "description": "Health AI company focusing on: health_analytics, ai_platform",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:00.099978"
+    },
+    {
+      "name": "Cortex Logic",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "startup",
+      "focus_areas": [
+        "clinical_ai",
+        "decision_support"
+      ],
+      "founded_year": 2018.0,
+      "description": "Health AI startup focusing on: clinical_ai, decision_support",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:00.099984"
+    },
+    {
+      "name": "National Health Laboratory Service AI Initiative",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "government",
+      "focus_areas": [
+        "laboratory_ai",
+        "diagnostic_automation"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: laboratory_ai, diagnostic_automation",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:00.100188"
+    },
+    {
+      "name": "Groote Schuur Hospital AI Pilot",
+      "country_code": "ZAF",
+      "country_name": "South Africa",
+      "organization_type": "hospital",
+      "focus_areas": [
+        "medical_imaging",
+        "radiology_ai"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: medical_imaging, radiology_ai",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:00.100201"
+    },
+    {
+      "name": "University of Nairobi",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_informatics",
+        "medical_engineering"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_informatics, medical_engineering",
+      "website_url": "https://uonbi.ac.ke",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:00.108808"
+    },
+    {
+      "name": "Kenyatta University",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_technology"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_technology",
+      "website_url": "https://ku.ac.ke",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:05.629261"
+    },
+    {
+      "name": "Strathmore University",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_informatics",
+        "data_science"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_informatics, data_science",
+      "website_url": "https://strathmore.edu",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:15.465894"
+    },
+    {
+      "name": "Ilara Health",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "startup",
+      "focus_areas": [
+        "diagnostic_ai",
+        "point_of_care"
+      ],
+      "founded_year": 2019.0,
+      "description": "Health AI startup focusing on: diagnostic_ai, point_of_care",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:23.861925"
+    },
+    {
+      "name": "Zuri Health",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "startup",
+      "focus_areas": [
+        "telemedicine",
+        "ai_triage"
+      ],
+      "founded_year": 2018.0,
+      "description": "Health AI startup focusing on: telemedicine, ai_triage",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:23.861937"
+    },
+    {
+      "name": "Lapaire",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "startup",
+      "focus_areas": [
+        "eye_care_ai",
+        "mobile_health"
+      ],
+      "founded_year": 2020.0,
+      "description": "Health AI startup focusing on: eye_care_ai, mobile_health",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:23.861942"
+    },
+    {
+      "name": "Kenyatta National Hospital Telemedicine AI",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "hospital",
+      "focus_areas": [
+        "telemedicine",
+        "remote_diagnosis"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: telemedicine, remote_diagnosis",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:23.862078"
+    },
+    {
+      "name": "Ministry of Health Digital Health Strategy",
+      "country_code": "KEN",
+      "country_name": "Kenya",
+      "organization_type": "government",
+      "focus_areas": [
+        "digital_health",
+        "ai_strategy"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: digital_health, ai_strategy",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:23.862083"
+    },
+    {
+      "name": "University of Lagos",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "university",
+      "focus_areas": [
+        "biomedical_engineering",
+        "health_informatics"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: biomedical_engineering, health_informatics",
+      "website_url": "https://unilag.edu.ng",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:23.866650"
+    },
+    {
+      "name": "University of Ibadan",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "university",
+      "focus_areas": [
+        "medical_informatics"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: medical_informatics",
+      "website_url": "https://ui.edu.ng",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:25.396508"
+    },
+    {
+      "name": "Covenant University",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_technology"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_technology",
+      "website_url": "https://covenantuniversity.edu.ng",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:27.106651"
+    },
+    {
+      "name": "Helium Health",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "startup",
+      "focus_areas": [
+        "emr_systems",
+        "health_analytics"
+      ],
+      "founded_year": 2016.0,
+      "description": "Health AI startup focusing on: emr_systems, health_analytics",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:30.289998"
+    },
+    {
+      "name": "WellaHealth",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "startup",
+      "focus_areas": [
+        "health_insurance_ai",
+        "fraud_detection"
+      ],
+      "founded_year": 2017.0,
+      "description": "Health AI startup focusing on: health_insurance_ai, fraud_detection",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:30.290009"
+    },
+    {
+      "name": "MDaaS Global",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "startup",
+      "focus_areas": [
+        "diagnostic_ai",
+        "medical_imaging"
+      ],
+      "founded_year": 2017.0,
+      "description": "Health AI startup focusing on: diagnostic_ai, medical_imaging",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:30.290014"
+    },
+    {
+      "name": "Lagos State Health AI Initiative",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "government",
+      "focus_areas": [
+        "public_health_ai",
+        "disease_surveillance"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: public_health_ai, disease_surveillance",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:30.290073"
+    },
+    {
+      "name": "Nigerian Institute of Medical Research AI Lab",
+      "country_code": "NGA",
+      "country_name": "Nigeria",
+      "organization_type": "research_institute",
+      "focus_areas": [
+        "medical_research_ai",
+        "drug_discovery"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: medical_research_ai, drug_discovery",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:30.290078"
+    },
+    {
+      "name": "University of Ghana",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "university",
+      "focus_areas": [
+        "biomedical_engineering",
+        "health_informatics"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: biomedical_engineering, health_informatics",
+      "website_url": "https://ug.edu.gh",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:30.293496"
+    },
+    {
+      "name": "Kwame Nkrumah University of Science and Technology",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "university",
+      "focus_areas": [
+        "biomedical_engineering"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: biomedical_engineering",
+      "website_url": "https://knust.edu.gh",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:39.373244"
+    },
+    {
+      "name": "mPharma",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "startup",
+      "focus_areas": [
+        "pharmacy_ai",
+        "supply_chain"
+      ],
+      "founded_year": 2013.0,
+      "description": "Health AI startup focusing on: pharmacy_ai, supply_chain",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:46.497600"
+    },
+    {
+      "name": "Redbird",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "startup",
+      "focus_areas": [
+        "maternal_health_ai",
+        "predictive_analytics"
+      ],
+      "founded_year": 2019.0,
+      "description": "Health AI startup focusing on: maternal_health_ai, predictive_analytics",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:46.497611"
+    },
+    {
+      "name": "Ghana Health Service Digital Health Program",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "government",
+      "focus_areas": [
+        "digital_health",
+        "health_records"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: digital_health, health_records",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:46.497734"
+    },
+    {
+      "name": "Korle-Bu Teaching Hospital AI Pilot",
+      "country_code": "GHA",
+      "country_name": "Ghana",
+      "organization_type": "hospital",
+      "focus_areas": [
+        "clinical_ai",
+        "decision_support"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: clinical_ai, decision_support",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:46.497742"
+    },
+    {
+      "name": "Cairo University",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "university",
+      "focus_areas": [
+        "biomedical_engineering",
+        "medical_informatics"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: biomedical_engineering, medical_informatics",
+      "website_url": "https://cu.edu.eg",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:46.501682"
+    },
+    {
+      "name": "American University in Cairo",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "university",
+      "focus_areas": [
+        "health_informatics",
+        "data_science"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: health_informatics, data_science",
+      "website_url": "https://aucegypt.edu",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:48.494961"
+    },
+    {
+      "name": "Alexandria University",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "university",
+      "focus_areas": [
+        "medical_engineering"
+      ],
+      "founded_year": NaN,
+      "description": "University with health AI/biomedical informatics programs: medical_engineering",
+      "website_url": "https://alexu.edu.eg",
+      "funding_stage": null,
+      "evidence_source": "known_university_database",
+      "confidence_score": 0.8,
+      "extraction_date": "2025-08-13T21:12:50.125540"
+    },
+    {
+      "name": "Valeo Vara",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "startup",
+      "focus_areas": [
+        "radiology_ai",
+        "medical_imaging"
+      ],
+      "founded_year": 2018.0,
+      "description": "Health AI startup focusing on: radiology_ai, medical_imaging",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:52.199963"
+    },
+    {
+      "name": "O7 Therapy",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "startup",
+      "focus_areas": [
+        "mental_health_ai",
+        "therapy_matching"
+      ],
+      "founded_year": 2019.0,
+      "description": "Health AI startup focusing on: mental_health_ai, therapy_matching",
+      "website_url": null,
+      "funding_stage": "growth",
+      "evidence_source": "known_company_database",
+      "confidence_score": 0.85,
+      "extraction_date": "2025-08-13T21:12:52.199976"
+    },
+    {
+      "name": "Cairo University Hospitals AI Initiative",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "hospital",
+      "focus_areas": [
+        "medical_imaging",
+        "ai_diagnostics"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: medical_imaging, ai_diagnostics",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:52.200093"
+    },
+    {
+      "name": "Ministry of Health and Population Digital Transformation",
+      "country_code": "EGY",
+      "country_name": "Egypt",
+      "organization_type": "government",
+      "focus_areas": [
+        "health_digitization",
+        "ai_integration"
+      ],
+      "founded_year": NaN,
+      "description": "Healthcare AI pilot/initiative focusing on: health_digitization, ai_integration",
+      "website_url": null,
+      "funding_stage": null,
+      "evidence_source": "news_analysis_simulation",
+      "confidence_score": 0.7,
+      "extraction_date": "2025-08-13T21:12:52.200099"
+    }
+  ],
+  "key_findings": [
+    "Total of 38 health AI organizations mapped across 5 countries",
+    "Average ecosystem maturity score: 59.7/100",
+    "Universities with programs: 15 total",
+    "Active health AI startups: 12 total",
+    "Hospital AI programs: 4 total"
+  ],
+  "recommendations": [
+    "Strengthen university-industry partnerships for health AI development",
+    "Create cross-border health AI collaboration networks",
+    "Establish health AI incubation programs in top-performing countries",
+    "Develop regional health AI standards and certification programs",
+    "Increase funding for health AI research and pilot programs"
+  ]
+}

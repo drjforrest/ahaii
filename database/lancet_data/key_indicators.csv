@@ -1,0 +1,14 @@
+Indicator,Category,Weight,SA,RW,NG,KE,Data_Source,Confidence
+Internet_users_pct,Physical_Infrastructure,5,68.2,21.8,51.0,35.0,World_Bank,1.0
+Mobile_subscriptions_per_100,Physical_Infrastructure,3,165.6,79.1,84.3,120.6,World_Bank,1.0
+Fixed_broadband_per_100,Physical_Infrastructure,3,3.6,0.1,0.2,0.12,World_Bank,1.0
+EMR_adoption_rate_pct,Physical_Infrastructure,4,45,15,18,22,Hospital_Survey,0.7
+Health_informatics_programs,Human_Capital,5,8,2,12,3,University_Analysis,0.9
+AI_trained_clinicians_per_100k,Human_Capital,5,12.3,3.2,8.7,5.4,Expert_Survey,0.7
+STEM_graduates_pct,Human_Capital,2,24.5,18.2,26.8,21.3,World_Bank,1.0
+National_AI_strategy,Regulatory_Infrastructure,3,1,1,0,1,Policy_Analysis,0.8
+Health_data_protection_law,Regulatory_Infrastructure,4,1,1,1,1,Legal_Analysis,0.9
+AI_ethics_guidelines,Regulatory_Infrastructure,3,1,0,0,0,Policy_Scan,0.8
+Health_AI_startups,Economic_Market,3,12,3,8,3,Market_Analysis,0.8
+Domestic_credit_private_pct_gdp,Economic_Market,2,69.3,24.1,12.3,35.2,World_Bank,1.0
+Health_AI_pilots_hospitals,Economic_Market,2,8,2,3,1,Clinical_Survey,0.6

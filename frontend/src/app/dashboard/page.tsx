@@ -3,29 +3,40 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import CountryCarousel from '@/components/dashboard/CountryCarousel';
-import { featuredCountries } from '@/data/countries';
+import { countryDataService } from '@/services/countryDataService';
 import { CountryWithScore } from '@/types/country';
 
 export default function DashboardPage() {
   const [countries, setCountries] = useState<CountryWithScore[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Simulate loading data
+    // Load real data from backend
     const loadData = async () => {
-      setLoading(true);
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setCountries(featuredCountries);
-      setLoading(false);
+      try {
+        setLoading(true);
+        setError(null);
+        console.log('🔄 Loading featured countries from backend...');
+        const featuredCountries = await countryDataService.getFeaturedCountries(8);
+        setCountries(featuredCountries);
+        console.log('✅ Loaded', featuredCountries.length, 'featured countries');
+      } catch (err) {
+        console.error('❌ Failed to load countries:', err);
+        setError('Failed to load country data. Please try again.');
+        // Fallback to empty array instead of static data
+        setCountries([]);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadData();
   }, []);
 
   const handleCountrySelect = (countryId: string) => {
-    // Navigate to country detail page
-    window.location.href = `/country?id=${countryId}`;
+    // Navigate to country profiles page
+    window.location.href = `/country-profiles/${countryId}`;
   };
 
   if (loading) {
@@ -33,11 +44,42 @@ export default function DashboardPage() {
       <div className="min-h-screen flex items-center justify-center bg-section-1">
         <div className="text-center space-y-4">
           <motion.div
-            className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full mx-auto"
+            className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full mx-auto"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
-          <p className="text-lg text-paragraph-section-1">Loading country intelligence...</p>
+          <p className="text-lg text-gray-700">Loading real-time country intelligence...</p>
+          <p className="text-sm text-gray-500">Fetching latest World Bank data...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-section-1">
+        <div className="text-center space-y-4 max-w-md">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-xl font-semibold text-gray-900">Unable to Load Data</h2>
+          <p className="text-gray-600">{error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (countries.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-section-1">
+        <div className="text-center space-y-4">
+          <div className="text-gray-400 text-6xl mb-4">🌍</div>
+          <h2 className="text-xl font-semibold text-gray-900">No Country Data Available</h2>
+          <p className="text-gray-600">The backend data is still being processed. Please check back soon.</p>
         </div>
       </div>
     );
@@ -45,30 +87,8 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-section-1">
-      {/* Dashboard Header */}
-      <section className="section bg-section-1 py-16">
-        <div className="container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl font-bold text-foreground mb-6">
-              Health AI Readiness
-              <span className="text-gradient gradient-primary block">
-                Intelligence Dashboard
-              </span>
-            </h1>
-            <p className="text-xl text-paragraph-section-1 max-w-4xl mx-auto">
-              Real-time assessment of health AI infrastructure readiness across Africa. 
-              Powered by continuous intelligence collection and automated analysis.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Country Carousel */}
-      <section className="section bg-section-2 py-8">
+      {/* Country Carousel with integrated header */}
+      <section className="section bg-section-1 py-8">
         <CountryCarousel 
           countries={countries}
           onCountrySelect={handleCountrySelect}

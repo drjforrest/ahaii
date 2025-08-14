@@ -11,6 +11,7 @@ Implements caching to avoid API rate limits
 import json
 import logging
 import sqlite3
+import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -19,6 +20,10 @@ import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+
+# Add backend directory to path for utils import
+sys.path.append(str(Path(__file__).parent.parent.parent))
+from utils.json_serialization import save_json
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -466,7 +471,7 @@ class WorldBankCollector:
             total = len(year_data)
             available = len(year_data[year_data["value"].notna()])
 
-            report["by_year"][year] = {
+            report["by_year"][int(year)] = {  # Convert numpy int64 to Python int
                 "total_data_points": total,
                 "available_data_points": available,
                 "completeness_pct": (available / total * 100) if total > 0 else 0,
@@ -490,13 +495,34 @@ class WorldBankCollector:
                 * 100,
             }
 
+        # Convert numpy types to native Python types for JSON serialization
+        def convert_numpy_types(obj):
+            import numpy as np
+            if isinstance(obj, np.integer):
+                return int(obj)
+            elif isinstance(obj, np.floating):
+                return float(obj)
+            elif isinstance(obj, np.bool_):
+                return bool(obj)
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            elif isinstance(obj, dict):
+                return {k: convert_numpy_types(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_numpy_types(item) for item in obj]
+            else:
+                return obj
+        
+        # Convert the report to ensure JSON compatibility
+        serializable_report = convert_numpy_types(report)
+        
         # Save report
         report_path = (
             self.cache_dir
             / f"data_completeness_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         )
         with open(report_path, "w") as f:
-            json.dump(report, f, indent=2)
+            json.dump(serializable_report, f, indent=2)
 
         logger.info(f"Data completeness report saved to: {report_path}")
 
