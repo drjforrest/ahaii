@@ -129,6 +129,54 @@ async def health_check():
             },
         )
 
+# Add to your main FastAPI application file
+@app.get("/api/manuscript/table1")
+async def get_table1_data():
+    """Extract data for Table 1: Framework indicators by country"""
+    from scripts.extract_manuscript_tables import extract_table1_data
+    
+    try:
+        data = extract_table1_data()
+        return {
+            "success": True,
+            "data": data.to_dict('records'),
+            "count": len(data)
+        }
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.get("/api/manuscript/table2") 
+async def get_table2_data():
+    """Extract data for Table 2: AHAII scores and rankings"""
+    from scripts.extract_manuscript_tables import extract_table2_data
+    
+    try:
+        data = extract_table2_data()
+        return {
+            "success": True,
+            "data": data.to_dict('records'),
+            "count": len(data)
+        }
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.get("/api/manuscript/export")
+async def export_manuscript_tables():
+    """Export both tables for manuscript use"""
+    from scripts.extract_manuscript_tables import export_manuscript_tables
+    
+    try:
+        table1, table2 = export_manuscript_tables()
+        return {
+            "success": True,
+            "message": "Tables exported successfully",
+            "table1_rows": len(table1),
+            "table2_rows": len(table2),
+            "export_path": "exports/manuscript/"
+        }
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
 
 # Root endpoint
 @app.get("/")

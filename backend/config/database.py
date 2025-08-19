@@ -11,10 +11,16 @@ from supabase import Client, create_client
 from config.settings import settings
 
 # Supabase client for auth and real-time features
-supabase: Client = create_client(
-    supabase_url=settings.NEXT_PUBLIC_SUPABASE_URL,
-    supabase_key=settings.SUPABASE_SECRET_KEY,
-)
+supabase = None
+try:
+    supabase: Client = create_client(
+        supabase_url=settings.SUPABASE_URL,
+        supabase_key=settings.SUPABASE_SERVICE_ROLE_KEY,
+    )
+except Exception as e:
+    print(f"Warning: Could not create Supabase client: {e}")
+    print("API will run without Supabase functionality")
+    supabase = None
 
 # SQLAlchemy engine for direct database access (only if DATABASE_URL available)
 engine = None

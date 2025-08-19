@@ -5,11 +5,7 @@ Configuration settings for TAIFA-FIALA backend
 import os
 from typing import List, Optional
 
-from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
-
-# Load environment variables from .env file
-load_dotenv()
 
 
 class Settings(BaseSettings):
